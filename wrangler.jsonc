@@ -1,0 +1,13 @@
+{
+  // Static-assets-only Worker for the PLP SPA. No server-side Worker script —
+  // Cloudflare serves the Vite build in ./dist directly. See CLAUDE.md.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "plp-website",
+  "compatibility_date": "2026-07-12",
+  "assets": {
+    "directory": "./dist",
+    // Multi-route React Router app: serve index.html for unmatched paths
+    // so client-side routing (/for-districts, /about, ...) works on refresh.
+    "not_found_handling": "single-page-application"
+  }
+}
