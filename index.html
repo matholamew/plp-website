@@ -16,14 +16,20 @@
       rel="stylesheet"
     />
     <script>
-      // Apply saved theme before first paint to avoid a flash of wrong mode.
-      if (
-        localStorage.getItem('plp-theme') === 'dark' ||
-        (!localStorage.getItem('plp-theme') &&
-          window.matchMedia('(prefers-color-scheme: dark)').matches)
-      ) {
-        document.documentElement.classList.add('dark')
-      }
+      // Apply theme before first paint to avoid a flash of wrong mode.
+      // Precedence: ?theme=light|dark (demo/deep-link override, not
+      // persisted) > saved preference > OS preference.
+      ;(function () {
+        var param = new URLSearchParams(window.location.search).get('theme')
+        var saved = localStorage.getItem('plp-theme')
+        var dark =
+          param === 'dark' || param === 'light'
+            ? param === 'dark'
+            : saved
+              ? saved === 'dark'
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (dark) document.documentElement.classList.add('dark')
+      })()
     </script>
   </head>
   <body>

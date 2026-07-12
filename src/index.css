@@ -31,7 +31,7 @@
   --color-band-ink: #f5f6fa;
   --color-navy: #16296b;
   --color-cta: #14b8a6; /* teal — confirmed; never pink or navy */
-  --color-cta-hover: #0f9488;
+  --color-cta-hover: #2dd4bf; /* lighter on hover: keeps navy label ≥7:1 AA */
   --color-accent-pink: #d63384;
   --color-accent-purple: #6f42c1;
   --color-accent-teal: #14b8a6;

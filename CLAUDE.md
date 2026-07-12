@@ -85,3 +85,11 @@ to approve before it goes further.
 
 ## Known open items — see docs/open-items.md
 Do not treat this project as fully spec'd until these are resolved.
+
+## Build & run (added at scaffold, 2026-07-11)
+- Stack: Vite 5 + React 18 + TypeScript (strict) + Tailwind 3.4 + react-router-dom 6. Static SPA, no backend.
+- `npm install` → `npm run dev` (local) / `npm run build` (output in `dist/`, Cloudflare Pages-ready; `public/_redirects` handles SPA routing).
+- Theme system: semantic Tailwind tokens backed by CSS variables in `src/index.css` (`:root` = light, `.dark` = draft dark mode). To drop dark mode after the demo: delete the `.dark` block, `ThemeToggle` component, and its uses in `SiteNav` — nothing else references dark values.
+- `?theme=light|dark` URL param overrides theme before first paint (demo deep-links; not persisted).
+- Explode font: `@font-face` in `src/index.css` points at `public/fonts/Explode-Regular.otf` (human-placed file; never embed the binary — open-items.md item 1). Note: the font renders all-caps by design.
+- Not yet done (deliberate deferrals): GitHub remote + Cloudflare Pages deploy, contact form backend (mailto only), real testimonial quotes (open-items item 3), About-page bio placeholders, contact email confirmation (hello@playfullearningpartners.com is a placeholder in SiteFooter + ContactPage).
