@@ -5,9 +5,9 @@ import CTAButton from '../components/CTAButton'
 // Voice: no em/en dashes, no banned words, no "it's not X, it's Y" (brand-tone.md).
 const WHY_PLP = [
   {
-    title: 'Classroom-tested, not consultant-assembled',
+    title: 'Classroom-tested, not conference-assembled',
     description:
-      'Every strategy and resource comes from active classroom practice, refined through real instruction rather than pulled together for a workshop.',
+      'Every strategy and resource has been refined through hands-on coaching in real classrooms, alongside real teachers and students, rather than pulled together for a workshop.',
   },
   {
     title: 'Built around your curriculum',
@@ -26,7 +26,7 @@ export default function HomePage() {
     <>
       <Hero
         headline="Playful learning pedagogy, built for real classrooms and district goals."
-        subhead="Playful Learning Partners works with district administrators and curriculum directors to bring research-grounded playful learning into daily instruction. Every strategy is classroom-tested by an active teacher and refined through real lessons, not assembled the night before a training."
+        subhead="Playful Learning Partners works with district administrators and curriculum directors to bring research-grounded playful learning into daily instruction. Every strategy is classroom-tested, refined through coaching work in real classrooms, not assembled the night before a training."
         ctaLabel="Schedule a Consult"
         ctaTo="/contact"
       />

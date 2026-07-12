@@ -14,6 +14,10 @@ import CTAButton from '../components/CTAButton'
  * deliberately dropped here per brand-voice.md (superlatives invite scrutiny a
  * new practice cannot yet back up); the boutique framing carries the section
  * instead.
+ *
+ * FACTUAL (2026-07-12, from Matt): Debra is NOT a classroom teacher — she is
+ * a playful learning coach/consultant. Never reintroduce "active classroom
+ * teacher" or similar. See brand-voice.md correction.
  */
 export default function AboutPage() {
   return (
@@ -26,20 +30,21 @@ export default function AboutPage() {
 
           <div className="space-y-6 font-body text-base sm:text-lg text-ink-muted leading-relaxed">
             <p className="text-ink">
-              I am an active classroom teacher, and that is the foundation of
-              everything Playful Learning Partners offers. The strategies I bring
-              to districts come from real instruction with real students, not
-              from a slide deck put together the week before a workshop.
+              I am a playful learning coach, and my work happens inside real
+              classrooms: observing, modeling, and refining strategies alongside
+              the teachers who use them. What I bring to districts comes from
+              that hands-on work, not from a slide deck put together the week
+              before a workshop.
             </p>
             <p>
               Playful Learning Partners is a boutique practice built around
               guided playful learning pedagogy. I work with a small number of
               districts at a time so each engagement can be shaped to the school
               in front of me, using proven methods and looking honestly at
-              whether they are working. Across [X years] of classroom practice in
-              [grade band or subject area], I have learned where these approaches
-              hold up and where they break down, and that judgment is what a
-              district is paying for.
+              whether they are working. Across [X years] of coaching and
+              consulting in [grade band or subject area], I have learned where
+              these approaches hold up and where they break down, and that
+              judgment is what a district is paying for.
             </p>
             <p>
               My approach draws on Harvard's Project Zero and its Playful

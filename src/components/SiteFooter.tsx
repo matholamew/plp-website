@@ -26,6 +26,26 @@ export default function SiteFooter() {
 
   return (
     <footer>
+      {/* Pre-footer brand block — full lockup on the page background (the
+          wordmark's navy letterforms need a light surface; on the navy band
+          they would lose contrast). This is the one place the full wordmark
+          appears on every page. */}
+      <div className="bg-bg">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 flex justify-center">
+          <Link
+            to="/"
+            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
+            aria-label="Playful Learning Partners, Home"
+          >
+            <img
+              src="/logo/plp-logo-full.png"
+              alt="Playful Learning Partners: Bringing Play Into Practice"
+              className="h-28 sm:h-32 w-auto object-contain"
+            />
+          </Link>
+        </div>
+      </div>
+
       {/* AccentRule separates page content from the footer band */}
       <AccentRule />
 
@@ -34,18 +54,22 @@ export default function SiteFooter() {
           {/* Main footer row */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             {/* Pinwheel mark */}
+            {/* Company name written out — title text (Explode renders
+                all-caps by design), doubles as the home link */}
             <Link
               to="/"
-              aria-label="Playful Learning Partners, Home"
-              className={`flex-shrink-0 inline-flex items-center justify-center min-h-11 min-w-11 ${footerFocusRing}`}
+              className={`flex-shrink-0 inline-flex items-center gap-3 min-h-11 ${footerFocusRing}`}
             >
               <img
                 src="/logo/plp-pinwheel.png"
                 alt=""
-                width={36}
-                height={36}
-                className="h-9 w-9 object-contain"
+                width={28}
+                height={28}
+                className="h-7 w-7 object-contain"
               />
+              <span className="font-display text-lg text-band-ink leading-none">
+                Playful Learning Partners
+              </span>
             </Link>
 
             {/* Nav links — 44px touch targets (Apple HIG) */}

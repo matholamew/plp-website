@@ -13,8 +13,10 @@ memorable, and entirely adult.
 
 ## Do
 - Use concrete, specific claims: "CKLA-aligned supplements," "Title I
-  funding-eligible engagements," "built by an active classroom teacher" —
-  specificity reads as credible.
+  funding-eligible engagements," "refined through coaching in real
+  classrooms" — specificity reads as credible. (Never "built by an active
+  classroom teacher": Debra is a coach/consultant, not a classroom teacher —
+  see the factual correction in brand-voice.md.)
 - Write in second person to the district ("your team," "your classrooms")
   and first person for Debra ("I've spent X years..."), not "we" language
   that implies a larger organization than exists.

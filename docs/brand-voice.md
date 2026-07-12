@@ -3,10 +3,16 @@
 ## Core thesis
 "Bringing play into practice." PLP's differentiator from free content
 (YouTube, Pinterest, generic teacher blogs) is that every strategy and
-material is classroom-tested and refined by an active teacher, not assembled
-the night before a training. This claim should be present, directly or
-indirectly, on every page — it is the whole argument for paying for this
-instead of Googling it.
+material is classroom-tested: refined through Debra's hands-on coaching work
+inside real classrooms alongside teachers, not assembled the night before a
+training. This claim should be present, directly or indirectly, on every
+page — it is the whole argument for paying for this instead of Googling it.
+
+**FACTUAL CORRECTION (2026-07-12, from Matt): Debra is NOT a classroom
+teacher. Never describe her as "an active classroom teacher," "an active
+teacher," or similar. She is a playful learning coach/consultant who works
+directly in classrooms with teachers and students. "Classroom-tested" is
+fine; "by a classroom teacher" is false.**
 
 ## Positioning statement
 "A boutique provider of guided playful learning pedagogy."
