@@ -88,7 +88,7 @@ Do not treat this project as fully spec'd until these are resolved.
 
 ## Build & run (added at scaffold, 2026-07-11)
 - Stack: Vite 5 + React 18 + TypeScript (strict) + Tailwind 3.4 + react-router-dom 6. Static SPA, no backend.
-- `npm install` → `npm run dev` (local) / `npm run build` (output in `dist/`, Cloudflare Pages-ready; `public/_redirects` handles SPA routing).
+- `npm install` → `npm run dev` (local) / `npm run build` (output in `dist/`). Deployed as a Cloudflare **Workers** static-assets site via `wrangler.jsonc` (`assets.directory: ./dist`, `not_found_handling: "single-page-application"` handles SPA deep-route fallback). No `_redirects` file — that was the Pages approach and its `/* /index.html 200` rule triggers an infinite-loop error under Workers assets.
 - Theme system: semantic Tailwind tokens backed by CSS variables in `src/index.css` (`:root` = light, `.dark` = draft dark mode). To drop dark mode after the demo: delete the `.dark` block, `ThemeToggle` component, and its uses in `SiteNav` — nothing else references dark values.
 - `?theme=light|dark` URL param overrides theme before first paint (demo deep-links; not persisted).
 - Explode font: `@font-face` in `src/index.css` points at `public/fonts/Explode-Regular.otf` (human-placed file; never embed the binary — open-items.md item 1). Note: the font renders all-caps by design.
