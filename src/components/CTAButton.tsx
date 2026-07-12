@@ -24,13 +24,14 @@ interface CTAButtonProps {
   size?: 'md' | 'lg'
 }
 
+// min-h-11 = 44px: Apple HIG minimum touch target on both sizes
 const sizeClasses: Record<NonNullable<CTAButtonProps['size']>, string> = {
-  md: 'px-5 py-2.5 text-sm',
-  lg: 'px-7 py-3.5 text-base',
+  md: 'px-5 py-2 text-sm min-h-11 inline-flex items-center',
+  lg: 'px-7 py-3 text-base min-h-11 inline-flex items-center',
 }
 
 const baseClasses =
-  'inline-block rounded-md bg-cta hover:bg-cta-hover text-navy font-body font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta focus-visible:ring-offset-2'
+  'rounded-md bg-cta hover:bg-cta-hover text-navy font-body font-semibold transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta focus-visible:ring-offset-2'
 
 export default function CTAButton({
   children,

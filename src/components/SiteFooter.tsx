@@ -16,13 +16,10 @@
 
 import { Link } from 'react-router-dom'
 import AccentRule from './AccentRule'
+import { NAV_LINKS, CONTACT_EMAIL } from '../lib/site'
 
-const FOOTER_LINKS = [
-  { label: 'For Districts', to: '/for-districts' },
-  { label: 'About', to: '/about' },
-  { label: 'Testimonials', to: '/testimonials' },
-  { label: 'Contact', to: '/contact' },
-] as const
+const footerFocusRing =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded'
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear()
@@ -40,40 +37,39 @@ export default function SiteFooter() {
             <Link
               to="/"
               aria-label="Playful Learning Partners, Home"
-              className="flex-shrink-0"
+              className={`flex-shrink-0 inline-flex items-center justify-center min-h-11 min-w-11 ${footerFocusRing}`}
             >
               <img
                 src="/logo/plp-pinwheel.png"
-                alt="Playful Learning Partners pinwheel"
+                alt=""
                 width={36}
                 height={36}
                 className="h-9 w-9 object-contain"
               />
             </Link>
 
-            {/* Nav links */}
+            {/* Nav links — 44px touch targets (Apple HIG) */}
             <nav
               aria-label="Footer navigation"
-              className="flex flex-wrap gap-x-6 gap-y-2"
+              className="flex flex-wrap gap-x-4 gap-y-1"
             >
-              {FOOTER_LINKS.map(({ label, to }) => (
+              {NAV_LINKS.map(({ label, to }) => (
                 <Link
                   key={to}
                   to={to}
-                  className="font-body text-sm text-band-ink opacity-80 hover:opacity-100 transition-opacity"
+                  className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
                 >
                   {label}
                 </Link>
               ))}
             </nav>
 
-            {/* Contact link */}
-            {/* TODO: confirm real email address before launch */}
+            {/* Contact link — CONTACT_EMAIL placeholder, confirm before launch */}
             <a
-              href="mailto:hello@playfullearningpartners.com"
-              className="font-body text-sm text-band-ink opacity-80 hover:opacity-100 transition-opacity"
+              href={`mailto:${CONTACT_EMAIL}`}
+              className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
             >
-              hello@playfullearningpartners.com
+              {CONTACT_EMAIL}
             </a>
           </div>
 

@@ -1,19 +1,21 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import { CONTACT_EMAIL } from '../lib/site'
 
 /*
  * TODO before launch:
  *   - No backend submission yet. Submit currently opens the visitor's mail
  *     client with a prefilled message (mailto). Replace with a real form
- *     handler (e.g. Cloudflare Pages Function / Worker) when ready.
- *   - CONTACT_EMAIL is a placeholder — confirm the real address (matches the
- *     placeholder used in SiteFooter).
+ *     handler (e.g. Cloudflare Worker) when ready.
+ *   - CONTACT_EMAIL placeholder lives in src/lib/site.ts — confirm the real
+ *     address there (single source, also used by SiteFooter).
  *   - "[X business days]" response-time claim is a placeholder for Debra.
  */
-const CONTACT_EMAIL = 'hello@playfullearningpartners.com'
 
+// min-h-11 = 44px touch target (Apple HIG)
+// placeholder at full ink-muted (8.45:1) — /60 tint fails WCAG AA at 3.03:1
 const inputClasses =
-  'w-full rounded-md border border-ink-muted/40 bg-bg px-3 py-2 font-body text-base text-ink placeholder:text-ink-muted/60 focus:outline-none focus:ring-2 focus:ring-cta focus:border-cta'
+  'w-full rounded-md border border-ink-muted/40 bg-bg px-3 py-2 min-h-11 font-body text-base text-ink placeholder:text-ink-muted focus:outline-none focus:ring-2 focus:ring-cta focus:border-cta'
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -152,7 +154,7 @@ export default function ContactPage() {
 
           <button
             type="submit"
-            className="inline-block rounded-md bg-cta hover:bg-cta-hover text-navy font-body font-semibold px-7 py-3 text-base transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta focus-visible:ring-offset-2"
+            className="inline-flex items-center rounded-md bg-cta hover:bg-cta-hover text-navy font-body font-semibold px-7 py-3 min-h-11 text-base transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta focus-visible:ring-offset-2"
           >
             Send Message
           </button>
@@ -162,7 +164,7 @@ export default function ContactPage() {
           Prefer email? Reach Debra directly at{' '}
           <a
             href={`mailto:${CONTACT_EMAIL}`}
-            className="text-ink underline underline-offset-4 decoration-accent-teal hover:opacity-80"
+            className="text-ink underline underline-offset-4 decoration-accent-teal hover:opacity-80 inline-flex items-center min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
           >
             {CONTACT_EMAIL}
           </a>

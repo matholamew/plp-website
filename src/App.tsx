@@ -19,9 +19,16 @@ function ScrollToTop() {
 export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
+      {/* WCAG 2.4.1 bypass block: visually hidden until keyboard-focused */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[60] focus:bg-cta focus:text-navy focus:font-body focus:font-semibold focus:px-4 focus:py-3 focus:rounded-md"
+      >
+        Skip to main content
+      </a>
       <ScrollToTop />
       <SiteNav />
-      <main className="flex-1">
+      <main id="main-content" className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/for-districts" element={<ForDistrictsPage />} />

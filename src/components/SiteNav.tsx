@@ -1,20 +1,23 @@
 /**
- * SiteNav — sticky top nav on navy band.
+ * SiteNav — sticky top nav on navy band, fixed 4rem tall (h-16) so the hero
+ * can size itself to exactly 100dvh minus the header (.hero-viewport).
  *
  * Color audit (both modes):
  *   - bg-band = #16296b (navy) in both light and dark
  *   - text-band-ink = #f5f6fa in both modes — high contrast on navy (~14:1)
- *   - active link: slightly brighter opacity treatment on band-ink (no raw hex)
- *   - ThemeToggle uses text-band-ink (legible on navy in both modes)
+ *   - active link: underline + full opacity treatment on band-ink
  *   - CTAButton uses bg-cta (teal) — works on navy background
  *
- * Logo behavior (brand-visual.md "Dynamic header"):
- *   - On '/' (homepage): pinwheel hidden (opacity-0 scale-90) until
- *     scrollY > 120, then transitions in
- *   - On other routes: pinwheel always visible
+ * Pinwheel handoff (brand-visual.md "Dynamic header" + Remix-style flight):
+ *   - #nav-pinwheel is the measured TARGET slot for the hero pinwheel's
+ *     scroll flight (Hero.tsx reads its rect every frame). Keep the id and the
+ *     element's layout stable; the hero math depends on it.
+ *   - On '/': hidden until the hero flight is ~90% complete, then fades in as
+ *     the hero copy fades out (crossfade). On other routes: always visible.
+ *   - Reduced motion: no flight, so the mark shows immediately.
  *
- * Mobile menu: plain slide-down panel on the navy band, hamburger trigger.
- * No animation libraries, no blob shapes.
+ * Touch targets follow Apple HIG: every interactive element in the header is
+ * at least 44×44px (min-h-11/min-w-11 = 2.75rem = 44px).
  */
 
 import { useState, useEffect, useCallback } from 'react'
@@ -22,13 +25,10 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import CTAButton from './CTAButton'
 import { usePrefersReducedMotion } from '../hooks/useScrollProgress'
+import { NAV_LINKS } from '../lib/site'
 
-const NAV_LINKS = [
-  { label: 'For Districts', to: '/for-districts' },
-  { label: 'About', to: '/about' },
-  { label: 'Testimonials', to: '/testimonials' },
-  { label: 'Contact', to: '/contact' },
-] as const
+const focusRing =
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded'
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -68,11 +68,10 @@ export default function SiteNav() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
-  // Reveal the nav pinwheel as the hero pinwheel finishes its handoff. The hero
-  // animates over the first 0.5 viewport (useHeroScrollProgress(0.5)); ~0.42
-  // lands the nav mark just before the hero mark fully clears.
+  // Reveal at ~90% of the hero pinwheel's flight (Hero travels over the first
+  // 0.5 viewport; 0.45 = progress 0.9) so the crossfade overlaps the landing.
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > window.innerHeight * 0.42)
+    setScrolled(window.scrollY > window.innerHeight * 0.45)
   }, [])
 
   useEffect(() => {
@@ -91,57 +90,58 @@ export default function SiteNav() {
     setMobileOpen(false)
   }, [location.pathname])
 
-  // Pinwheel visibility: always on non-homepage; on the homepage it is
-  // scroll-gated to complete the hero handoff. With reduced motion there is no
-  // hero animation, so show it immediately rather than gate on scroll.
   const pinwheelVisible = !isHomepage || scrolled || reducedMotion
+
+  const desktopLinkClasses = ({ isActive }: { isActive: boolean }) =>
+    `font-body text-sm font-medium transition-opacity inline-flex items-center min-h-11 px-1 ${focusRing} ${
+      isActive
+        ? 'text-band-ink opacity-100 underline underline-offset-4 decoration-accent-teal'
+        : 'text-band-ink opacity-80 hover:opacity-100'
+    }`
+
+  const mobileLinkClasses = ({ isActive }: { isActive: boolean }) =>
+    `font-body text-sm font-medium px-2 transition-opacity flex items-center min-h-11 ${focusRing} ${
+      isActive
+        ? 'text-band-ink opacity-100 underline underline-offset-4 decoration-accent-teal'
+        : 'text-band-ink opacity-80 hover:opacity-100'
+    }`
 
   return (
     <header className="sticky top-0 z-50 bg-band text-band-ink">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        {/* Pinwheel mark — scroll-gated on homepage, always visible elsewhere */}
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Pinwheel mark — target slot for the hero flight (see header comment).
+            The Link is the 44px touch target; the img inside is the 40px mark. */}
         <Link
           to="/"
-          className="flex-shrink-0"
+          className={`flex-shrink-0 inline-flex items-center justify-center min-h-11 min-w-11 ${focusRing}`}
           aria-label="Playful Learning Partners, Home"
         >
           <img
+            id="nav-pinwheel"
             src="/logo/plp-pinwheel.png"
-            alt="Playful Learning Partners pinwheel"
+            alt=""
             width={40}
             height={40}
-            className={`h-10 w-10 object-contain transition-all duration-300 ease-in-out ${
-              pinwheelVisible
-                ? 'opacity-100 scale-100'
-                : 'opacity-0 scale-90 pointer-events-none'
+            className={`h-10 w-10 object-contain transition-opacity duration-300 ease-in-out ${
+              pinwheelVisible ? 'opacity-100' : 'opacity-0'
             }`}
           />
         </Link>
 
         {/* Desktop nav links */}
         <nav
-          className="hidden md:flex items-center gap-6"
+          className="hidden md:flex items-center gap-5"
           aria-label="Primary navigation"
         >
           {NAV_LINKS.map(({ label, to }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                `font-body text-sm font-medium transition-opacity ${
-                  isActive
-                    ? 'text-band-ink opacity-100 underline underline-offset-4 decoration-accent-teal'
-                    : 'text-band-ink opacity-80 hover:opacity-100'
-                }`
-              }
-            >
+            <NavLink key={to} to={to} className={desktopLinkClasses}>
               {label}
             </NavLink>
           ))}
         </nav>
 
         {/* Desktop right-side actions */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2">
           <ThemeToggle />
           <CTAButton to="/contact" size="md">
             Schedule a Consult
@@ -149,7 +149,7 @@ export default function SiteNav() {
         </div>
 
         {/* Mobile controls */}
-        <div className="flex md:hidden items-center gap-3">
+        <div className="flex md:hidden items-center gap-1">
           <ThemeToggle />
           <button
             type="button"
@@ -157,14 +157,14 @@ export default function SiteNav() {
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className="text-band-ink hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded p-1 transition-opacity"
+            className={`text-band-ink hover:opacity-80 inline-flex items-center justify-center min-h-11 min-w-11 transition-opacity ${focusRing}`}
           >
             <HamburgerIcon open={mobileOpen} />
           </button>
         </div>
       </div>
 
-      {/* Mobile slide-down panel — plain navy band continuation, no animation lib */}
+      {/* Mobile slide-down panel — plain navy band continuation */}
       <div
         id="mobile-menu"
         className={`md:hidden bg-band border-t border-white/10 overflow-hidden transition-all duration-200 ease-in-out ${
@@ -177,17 +177,7 @@ export default function SiteNav() {
           aria-label="Mobile navigation"
         >
           {NAV_LINKS.map(({ label, to }) => (
-            <NavLink
-              key={to}
-              to={to}
-              className={({ isActive }) =>
-                `block font-body text-sm font-medium py-2 px-1 rounded transition-opacity ${
-                  isActive
-                    ? 'text-band-ink opacity-100 underline underline-offset-4 decoration-accent-teal'
-                    : 'text-band-ink opacity-80 hover:opacity-100'
-                }`
-              }
-            >
+            <NavLink key={to} to={to} className={mobileLinkClasses}>
               {label}
             </NavLink>
           ))}
