@@ -8,23 +8,17 @@
  *   - active link: underline + full opacity treatment on band-ink
  *   - CTAButton uses bg-cta (teal) — works on navy background
  *
- * Pinwheel handoff (brand-visual.md "Dynamic header" + Remix-style flight):
- *   - #nav-pinwheel is the measured TARGET slot for the hero pinwheel's
- *     scroll flight (Hero.tsx reads its rect every frame). Keep the id and the
- *     element's layout stable; the hero math depends on it.
- *   - On '/': hidden until the hero flight is ~90% complete, then fades in as
- *     the hero copy fades out (crossfade). On other routes: always visible.
- *   - Reduced motion: no flight, so the mark shows immediately.
+ * Pinwheel mark: always visible on every route (2026-07-12 direction — no
+ * empty slot, no handoff; the hero pinwheel stays anchored in the hero).
  *
  * Touch targets follow Apple HIG: every interactive element in the header is
  * at least 44×44px (min-h-11/min-w-11 = 2.75rem = 44px).
  */
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import CTAButton from './CTAButton'
-import { usePrefersReducedMotion } from '../hooks/useScrollProgress'
 import { NAV_LINKS } from '../lib/site'
 
 const focusRing =
@@ -62,35 +56,13 @@ function HamburgerIcon({ open }: { open: boolean }) {
 
 export default function SiteNav() {
   const location = useLocation()
-  const isHomepage = location.pathname === '/'
-  const reducedMotion = usePrefersReducedMotion()
 
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  // Reveal at ~90% of the hero pinwheel's flight (Hero travels over the first
-  // 0.5 viewport; 0.45 = progress 0.9) so the crossfade overlaps the landing.
-  const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > window.innerHeight * 0.45)
-  }, [])
-
-  useEffect(() => {
-    // Set initial state in case page loads mid-scroll
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('resize', handleScroll)
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
-    }
-  }, [handleScroll])
 
   // Close mobile menu on route change
   useEffect(() => {
     setMobileOpen(false)
   }, [location.pathname])
-
-  const pinwheelVisible = !isHomepage || scrolled || reducedMotion
 
   const desktopLinkClasses = ({ isActive }: { isActive: boolean }) =>
     `font-body text-sm font-medium transition-opacity inline-flex items-center min-h-11 px-1 ${focusRing} ${
@@ -109,22 +81,19 @@ export default function SiteNav() {
   return (
     <header className="sticky top-0 z-50 bg-band text-band-ink">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Pinwheel mark — target slot for the hero flight (see header comment).
-            The Link is the 44px touch target; the img inside is the 40px mark. */}
+        {/* Pinwheel mark — always visible. The Link is the 44px touch target;
+            the img inside is the 40px mark. */}
         <Link
           to="/"
           className={`flex-shrink-0 inline-flex items-center justify-center min-h-11 min-w-11 ${focusRing}`}
           aria-label="Playful Learning Partners, Home"
         >
           <img
-            id="nav-pinwheel"
             src="/logo/plp-pinwheel.png"
             alt=""
             width={40}
             height={40}
-            className={`h-10 w-10 object-contain transition-opacity duration-300 ease-in-out ${
-              pinwheelVisible ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="h-10 w-10 object-contain"
           />
         </Link>
 
