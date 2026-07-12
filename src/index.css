@@ -57,6 +57,37 @@ html {
   scroll-behavior: smooth;
 }
 
+/*
+ * Horizontal scroll is never allowed. The hero gust animation translates
+ * letters/words up to ~32vw to the right mid-scroll; without this they would
+ * widen the page on touch devices. `clip` forbids scrolling without creating
+ * a new scroll container (overflow-x: hidden can break position: sticky);
+ * the hidden line above it is the fallback for browsers without clip.
+ */
+html,
+body {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/*
+ * No orphaned words: `pretty` lets the browser rebalance the last lines of a
+ * block so a single word never sits alone. Progressive enhancement — browsers
+ * without text-wrap support simply ignore it.
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote,
+figcaption {
+  text-wrap: pretty;
+}
+
 /* WCAG 2.3.3 / 2.2.2: no smooth-scroll animation for users who opted out */
 @media (prefers-reduced-motion: reduce) {
   html {
