@@ -95,27 +95,30 @@ export default function Hero({ headline, subhead, ctaLabel, ctaTo }: HeroProps) 
 
   return (
     <section className="bg-bg w-full">
-      <div className="hero-viewport relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 items-center gap-6 sm:gap-10">
+      <div className="hero-viewport relative mx-auto w-full px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-5 items-center gap-6 sm:gap-10">
         {/* Pinwheel — anchored, spinning in place; the wind source the text
             reacts to. Mobile (<md): a faded background layer behind the text
-            (opacity keeps text contrast at AA — ink on near-white). md+: solid,
-            in the left third. */}
+            (opacity keeps text contrast at AA). md+: solid, sized to ~82% of
+            the hero HEIGHT (self-stretch column = full hero height), width-
+            capped to its 2/5 column so it can never overlap the text. The
+            container is full-bleed (no max-w cap) so taller/wider screens get
+            a proportionally larger pinwheel. */}
         <div
-          className="absolute inset-0 flex items-center justify-center pointer-events-none md:pointer-events-auto md:static md:col-span-1"
+          className="absolute inset-0 flex items-center justify-center pointer-events-none md:pointer-events-auto md:static md:col-span-2 md:self-stretch md:h-full"
           aria-hidden="true"
         >
           <img
             src={pinwheelSrc}
             onError={() => setGifFailed(true)}
             alt=""
-            className="w-4/5 max-w-[360px] object-contain opacity-20 md:opacity-100 md:w-full md:max-w-[320px]"
+            className="w-4/5 max-w-[360px] object-contain opacity-20 md:opacity-100 md:w-auto md:max-w-full md:h-[82%] md:max-h-none"
             fetchPriority="high"
           />
         </div>
 
         {/* Hero text — overlaid above the background pinwheel on mobile,
-            right two thirds on md+; every piece scatters on scroll */}
-        <div className="relative z-10 text-center md:text-left md:col-span-2">
+            right three fifths on md+; every piece scatters on scroll */}
+        <div className="relative z-10 text-center md:text-left md:col-span-3 md:max-w-3xl">
           <h1
             aria-label={headline}
             className="font-display text-2xl sm:text-4xl lg:text-5xl text-ink leading-tight tracking-tight mb-5 sm:mb-6"
