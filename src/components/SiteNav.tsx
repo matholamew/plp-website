@@ -15,7 +15,7 @@
  * at least 44×44px (min-h-11/min-w-11 = 2.75rem = 44px).
  */
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import CTAButton from './CTAButton'
@@ -23,6 +23,14 @@ import { NAV_LINKS } from '../lib/site'
 
 const focusRing =
   'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded'
+
+// Accent-line colors for the full-screen menu links, cycling in logo order
+// (pink → purple → teal; brand-visual.md accent-line motif)
+const MENU_ACCENTS = [
+  'bg-accent-pink',
+  'bg-accent-purple',
+  'bg-accent-teal',
+] as const
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -64,15 +72,28 @@ export default function SiteNav() {
     setMobileOpen(false)
   }, [location.pathname])
 
+  // Full-screen menu: lock page scroll while open, close on Escape
+  useEffect(() => {
+    if (!mobileOpen) return
+    const prevHtml = document.documentElement.style.overflowY
+    const prevBody = document.body.style.overflowY
+    document.documentElement.style.overflowY = 'hidden'
+    document.body.style.overflowY = 'hidden'
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMobileOpen(false)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => {
+      document.documentElement.style.overflowY = prevHtml
+      document.body.style.overflowY = prevBody
+      window.removeEventListener('keydown', onKey)
+    }
+  }, [mobileOpen])
+
+  const closeMobile = useCallback(() => setMobileOpen(false), [])
+
   const desktopLinkClasses = ({ isActive }: { isActive: boolean }) =>
     `font-body text-sm font-medium transition-opacity inline-flex items-center min-h-11 px-1 ${focusRing} ${
-      isActive
-        ? 'text-band-ink opacity-100 underline underline-offset-4 decoration-accent-teal'
-        : 'text-band-ink opacity-80 hover:opacity-100'
-    }`
-
-  const mobileLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    `font-body text-sm font-medium px-2 transition-opacity flex items-center min-h-11 ${focusRing} ${
       isActive
         ? 'text-band-ink opacity-100 underline underline-offset-4 decoration-accent-teal'
         : 'text-band-ink opacity-80 hover:opacity-100'
@@ -133,25 +154,78 @@ export default function SiteNav() {
         </div>
       </div>
 
-      {/* Mobile slide-down panel — plain navy band continuation */}
+      {/* Mobile menu — full-screen navy overlay under the header band.
+          Design: navy carries the brand's structural color (brand-visual.md);
+          large display-font links each carry one of Maria's accent-color
+          lines (longer when active); a faded pinwheel watermark echoes the
+          mobile hero. Links stagger in; motion-safe only. */}
       <div
         id="mobile-menu"
-        className={`md:hidden bg-band border-t border-white/10 overflow-hidden transition-all duration-200 ease-in-out ${
-          mobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+        className={`md:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-band transition-opacity duration-200 ease-in-out ${
+          mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         aria-hidden={!mobileOpen}
       >
+        {/* Pinwheel watermark — decorative, echoes the mobile hero treatment */}
+        <img
+          src="/logo/plp-pinwheel.png"
+          alt=""
+          aria-hidden="true"
+          className="absolute right-[-15%] bottom-[-5%] w-3/4 max-w-sm opacity-10 pointer-events-none select-none"
+        />
+
         <nav
-          className="flex flex-col gap-1 px-4 py-3 pb-4"
+          className="relative flex h-full flex-col justify-center gap-1 px-8 pb-16"
           aria-label="Mobile navigation"
         >
-          {NAV_LINKS.map(({ label, to }) => (
-            <NavLink key={to} to={to} className={mobileLinkClasses}>
-              {label}
+          {NAV_LINKS.map(({ label, to }, i) => (
+            <NavLink
+              key={to}
+              to={to}
+              onClick={closeMobile}
+              className={({ isActive }) =>
+                `group font-display text-3xl py-4 min-h-11 flex flex-col justify-center gap-2 motion-safe:transition-all motion-safe:duration-300 ${focusRing} ${
+                  isActive
+                    ? 'text-band-ink'
+                    : 'text-band-ink opacity-85 hover:opacity-100'
+                } ${
+                  mobileOpen
+                    ? 'translate-y-0 opacity-100'
+                    : 'motion-safe:translate-y-3 motion-safe:opacity-0'
+                }`
+              }
+              style={{
+                transitionDelay: mobileOpen ? `${80 + i * 50}ms` : '0ms',
+              }}
+            >
+              {({ isActive }) => (
+                <>
+                  {label}
+                  {/* Accent line — Maria's motif; longer when active */}
+                  <span
+                    aria-hidden="true"
+                    className={`block h-[3px] motion-safe:transition-all motion-safe:duration-300 ${
+                      MENU_ACCENTS[i % MENU_ACCENTS.length]
+                    } ${isActive ? 'w-20' : 'w-10 group-hover:w-16'}`}
+                  />
+                </>
+              )}
             </NavLink>
           ))}
-          <div className="pt-2">
-            <CTAButton to="/contact" size="md">
+
+          <div
+            className={`pt-8 motion-safe:transition-all motion-safe:duration-300 ${
+              mobileOpen
+                ? 'translate-y-0 opacity-100'
+                : 'motion-safe:translate-y-3 motion-safe:opacity-0'
+            }`}
+            style={{
+              transitionDelay: mobileOpen
+                ? `${80 + NAV_LINKS.length * 50}ms`
+                : '0ms',
+            }}
+          >
+            <CTAButton to="/contact" size="lg">
               Schedule a Consult
             </CTAButton>
           </div>
