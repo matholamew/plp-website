@@ -70,14 +70,16 @@ body {
 
 /*
  * Hero sizing: header (4rem) + hero = exactly one viewport on every screen.
- * dvh tracks mobile browser chrome (address bar) correctly; vh is the fallback
- * for browsers without dvh support.
+ * svh = small viewport height: the stable height with mobile browser chrome
+ * (address bar) VISIBLE, so the hero always fits fully on first load and does
+ * not resize/jump as the bar collapses during scroll (which dvh would do).
+ * vh is the fallback for browsers without svh support.
  */
 .hero-viewport {
   min-height: calc(100vh - 4rem);
 }
-@supports (height: 100dvh) {
+@supports (height: 100svh) {
   .hero-viewport {
-    min-height: calc(100dvh - 4rem);
+    min-height: calc(100svh - 4rem);
   }
 }
