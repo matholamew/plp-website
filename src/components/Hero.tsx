@@ -95,21 +95,27 @@ export default function Hero({ headline, subhead, ctaLabel, ctaTo }: HeroProps) 
 
   return (
     <section className="bg-bg w-full">
-      <div className="hero-viewport mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-3 items-center gap-6 sm:gap-10">
-        {/* Pinwheel — anchored in the left third, spinning in place. It does
-            not travel; it is the wind source the text reacts to. */}
-        <div className="col-span-1 flex items-center justify-center" aria-hidden="true">
+      <div className="hero-viewport relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 items-center gap-6 sm:gap-10">
+        {/* Pinwheel — anchored, spinning in place; the wind source the text
+            reacts to. Mobile (<md): a faded background layer behind the text
+            (opacity keeps text contrast at AA — ink on near-white). md+: solid,
+            in the left third. */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none md:pointer-events-auto md:static md:col-span-1"
+          aria-hidden="true"
+        >
           <img
             src={pinwheelSrc}
             onError={() => setGifFailed(true)}
             alt=""
-            className="w-full max-w-[320px] object-contain"
+            className="w-4/5 max-w-[360px] object-contain opacity-20 md:opacity-100 md:w-full md:max-w-[320px]"
             fetchPriority="high"
           />
         </div>
 
-        {/* Hero text — right two thirds; every piece scatters on scroll */}
-        <div className="col-span-2 text-left">
+        {/* Hero text — overlaid above the background pinwheel on mobile,
+            right two thirds on md+; every piece scatters on scroll */}
+        <div className="relative z-10 text-center md:text-left md:col-span-2">
           <h1
             aria-label={headline}
             className="font-display text-2xl sm:text-4xl lg:text-5xl text-ink leading-tight tracking-tight mb-5 sm:mb-6"
@@ -139,7 +145,7 @@ export default function Hero({ headline, subhead, ctaLabel, ctaTo }: HeroProps) 
             </span>
           </h1>
 
-          <p className="font-body text-base sm:text-lg lg:text-xl text-ink-muted max-w-2xl leading-relaxed mb-8 sm:mb-10">
+          <p className="font-body text-base sm:text-lg lg:text-xl text-ink-muted max-w-2xl mx-auto md:mx-0 leading-relaxed mb-8 sm:mb-10">
             <span className="sr-only">{subhead}</span>
             <span aria-hidden="true">
               {subheadWords.map((word, i) => (
