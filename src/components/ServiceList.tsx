@@ -41,13 +41,14 @@ export default function ServiceList({ items, columns = 2 }: ServiceListProps) {
           className="rounded-lg border border-ink-muted/15 bg-bg p-6 sm:p-7"
         >
           {/* Pinwheel marker — aria-hidden, purely decorative */}
+          {/* Dark mode: halo keeps the navy sail visible on the dark card bg */}
           <img
             src="/logo/plp-pinwheel.png"
             alt=""
             aria-hidden="true"
             width={28}
             height={28}
-            className="h-7 w-7 object-contain mb-4"
+            className="h-7 w-7 object-contain mb-4 dark:[filter:drop-shadow(0_0_2px_rgba(232,232,240,0.5))_drop-shadow(0_0_6px_rgba(232,232,240,0.25))]"
           />
 
           <h3 className="font-display text-lg text-ink leading-snug mb-2">

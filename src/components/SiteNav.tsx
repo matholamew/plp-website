@@ -109,12 +109,14 @@ export default function SiteNav() {
           className={`flex-shrink-0 inline-flex items-center justify-center min-h-11 min-w-11 ${focusRing}`}
           aria-label="Playful Learning Partners, Home"
         >
+          {/* Soft light halo: the mark's navy sail is nearly the band's navy
+              and vanishes without it */}
           <img
             src="/logo/plp-pinwheel.png"
             alt=""
             width={40}
             height={40}
-            className="h-10 w-10 object-contain"
+            className="h-10 w-10 object-contain [filter:drop-shadow(0_0_2px_rgba(245,246,250,0.8))_drop-shadow(0_1px_6px_rgba(245,246,250,0.35))]"
           />
         </Link>
 

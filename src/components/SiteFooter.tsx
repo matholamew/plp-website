@@ -37,10 +37,11 @@ export default function SiteFooter() {
             className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
             aria-label="Playful Learning Partners, Home"
           >
+            {/* Dark mode: navy letterforms need a soft halo on the near-black bg */}
             <img
               src="/logo/plp-logo-full.png"
               alt="Playful Learning Partners: Bringing Play Into Practice"
-              className="h-28 sm:h-32 w-auto object-contain"
+              className="h-28 sm:h-32 w-auto object-contain dark:[filter:drop-shadow(0_0_2px_rgba(232,232,240,0.55))_drop-shadow(0_0_10px_rgba(232,232,240,0.28))]"
             />
           </Link>
         </div>
@@ -60,14 +61,15 @@ export default function SiteFooter() {
               to="/"
               className={`flex-shrink-0 inline-flex items-center gap-3 min-h-11 ${footerFocusRing}`}
             >
+              {/* Same halo as the nav mark: navy sail vs navy band */}
               <img
                 src="/logo/plp-pinwheel.png"
                 alt=""
                 width={28}
                 height={28}
-                className="h-7 w-7 object-contain"
+                className="h-7 w-7 object-contain [filter:drop-shadow(0_0_2px_rgba(245,246,250,0.8))_drop-shadow(0_1px_6px_rgba(245,246,250,0.35))]"
               />
-              <span className="font-display text-lg text-band-ink leading-none">
+              <span className="font-display text-2xl sm:text-3xl text-band-ink leading-none">
                 Playful Learning Partners
               </span>
             </Link>

@@ -111,7 +111,7 @@ export default function Hero({ headline, subhead, ctaLabel, ctaTo }: HeroProps) 
             src={pinwheelSrc}
             onError={() => setGifFailed(true)}
             alt=""
-            className="w-4/5 max-w-[360px] object-contain opacity-20 md:opacity-100 md:w-auto md:max-w-full md:h-[82%] md:max-h-none"
+            className="w-4/5 max-w-[360px] object-contain opacity-20 md:opacity-100 md:w-auto md:max-w-full md:h-[82%] md:max-h-none dark:[filter:drop-shadow(0_0_3px_rgba(232,232,240,0.5))_drop-shadow(0_0_14px_rgba(232,232,240,0.22))]"
             fetchPriority="high"
           />
         </div>
