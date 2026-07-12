@@ -39,7 +39,7 @@ export default function SiteFooter() {
             {/* Pinwheel mark */}
             <Link
               to="/"
-              aria-label="Playful Learning Partners — Home"
+              aria-label="Playful Learning Partners, Home"
               className="flex-shrink-0"
             >
               <img

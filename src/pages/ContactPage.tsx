@@ -33,7 +33,7 @@ export default function ContactPage() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
     const subject = encodeURIComponent(
-      `Consult inquiry — ${form.name}${form.organization ? `, ${form.organization}` : ''}`,
+      `Consult inquiry from ${form.name}${form.organization ? `, ${form.organization}` : ''}`,
     )
     const body = encodeURIComponent(
       [

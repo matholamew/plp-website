@@ -1,39 +1,41 @@
 import ServiceList from '../components/ServiceList'
 import CTAButton from '../components/CTAButton'
-import AccentRule from '../components/AccentRule'
 
 /*
- * NEEDS DEBRA'S CONFIRMATION before launch: this service menu was drafted
- * from the positioning docs (brand-voice.md), not from a confirmed offering
- * list. Confirm/rename/remove each item — especially "Small-Group and
- * Individual Teacher Support," the CKLA-aligned supplements claim, and how
- * demonstration lessons are actually structured.
+ * Service menu now mirrors Debra's PLP one-pager (Workshops, Bi-Monthly
+ * Coaching Visits, Leadership Consultation, Planning/Reflection Meetings,
+ * Participant Resources) rather than the earlier speculative draft. Descriptions
+ * are rewritten for a district-buyer register. Confirm final naming and the
+ * CKLA reference with Debra before launch.
+ *
+ * Voice rules (brand-tone.md): no em/en dashes, no banned words, no
+ * "it's not X, it's Y".
  */
 const SERVICES = [
   {
-    title: 'Professional Development and Instructional Coaching',
+    title: 'Workshops',
     description:
-      "A PLP professional development engagement goes beyond a single workshop day. Sessions are designed around your teachers' current instructional context — the grade levels they teach, the curriculum they are already using, and the specific gaps or goals your curriculum team has identified. Follow-up coaching cycles are available to ensure strategies are implemented, not just introduced.",
+      "Professional development sessions built around your teachers' grade levels, the curriculum they already use, and the goals your instructional team has named. A workshop opens shared practice rather than closing the moment the day ends.",
   },
   {
-    title: 'Curriculum Integration Support',
+    title: 'Bi-monthly coaching visits',
     description:
-      'Playful learning strategies are most effective when they are woven into the content your teachers are already responsible for delivering. PLP provides direct curriculum integration support, including development of CKLA-aligned supplemental materials that bring playful learning approaches into structured literacy instruction without replacing or undermining the core program. This work is done in close partnership with your curriculum or instructional leadership team.',
+      'Regular coaching visits keep new strategies in use after the initial training. On roughly a bi-monthly cadence, I observe, model, and reflect alongside teachers so that what looked good in a session becomes routine in the classroom.',
   },
   {
-    title: 'Classroom Modeling and Demonstration Lessons',
+    title: 'Leadership consultation',
     description:
-      'One of the most effective ways to shift instructional practice is to show it in action. PLP offers live classroom modeling and demonstration lessons in which Debra teaches directly with students while your teachers observe, followed by structured debrief and reflection time. This approach builds concrete, observable understanding of what playful learning looks like in a real classroom at your grade levels.',
+      'Structured check-ins with administrators and instructional leaders to track how the work is landing and to plan for what comes after. The aim is a practice your teachers can sustain on their own once an engagement ends.',
   },
   {
-    title: 'Tailored Engagement Design',
+    title: 'Planning and reflection meetings',
     description:
-      "Not every district comes in with the same entry point. PLP can work with your leadership team to design a full engagement scope from scratch — starting with a needs assessment, moving through design and delivery, and building toward a plan your teachers can sustain independently. The engagement is built around your timeline, your teachers' schedules, and the specific instructional priorities your district has set.",
+      'Dedicated time with teachers to plan upcoming lessons and reflect on recent ones. These meetings turn playful learning into concrete lesson design tied to the content teachers are already responsible for.',
   },
   {
-    title: 'Small-Group and Individual Teacher Support',
+    title: 'Participant resources',
     description:
-      'Beyond whole-staff professional development, PLP offers targeted support for individual teachers or small cohorts working through specific instructional challenges. This format is well-suited for teachers who are new to playful learning approaches, grade-level teams rolling out a new curriculum integration, or teachers identified by instructional coaches as needing differentiated support.',
+      'Teachers leave each engagement with materials they can put to use right away: planning tools, classroom-tested activities, and reference guides that fit the curriculum already in place, including CKLA-aligned supplements where they help.',
   },
 ]
 
@@ -41,22 +43,22 @@ const STEPS = [
   {
     title: 'Initial conversation',
     description:
-      "The process starts with a conversation — no assessment tool, no intake form before that. You describe your district's instructional context, your goals, and any constraints. From that, a proposed scope takes shape.",
+      "The process starts with a conversation. You describe your district's instructional context, your goals, and any constraints, and a proposed scope takes shape from there. No intake form comes first.",
   },
   {
     title: 'Scoping and agreement',
     description:
-      'A written scope of work is developed based on that initial conversation. It specifies what will be delivered, in what format, over what timeline, and at what investment — no ambiguity, no scope creep by default.',
+      'A written scope of work follows that conversation. It specifies what will be delivered, in what format, over what timeline, and at what investment, so there is no ambiguity and no scope creep by default.',
   },
   {
     title: 'Delivery and coaching',
     description:
-      'PLP delivers the agreed engagement — professional development sessions, classroom modeling, curriculum integration work, or some combination — with built-in reflection time to ensure the work lands.',
+      'I deliver the agreed engagement, whether that is workshops, coaching visits, planning and reflection meetings, or some combination, with reflection time built in so the work actually lands.',
   },
   {
     title: 'Debrief and next steps',
     description:
-      'At the close of an engagement, you receive a summary of what was delivered, what teachers reported, and what a logical continuation might look like. There is no pressure to extend; there is a clear picture of what comes next if you choose to.',
+      'At the close of an engagement you receive a summary of what was delivered, what teachers reported, and what a logical continuation might look like. There is no pressure to extend, only a clear picture of what comes next if you choose to.',
   },
 ]
 
@@ -65,7 +67,7 @@ export default function ForDistrictsPage() {
     <>
       {/* Intro */}
       <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 pt-16 pb-14 sm:px-6 sm:pt-20 lg:px-8">
           <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-6">
             Guided playful learning pedagogy for district instructional teams.
           </h1>
@@ -73,31 +75,28 @@ export default function ForDistrictsPage() {
             Playful Learning Partners is a boutique provider of guided playful
             learning pedagogy. The practice works with district administrators,
             curriculum directors, and instructional coaches to build durable
-            teacher capacity — not to deliver a one-time training and leave.
-            Engagements are customized, not templated, and are designed to
-            integrate with the instructional frameworks your district has
-            already adopted. If your team is asking how to make rigorous
-            content more accessible without sacrificing standards alignment,
-            this is the conversation to have.
+            teacher capacity, not to deliver a one-time training and leave.
+            Engagements are customized to your district and designed to integrate
+            with the instructional frameworks you have already adopted. If your
+            team is asking how to make rigorous content more accessible without
+            giving up standards alignment, this is the conversation to have.
           </p>
         </div>
       </section>
 
-      <AccentRule />
-
-      {/* Services — pinwheel-marked list */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* Services — pinwheel-marked cards */}
+      <section className="bg-surface">
+        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <h2 className="font-display text-2xl sm:text-3xl text-ink mb-10">
             What an engagement can include
           </h2>
-          <ServiceList items={SERVICES} />
+          <ServiceList items={SERVICES} columns={2} />
         </div>
       </section>
 
-      {/* How an engagement works — surface band for separation */}
-      <section className="bg-surface">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+      {/* How an engagement works */}
+      <section className="bg-bg">
+        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <h2 className="font-display text-2xl sm:text-3xl text-ink mb-10">
             How an engagement works
           </h2>
@@ -125,34 +124,35 @@ export default function ForDistrictsPage() {
       </section>
 
       {/* Funding note.
-          Confidentiality (CLAUDE.md): generic Title I eligibility language
-          only. Never add district names, state names, or "currently piloting"
-          language here — open-items.md item 4 requires explicit approval for
-          any version of that sentence. */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
+          Confidentiality (CLAUDE.md): generic Title I eligibility and general
+          grant-support language only. Never add district names, state names, or
+          "currently piloting" language here (open-items.md item 4). */}
+      <section className="bg-surface">
+        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
           <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">
             A note on funding
           </h2>
           <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
-            Playful Learning Partners engagements can be structured to be
-            Title I funding-eligible. If your district is working within a
-            federal grant budget or a targeted funding stream, PLP is happy to
-            work with your grants or finance team during the scoping process to
-            ensure the engagement is documented and structured in a way that
-            fits your funding requirements.
+            Engagements can be structured to fit federal and grant funding,
+            including Title I. If your district is working within a grant budget
+            or a targeted funding stream, I can help you identify funding
+            sources, support the grant writing itself, and communicate with
+            granting organizations so paperwork does not stall the work. When it
+            helps, I will work alongside your grants or finance team during
+            scoping so the engagement is documented in a way that fits your
+            requirements.
           </p>
         </div>
       </section>
 
       {/* Closing CTA */}
       <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 text-center">
           <h2 className="font-display text-2xl sm:text-3xl text-ink mb-4">
             Start the conversation.
           </h2>
           <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-8">
-            A consult call is low-stakes and structured — you will leave with a
+            A consult call is low-stakes and structured. You will leave with a
             clear sense of whether a PLP engagement is the right fit for your
             district's goals.
           </p>

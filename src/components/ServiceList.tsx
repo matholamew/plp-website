@@ -1,22 +1,20 @@
 /**
- * ServiceList — list of service/feature items with pinwheel graphic as bullet.
+ * ServiceList — responsive card grid of service/feature items.
+ *
+ * Layout (Mertens-style restraint, per 2026-07-12 redesign):
+ *   - 1 column on mobile, 2 columns from md up. Generous gutters, no hard
+ *     dividers between cards — separation is whitespace + a hairline border.
+ *   - Each card: pinwheel marker (brand-visual.md "pinwheel as bullet"),
+ *     title (font-display), description (font-body, ink-muted).
  *
  * Color audit (both modes):
- *   - Intended to sit on bg-bg or bg-surface
- *   - text-ink: light = #1a1a2e, dark = #e8e8f0 — legible on both bg values
- *   - text-ink-muted: light = #4b4b63, dark = #a8aec4 — OK on both
- *   - bg-surface: light = #eceef2 (cool gray), dark = #131c31 — used only if
- *     a separation background is wanted; the list itself has no background
- *
- * Per brand-visual.md: "use the pinwheel graphic (not a generic bullet/dot)
- * as the list-item marker" — specifically liked detail from Maria's draft.
- *
- * Each item: pinwheel icon (20–24px, aria-hidden) + title (font-display,
- * text-ink) + description (font-body, text-ink-muted). Vertical list,
- * generous spacing between items.
+ *   - Cards sit on bg-bg or bg-surface. Hairline border uses ink-muted at low
+ *     opacity, legible-but-quiet in light (#4b4b63/15) and dark (#a8aec4/15).
+ *   - text-ink / text-ink-muted contrast verified on both bg values elsewhere.
  *
  * Props:
  *   - items: { title: string; description: string }[]
+ *   - columns?: 2 | 3 — max columns on large screens (default 2)
  */
 
 interface ServiceItem {
@@ -26,31 +24,38 @@ interface ServiceItem {
 
 interface ServiceListProps {
   items: ServiceItem[]
+  columns?: 2 | 3
 }
 
-export default function ServiceList({ items }: ServiceListProps) {
+export default function ServiceList({ items, columns = 2 }: ServiceListProps) {
+  const gridCols =
+    columns === 3
+      ? 'sm:grid-cols-2 lg:grid-cols-3'
+      : 'sm:grid-cols-2'
+
   return (
-    <ul className="space-y-8" role="list">
+    <ul className={`grid grid-cols-1 ${gridCols} gap-6 sm:gap-8`} role="list">
       {items.map((item, index) => (
-        <li key={index} className="flex gap-4 items-start">
-          {/* Pinwheel bullet — aria-hidden, purely decorative */}
+        <li
+          key={index}
+          className="rounded-lg border border-ink-muted/15 bg-bg p-6 sm:p-7"
+        >
+          {/* Pinwheel marker — aria-hidden, purely decorative */}
           <img
             src="/logo/plp-pinwheel.png"
             alt=""
             aria-hidden="true"
-            width={22}
-            height={22}
-            className="mt-1 h-[22px] w-[22px] flex-shrink-0 object-contain"
+            width={28}
+            height={28}
+            className="h-7 w-7 object-contain mb-4"
           />
 
-          <div>
-            <h3 className="font-display text-lg text-ink leading-snug mb-1">
-              {item.title}
-            </h3>
-            <p className="font-body text-base text-ink-muted leading-relaxed">
-              {item.description}
-            </p>
-          </div>
+          <h3 className="font-display text-lg text-ink leading-snug mb-2">
+            {item.title}
+          </h3>
+          <p className="font-body text-base text-ink-muted leading-relaxed">
+            {item.description}
+          </p>
         </li>
       ))}
     </ul>

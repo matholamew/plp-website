@@ -35,9 +35,25 @@ memorable, and entirely adult.
 - Don't write copy that could be read as a claim about a specific district
   contract (see CLAUDE.md confidentiality section).
 
-## Example — same fact, two ways
-- ❌ "Learning should be an adventure! 🎉 Let's make school fun again!"
-- ✅ "Play isn't the break from rigor. It's how rigor sticks."
+## Hard constraints (added 2026-07-12, confirmed by project owner)
+These are non-negotiable and apply to ALL public site copy. When rewriting or
+adding copy, check against this list before finalizing.
 
-The second version is still distinctive and a little bold — it's just not
-aimed at a five-year-old.
+- **No em-dashes (—) or en-dashes (–) anywhere in site copy.** Restructure the
+  sentence instead: use a period, comma, colon, or parentheses.
+- **Never use these words:** game changer, unlock, leverage, dive into,
+  unleash, revolutionary, maximize, treasure trove, delve, moreover, seamless,
+  crucial, testament.
+- **No "it's not just X, it's Y" construction** (or close variants like "not a
+  break from learning, it is..."). State the positive claim directly.
+- **No machine-like symmetrical lists.** Avoid rigid parallel triads where every
+  item is the same length and shape. Vary sentence structure; let lists sound
+  like a person wrote them, not a template.
+
+## Example — same fact, two ways
+- ❌ "Learning should be an adventure! Let's make school fun again!"
+- ✅ "Play is one of the most reliable ways rigor actually sticks."
+
+The second version is still distinctive and a little bold. It just isn't aimed
+at a five-year-old, and it makes the claim directly instead of leaning on an
+"it's not A, it's B" turn.

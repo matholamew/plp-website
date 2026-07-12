@@ -21,6 +21,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import CTAButton from './CTAButton'
+import { usePrefersReducedMotion } from '../hooks/useScrollProgress'
 
 const NAV_LINKS = [
   { label: 'For Districts', to: '/for-districts' },
@@ -62,19 +63,27 @@ function HamburgerIcon({ open }: { open: boolean }) {
 export default function SiteNav() {
   const location = useLocation()
   const isHomepage = location.pathname === '/'
+  const reducedMotion = usePrefersReducedMotion()
 
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
+  // Reveal the nav pinwheel as the hero pinwheel finishes its handoff. The hero
+  // animates over the first 0.5 viewport (useHeroScrollProgress(0.5)); ~0.42
+  // lands the nav mark just before the hero mark fully clears.
   const handleScroll = useCallback(() => {
-    setScrolled(window.scrollY > 120)
+    setScrolled(window.scrollY > window.innerHeight * 0.42)
   }, [])
 
   useEffect(() => {
     // Set initial state in case page loads mid-scroll
     handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleScroll)
+    }
   }, [handleScroll])
 
   // Close mobile menu on route change
@@ -82,8 +91,10 @@ export default function SiteNav() {
     setMobileOpen(false)
   }, [location.pathname])
 
-  // Pinwheel visibility: always visible on non-homepage; scroll-gated on homepage
-  const pinwheelVisible = !isHomepage || scrolled
+  // Pinwheel visibility: always on non-homepage; on the homepage it is
+  // scroll-gated to complete the hero handoff. With reduced motion there is no
+  // hero animation, so show it immediately rather than gate on scroll.
+  const pinwheelVisible = !isHomepage || scrolled || reducedMotion
 
   return (
     <header className="sticky top-0 z-50 bg-band text-band-ink">
@@ -92,7 +103,7 @@ export default function SiteNav() {
         <Link
           to="/"
           className="flex-shrink-0"
-          aria-label="Playful Learning Partners — Home"
+          aria-label="Playful Learning Partners, Home"
         >
           <img
             src="/logo/plp-pinwheel.png"

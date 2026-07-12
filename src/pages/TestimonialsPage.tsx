@@ -36,11 +36,11 @@ export default function TestimonialsPage() {
         <div className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8 space-y-8">
           <TestimonialCard
             placeholder
-            quote="Testimonial one — quote text pending attribution confirmation (open-items.md item 3)."
+            quote="Testimonial one, quote text pending attribution confirmation (open-items.md item 3)."
           />
           <TestimonialCard
             placeholder
-            quote="Testimonial two — quote text pending attribution confirmation (open-items.md item 3)."
+            quote="Testimonial two, quote text pending attribution confirmation (open-items.md item 3)."
           />
         </div>
       </section>
