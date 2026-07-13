@@ -83,7 +83,7 @@ export default function SiteFooter() {
                 <Link
                   key={to}
                   to={to}
-                  className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
+                  className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 hover:underline underline-offset-4 decoration-accent-teal decoration-2 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
                 >
                   {label}
                 </Link>
@@ -93,7 +93,7 @@ export default function SiteFooter() {
             {/* Contact link — CONTACT_EMAIL placeholder, confirm before launch */}
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
+              className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 hover:underline underline-offset-4 decoration-accent-teal decoration-2 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
             >
               {CONTACT_EMAIL}
             </a>

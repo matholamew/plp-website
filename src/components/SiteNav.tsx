@@ -92,11 +92,12 @@ export default function SiteNav() {
 
   const closeMobile = useCallback(() => setMobileOpen(false), [])
 
+  // Hover underline in CTA teal (decoration-accent-teal = same hex as bg-cta)
   const desktopLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    `font-body text-sm font-medium transition-opacity inline-flex items-center min-h-11 px-1 ${focusRing} ${
+    `font-body text-sm font-medium transition-opacity inline-flex items-center min-h-11 px-1 underline-offset-4 decoration-accent-teal decoration-2 ${focusRing} ${
       isActive
-        ? 'text-band-ink opacity-100 underline underline-offset-4 decoration-accent-teal'
-        : 'text-band-ink opacity-80 hover:opacity-100'
+        ? 'text-band-ink opacity-100 underline'
+        : 'text-band-ink opacity-80 hover:opacity-100 hover:underline'
     }`
 
   return (
