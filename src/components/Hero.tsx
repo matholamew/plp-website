@@ -3,8 +3,10 @@
  *
  * Layout: header (4rem) + hero fill exactly 100dvh at every breakpoint
  * (.hero-viewport in index.css). The animated pinwheel occupies roughly the
- * left third of the page; headline, subhead, and CTA sit in the right two
- * thirds. The wordmark image does not appear here at all.
+ * left third of the page; the text-only wordmark crop (company name in logo
+ * letterforms, no second pinwheel), headline, subhead, and CTA sit in the
+ * right two thirds. Wordmark and pinwheel stay anchored; only the copy
+ * scatters on scroll.
  *
  * Scroll choreography (per 2026-07-12 direction): the pinwheel does NOT move —
  * it stays anchored and spinning (the GIF), reading as the wind source, while
@@ -119,6 +121,16 @@ export default function Hero({ headline, subhead, ctaLabel, ctaTo }: HeroProps) 
         {/* Hero text — overlaid above the background pinwheel on mobile,
             right three fifths on md+; every piece scatters on scroll */}
         <div className="relative z-10 text-center md:text-left md:col-span-3 md:max-w-3xl">
+          {/* Company name in logo letterforms — the text-only wordmark crop
+              (no pinwheel: the animated one to the left completes the lockup).
+              Anchored like the pinwheel: the brand does not blow away, the
+              copy below does. */}
+          <img
+            src="/logo/plp-wordmark.png"
+            alt="Playful Learning Partners: Bringing Play Into Practice"
+            className="h-16 sm:h-20 lg:h-28 w-auto object-contain mx-auto md:mx-0 mb-6 sm:mb-8"
+            fetchPriority="high"
+          />
           <h1
             aria-label={headline}
             className="font-display text-2xl sm:text-4xl lg:text-5xl text-ink leading-tight tracking-tight mb-5 sm:mb-6"

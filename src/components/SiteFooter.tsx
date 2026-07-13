@@ -26,28 +26,10 @@ export default function SiteFooter() {
 
   return (
     <footer>
-      {/* Pre-footer brand block — full lockup on the page background (the
-          wordmark's navy letterforms need a light surface; on the navy band
-          they would lose contrast). This is the one place the full wordmark
-          appears on every page. */}
-      <div className="bg-bg">
-        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 flex justify-center">
-          <Link
-            to="/"
-            className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
-            aria-label="Playful Learning Partners, Home"
-          >
-            {/* Dark mode: navy letterforms need a soft halo on the near-black bg */}
-            <img
-              src="/logo/plp-logo-full.png"
-              alt="Playful Learning Partners: Bringing Play Into Practice"
-              className="h-28 sm:h-32 w-auto object-contain dark:[filter:drop-shadow(0_0_2px_rgba(232,232,240,0.55))_drop-shadow(0_0_10px_rgba(232,232,240,0.28))]"
-            />
-          </Link>
-        </div>
-      </div>
-
-      {/* AccentRule separates page content from the footer band */}
+      {/* AccentRule separates page content from the footer band.
+          (Pre-footer lockup block removed 2026-07-13 per Debra/Matt — read as
+          tacked-on; the brand now leads the page instead: wordmark in the
+          hero, name beside the nav pinwheel.) */}
       <AccentRule />
 
       <div className="bg-band text-band-ink">

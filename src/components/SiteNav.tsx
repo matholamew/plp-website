@@ -103,11 +103,14 @@ export default function SiteNav() {
   return (
     <header className="sticky top-0 z-50 bg-band text-band-ink">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Pinwheel mark — always visible. The Link is the 44px touch target;
-            the img inside is the 40px mark. */}
+        {/* Brand mark + company name — every page's top. Name is Explode
+            (renders all-caps) in band-ink: the multicolor wordmark image
+            would lose its navy letterforms on the navy band, so text carries
+            the name here. Hidden on the narrowest screens to leave room for
+            the controls. */}
         <Link
           to="/"
-          className={`flex-shrink-0 inline-flex items-center justify-center min-h-11 min-w-11 ${focusRing}`}
+          className={`flex-shrink-0 inline-flex items-center gap-3 min-h-11 min-w-11 ${focusRing}`}
           aria-label="Playful Learning Partners, Home"
         >
           {/* Soft light halo: the mark's navy sail is nearly the band's navy
@@ -119,6 +122,12 @@ export default function SiteNav() {
             height={40}
             className="h-10 w-10 object-contain [filter:drop-shadow(0_0_2px_rgba(245,246,250,0.8))_drop-shadow(0_1px_6px_rgba(245,246,250,0.35))]"
           />
+          {/* Width budget: at md (768-1023) name + links + CTA overflow, and
+              below sm (640) name + controls overflow — hidden in those two
+              ranges; hero (homepage) and footer carry the name there. */}
+          <span className="hidden sm:block md:hidden lg:block font-display text-base lg:text-lg text-band-ink leading-none whitespace-nowrap">
+            Playful Learning Partners
+          </span>
         </Link>
 
         {/* Desktop nav links */}
