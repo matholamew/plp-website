@@ -1,5 +1,6 @@
 import TestimonialCard from '../components/TestimonialCard'
 import CTAButton from '../components/CTAButton'
+import Section from '../components/Section'
 
 /*
  * Testimonials transcribed VERBATIM from Debra's PLP one-pager (approved by
@@ -26,9 +27,8 @@ const TESTIMONIALS = [
 export default function TestimonialsPage() {
   return (
     <>
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pt-16 pb-12 sm:px-6 lg:px-8">
-          <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-4">
+      <Section pad="intro">
+          <h1 className="font-display text-fluid-h1 text-ink leading-tight mb-4">
             What educators say about working with Debra.
           </h1>
           <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
@@ -36,11 +36,9 @@ export default function TestimonialsPage() {
             Learning Partners through coaching engagements in their own
             classrooms.
           </p>
-        </div>
-      </section>
+      </Section>
 
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pb-16 sm:px-6 lg:px-8 space-y-8">
+      <Section pad="none" className="pb-intro space-y-8">
           {TESTIMONIALS.map((t) => (
             <TestimonialCard
               key={t.attribution}
@@ -49,16 +47,13 @@ export default function TestimonialsPage() {
               role={t.role}
             />
           ))}
-        </div>
-      </section>
+      </Section>
 
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pb-20 sm:px-6 lg:px-8 text-center">
+      <Section pad="none" center className="pb-intro">
           <CTAButton to="/contact" size="lg">
             Schedule a Consult
           </CTAButton>
-        </div>
-      </section>
+      </Section>
     </>
   )
 }

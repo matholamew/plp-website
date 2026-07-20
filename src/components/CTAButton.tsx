@@ -1,5 +1,5 @@
 /**
- * CTAButton — primary CTA button.
+ * CTAButton — the site's single CTA treatment (teal, navy label).
  *
  * Color audit (both modes):
  *   - bg-cta  = #14b8a6 (teal), hover bg-cta-hover = #2dd4bf — identical in
@@ -8,11 +8,13 @@
  *     base teal, 7.21:1 on hover — AA pass in both modes and both states.
  *     White text was rejected: 2.49:1 on base teal fails WCAG AA.
  *
- * Props:
- *   - to: internal route (renders react-router <Link>)
- *   - href: external URL (renders <a>)
- *   - children: button label
- *   - size: 'md' (default) | 'lg'
+ * Renders (exactly one of):
+ *   - to    → react-router <Link> (internal route)
+ *   - href  → <a> (external URL)
+ *   - type  → native <button> (forms; DRY: ContactPage previously duplicated
+ *             these classes on a hand-rolled submit button)
+ *
+ * min-h-11 = 44px touch target (Apple HIG) on every variant.
  */
 
 import { Link } from 'react-router-dom'
@@ -21,10 +23,10 @@ interface CTAButtonProps {
   children: React.ReactNode
   to?: string
   href?: string
+  type?: 'submit' | 'button'
   size?: 'md' | 'lg'
 }
 
-// min-h-11 = 44px: Apple HIG minimum touch target on both sizes
 const sizeClasses: Record<NonNullable<CTAButtonProps['size']>, string> = {
   md: 'px-5 py-2 text-sm min-h-11 inline-flex items-center',
   lg: 'px-7 py-3 text-base min-h-11 inline-flex items-center',
@@ -37,6 +39,7 @@ export default function CTAButton({
   children,
   to,
   href,
+  type,
   size = 'md',
 }: CTAButtonProps) {
   const classes = `${baseClasses} ${sizeClasses[size]}`
@@ -46,6 +49,14 @@ export default function CTAButton({
       <Link to={to} className={classes}>
         {children}
       </Link>
+    )
+  }
+
+  if (type) {
+    return (
+      <button type={type} className={classes}>
+        {children}
+      </button>
     )
   }
 

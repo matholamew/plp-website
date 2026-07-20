@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
 import { CONTACT_EMAIL } from '../lib/site'
+import CTAButton from '../components/CTAButton'
+import Section from '../components/Section'
 
 /*
  * TODO before launch:
@@ -51,9 +53,8 @@ export default function ContactPage() {
   }
 
   return (
-    <section className="bg-bg">
-      <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-4">
+    <Section width="xl">
+        <h1 className="font-display text-fluid-h1 text-ink leading-tight mb-4">
           Get in touch.
         </h1>
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-10">
@@ -152,12 +153,9 @@ export default function ContactPage() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="inline-flex items-center rounded-md bg-cta hover:bg-cta-hover text-navy font-body font-semibold px-7 py-3 min-h-11 text-base transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta focus-visible:ring-offset-2"
-          >
+          <CTAButton type="submit" size="lg">
             Send Message
-          </button>
+          </CTAButton>
         </form>
 
         <p className="font-body text-sm text-ink-muted mt-8">
@@ -170,7 +168,6 @@ export default function ContactPage() {
           </a>
           .
         </p>
-      </div>
-    </section>
+    </Section>
   )
 }

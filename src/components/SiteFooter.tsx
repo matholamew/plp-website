@@ -17,9 +17,7 @@
 import { Link } from 'react-router-dom'
 import AccentRule from './AccentRule'
 import { NAV_LINKS, CONTACT_EMAIL } from '../lib/site'
-
-const footerFocusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded'
+import { FOCUS_RING_BAND, BAND_LINK } from '../lib/ui'
 
 export default function SiteFooter() {
   const currentYear = new Date().getFullYear()
@@ -33,7 +31,7 @@ export default function SiteFooter() {
       <AccentRule />
 
       <div className="bg-band text-band-ink">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-page py-8 pb-safe">
           {/* Main footer row */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
             {/* Pinwheel mark */}
@@ -41,7 +39,7 @@ export default function SiteFooter() {
                 all-caps by design), doubles as the home link */}
             <Link
               to="/"
-              className={`flex-shrink-0 inline-flex items-center gap-3 min-h-11 ${footerFocusRing}`}
+              className={`flex-shrink-0 inline-flex items-center gap-3 min-h-11 ${FOCUS_RING_BAND}`}
             >
               {/* Same halo as the nav mark: navy sail vs navy band */}
               <img
@@ -49,7 +47,7 @@ export default function SiteFooter() {
                 alt=""
                 width={28}
                 height={28}
-                className="h-7 w-7 object-contain [filter:drop-shadow(0_0_2px_rgba(245,246,250,0.8))_drop-shadow(0_1px_6px_rgba(245,246,250,0.35))]"
+                className="h-7 w-7 object-contain halo-band"
               />
               <span className="font-display text-2xl sm:text-3xl text-band-ink leading-none">
                 Playful Learning Partners
@@ -65,7 +63,7 @@ export default function SiteFooter() {
                 <Link
                   key={to}
                   to={to}
-                  className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 hover:underline underline-offset-4 decoration-accent-teal decoration-2 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
+                  className={BAND_LINK}
                 >
                   {label}
                 </Link>
@@ -75,7 +73,7 @@ export default function SiteFooter() {
             {/* Contact link — CONTACT_EMAIL placeholder, confirm before launch */}
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className={`font-body text-sm text-band-ink opacity-80 hover:opacity-100 hover:underline underline-offset-4 decoration-accent-teal decoration-2 transition-opacity inline-flex items-center min-h-11 px-1 ${footerFocusRing}`}
+              className={BAND_LINK}
             >
               {CONTACT_EMAIL}
             </a>
@@ -83,7 +81,7 @@ export default function SiteFooter() {
 
           {/* Copyright line */}
           <div className="mt-6 border-t border-white/10 pt-6">
-            <p className="font-body text-xs text-band-ink opacity-60">
+            <p className="font-body text-sm text-band-ink opacity-70">
               &copy; {currentYear} Playful Learning Partners. All rights reserved.
             </p>
           </div>

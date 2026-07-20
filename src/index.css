@@ -88,6 +88,58 @@ figcaption {
   text-wrap: pretty;
 }
 
+@layer utilities {
+  /*
+   * Page gutter: fluid inline padding (16px -> 32px between 320px and 1280px
+   * viewports, no breakpoint jumps) that also respects notch/Dynamic Island
+   * safe areas in landscape. Replaces the repeated `px-4 sm:px-6 lg:px-8`.
+   */
+  .px-page {
+    padding-left: max(clamp(1rem, 0.6rem + 2vw, 2rem), env(safe-area-inset-left));
+    padding-right: max(clamp(1rem, 0.6rem + 2vw, 2rem), env(safe-area-inset-right));
+  }
+
+  /* Home-indicator clearance for fixed/bottom surfaces (mobile menu, footer) */
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Fluid section rhythm — replaces py-16 / py-20 sm:py-24 stacks */
+  .py-section {
+    padding-block: clamp(3.5rem, 2.5rem + 3vw, 6rem);
+  }
+  .pt-intro {
+    padding-top: clamp(3.5rem, 2.5rem + 3vw, 5rem);
+  }
+  .pb-intro {
+    padding-bottom: clamp(3rem, 2.25rem + 2.5vw, 4rem);
+  }
+
+  /* Fluid display sizes — replace text-3xl sm:text-4xl (h1),
+     text-2xl sm:text-3xl (h2), and the carousel hero stack. */
+  .text-fluid-hero {
+    font-size: clamp(1.5rem, 0.9rem + 3vw, 3rem);
+  }
+  .text-fluid-h1 {
+    font-size: clamp(1.75rem, 1.3rem + 2vw, 2.25rem);
+  }
+  .text-fluid-h2 {
+    font-size: clamp(1.4rem, 1.15rem + 1.2vw, 1.875rem);
+  }
+
+  /* Logo halos — brand marks whose navy elements sink into dark surfaces.
+     .halo-band: always on (for the navy footer/nav bands).
+     .halo-dark: dark mode only (for marks on the page background). */
+  .halo-band {
+    filter: drop-shadow(0 0 2px rgba(245, 246, 250, 0.8))
+      drop-shadow(0 1px 6px rgba(245, 246, 250, 0.35));
+  }
+  .dark .halo-dark {
+    filter: drop-shadow(0 0 2px rgba(232, 232, 240, 0.55))
+      drop-shadow(0 0 10px rgba(232, 232, 240, 0.28));
+  }
+}
+
 /* WCAG 2.3.3 / 2.2.2: no smooth-scroll animation for users who opted out */
 @media (prefers-reduced-motion: reduce) {
   html {

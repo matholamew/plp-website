@@ -2,6 +2,7 @@ import HomeCarousel from '../components/HomeCarousel'
 import ServiceList from '../components/ServiceList'
 import CTAButton from '../components/CTAButton'
 import AccentRule from '../components/AccentRule'
+import Section from '../components/Section'
 
 /*
  * Homepage (2026-07-13 redesign per Debra, after the approved reference
@@ -36,19 +37,16 @@ export default function HomePage() {
       <HomeCarousel />
 
       {/* Three-card row — reference mockup's below-carousel layout */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+      <Section width="7xl">
           <h2 className="sr-only">Why districts work with Playful Learning Partners</h2>
           <ServiceList items={WHY_PLP} columns={3} />
-        </div>
-      </section>
+      </Section>
 
       <AccentRule />
 
       {/* What PLP does — cool-gray surface band for section separation */}
-      <section className="bg-surface">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">
+      <Section surface>
+          <h2 className="font-display text-fluid-h2 text-ink mb-6">
             What Playful Learning Partners does
           </h2>
           <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
@@ -62,12 +60,10 @@ export default function HomePage() {
             classrooms, grade levels, and goals, not a fixed cohort model
             delivered the same way to every district that signs on.
           </p>
-        </div>
-      </section>
+      </Section>
 
       {/* Closing CTA */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 text-center">
+      <Section center>
           <p className="font-display text-xl sm:text-2xl text-ink mb-8">
             Ready to talk about what a playful learning engagement could look
             like for your district?
@@ -83,8 +79,7 @@ export default function HomePage() {
             A teacher membership resource library and a parent and homeschool
             learning community are both in development for future launch.
           </p>
-        </div>
-      </section>
+      </Section>
     </>
   )
 }

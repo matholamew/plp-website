@@ -23,10 +23,9 @@ import { useState, useEffect, useCallback } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import CTAButton from './CTAButton'
+import AccentRule from './AccentRule'
 import { NAV_LINKS } from '../lib/site'
-
-const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded'
+import { FOCUS_RING, FOCUS_RING_BAND } from '../lib/ui'
 
 // Accent-line colors for the full-screen menu links, cycling in logo order
 // (pink → purple → teal; brand-visual.md accent-line motif)
@@ -35,19 +34,6 @@ const MENU_ACCENTS = [
   'bg-accent-purple',
   'bg-accent-teal',
 ] as const
-
-// Header stripe band — the multi-row accent motif from the reference mockup.
-// 4 rows x 3px = 12px total; .carousel-viewport depends on that constant.
-function HeaderStripes() {
-  return (
-    <div aria-hidden="true">
-      <div className="h-[3px] w-full bg-navy" />
-      <div className="h-[3px] w-full bg-accent-teal" />
-      <div className="h-[3px] w-full bg-accent-purple" />
-      <div className="h-[3px] w-full bg-accent-pink" />
-    </div>
-  )
-}
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -112,24 +98,24 @@ export default function SiteNav() {
   // Explode nav links, navy on the white bar (ink in dark mode); hover
   // underline in CTA teal, persistent underline on the active route.
   const desktopLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    `font-display text-sm lg:text-base transition-opacity inline-flex items-center min-h-11 px-1 underline-offset-4 decoration-accent-teal decoration-2 text-navy dark:text-ink ${focusRing} ${
+    `font-display text-sm lg:text-base transition-opacity inline-flex items-center min-h-11 px-1 underline-offset-4 decoration-accent-teal decoration-2 text-navy dark:text-ink ${FOCUS_RING} ${
       isActive ? 'underline' : 'opacity-80 hover:opacity-100 hover:underline'
     }`
 
   return (
     <header className="sticky top-0 z-50 bg-bg text-ink">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-page">
         {/* Full lockup — content-cropped export; dark mode adds a halo so the
             navy letterforms stay visible on the near-black background */}
         <Link
           to="/"
-          className={`flex-shrink-0 inline-flex items-center min-h-11 ${focusRing}`}
+          className={`flex-shrink-0 inline-flex items-center min-h-11 ${FOCUS_RING}`}
           aria-label="Playful Learning Partners, Home"
         >
           <img
             src="/logo/plp-lockup-horizontal.png"
             alt=""
-            className="h-12 sm:h-14 w-auto object-contain dark:[filter:drop-shadow(0_0_2px_rgba(232,232,240,0.55))_drop-shadow(0_0_10px_rgba(232,232,240,0.28))]"
+            className="h-12 sm:h-14 w-auto object-contain halo-dark"
             fetchPriority="high"
           />
         </Link>
@@ -163,14 +149,14 @@ export default function SiteNav() {
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className={`text-navy dark:text-ink hover:opacity-80 inline-flex items-center justify-center min-h-11 min-w-11 transition-opacity ${focusRing}`}
+            className={`text-navy dark:text-ink hover:opacity-80 inline-flex items-center justify-center min-h-11 min-w-11 transition-opacity ${FOCUS_RING}`}
           >
             <HamburgerIcon open={mobileOpen} />
           </button>
         </div>
       </div>
 
-      <HeaderStripes />
+      <AccentRule withNavy />
 
       {/* Mobile menu — full-screen navy overlay below the header (5rem bar
           + 12px stripes = 5.75rem). Navy still carries the brand's structural
@@ -191,7 +177,7 @@ export default function SiteNav() {
         />
 
         <nav
-          className="relative flex h-full flex-col justify-center gap-1 px-8 pb-16"
+          className="relative flex h-full flex-col justify-center gap-1 px-page pb-safe"
           aria-label="Mobile navigation"
         >
           {NAV_LINKS.map(({ label, to }, i) => (
@@ -200,7 +186,7 @@ export default function SiteNav() {
               to={to}
               onClick={closeMobile}
               className={({ isActive }) =>
-                `group font-display text-3xl py-4 min-h-11 flex flex-col justify-center gap-2 motion-safe:transition-all motion-safe:duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded ${
+                `group font-display text-3xl py-4 min-h-11 flex flex-col justify-center gap-2 motion-safe:transition-all motion-safe:duration-300 ${FOCUS_RING_BAND} ${
                   isActive
                     ? 'text-band-ink'
                     : 'text-band-ink opacity-85 hover:opacity-100'

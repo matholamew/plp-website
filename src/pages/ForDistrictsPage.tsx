@@ -1,5 +1,6 @@
 import ServiceList from '../components/ServiceList'
 import CTAButton from '../components/CTAButton'
+import Section from '../components/Section'
 
 /*
  * Service menu now mirrors Debra's PLP one-pager (Workshops, Bi-Monthly
@@ -66,9 +67,8 @@ export default function ForDistrictsPage() {
   return (
     <>
       {/* Intro */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pt-16 pb-14 sm:px-6 sm:pt-20 lg:px-8">
-          <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-6">
+      <Section pad="intro">
+          <h1 className="font-display text-fluid-h1 text-ink leading-tight mb-6">
             Guided playful learning pedagogy for district instructional teams.
           </h1>
           <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
@@ -81,23 +81,19 @@ export default function ForDistrictsPage() {
             team is asking how to make rigorous content more accessible without
             giving up standards alignment, this is the conversation to have.
           </p>
-        </div>
-      </section>
+      </Section>
 
       {/* Services — pinwheel-marked cards */}
-      <section className="bg-surface">
-        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-10">
+      <Section surface width="5xl">
+          <h2 className="font-display text-fluid-h2 text-ink mb-10">
             What an engagement can include
           </h2>
           <ServiceList items={SERVICES} columns={2} />
-        </div>
-      </section>
+      </Section>
 
       {/* How an engagement works */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-10">
+      <Section>
+          <h2 className="font-display text-fluid-h2 text-ink mb-10">
             How an engagement works
           </h2>
           <ol className="space-y-8">
@@ -120,16 +116,14 @@ export default function ForDistrictsPage() {
               </li>
             ))}
           </ol>
-        </div>
-      </section>
+      </Section>
 
       {/* Funding note.
           Confidentiality (CLAUDE.md): generic Title I eligibility and general
           grant-support language only. Never add district names, state names, or
           "currently piloting" language here (open-items.md item 4). */}
-      <section className="bg-surface">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">
+      <Section surface>
+          <h2 className="font-display text-fluid-h2 text-ink mb-6">
             A note on funding
           </h2>
           <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
@@ -142,13 +136,11 @@ export default function ForDistrictsPage() {
             scoping so the engagement is documented in a way that fits your
             requirements.
           </p>
-        </div>
-      </section>
+      </Section>
 
       {/* Closing CTA */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 text-center">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-4">
+      <Section center>
+          <h2 className="font-display text-fluid-h2 text-ink mb-4">
             Start the conversation.
           </h2>
           <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-8">
@@ -159,8 +151,7 @@ export default function ForDistrictsPage() {
           <CTAButton to="/contact" size="lg">
             Schedule a Consult
           </CTAButton>
-        </div>
-      </section>
+      </Section>
     </>
   )
 }

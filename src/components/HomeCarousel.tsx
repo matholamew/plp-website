@@ -26,6 +26,7 @@
 
 import { useEffect, useState } from 'react'
 import { usePrefersReducedMotion } from '../hooks/useScrollProgress'
+import { FOCUS_RING } from '../lib/ui'
 
 const SLIDES = [
   { src: '/images/placeholder-1.svg', alt: '' },
@@ -82,7 +83,7 @@ export default function HomeCarousel() {
 
       {/* Title band — translucent white, company name + tagline (page h1) */}
       <div className="absolute inset-x-0 top-[26%] bg-white/85 py-5 sm:py-7 px-4">
-        <h1 className="font-display text-center leading-tight text-2xl sm:text-4xl lg:text-5xl">
+        <h1 className="font-display text-center leading-tight text-fluid-hero">
           <span className="block text-navy">Playful Learning Partners:</span>
           <span className="block text-accent-purple">
             Bringing Play Into Practice
@@ -91,7 +92,7 @@ export default function HomeCarousel() {
       </div>
 
       {/* Controls — dots + pause, bottom right */}
-      <div className="absolute bottom-2 right-2 flex items-center">
+      <div className="absolute bottom-[max(0.5rem,env(safe-area-inset-bottom))] right-[max(0.5rem,env(safe-area-inset-right))] flex items-center">
         {SLIDES.map((_, i) => (
           <button
             key={i}
@@ -99,7 +100,7 @@ export default function HomeCarousel() {
             onClick={() => setActive(i)}
             aria-label={`Show slide ${i + 1} of ${SLIDES.length}`}
             aria-current={i === active ? 'true' : undefined}
-            className="inline-flex items-center justify-center min-h-11 min-w-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
+            className={`inline-flex items-center justify-center min-h-11 min-w-11 ${FOCUS_RING}`}
           >
             <span
               aria-hidden="true"
@@ -116,7 +117,7 @@ export default function HomeCarousel() {
             manuallyPaused ? 'Resume slide rotation' : 'Pause slide rotation'
           }
           aria-pressed={manuallyPaused}
-          className="inline-flex items-center justify-center min-h-11 min-w-11 text-navy focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
+          className={`inline-flex items-center justify-center min-h-11 min-w-11 text-navy ${FOCUS_RING}`}
         >
           {manuallyPaused ? (
             <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">

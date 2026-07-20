@@ -48,7 +48,7 @@ export default function ServiceList({ items, columns = 2 }: ServiceListProps) {
             aria-hidden="true"
             width={28}
             height={28}
-            className="h-7 w-7 object-contain mb-4 dark:[filter:drop-shadow(0_0_2px_rgba(232,232,240,0.5))_drop-shadow(0_0_6px_rgba(232,232,240,0.25))]"
+            className="h-7 w-7 object-contain mb-4 halo-dark"
           />
 
           <h3 className="font-display text-lg text-ink leading-snug mb-2">

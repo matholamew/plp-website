@@ -1,4 +1,5 @@
 import CTAButton from '../components/CTAButton'
+import Section from '../components/Section'
 
 /*
  * Content drawn from Debra's PLP one-pager (History & Mission, guiding
@@ -22,9 +23,8 @@ import CTAButton from '../components/CTAButton'
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pt-16 pb-14 sm:px-6 sm:pt-20 lg:px-8">
-          <h1 className="font-display text-3xl sm:text-4xl text-ink leading-tight mb-8">
+      <Section pad="intro">
+          <h1 className="font-display text-fluid-h1 text-ink leading-tight mb-8">
             About Debra H.
           </h1>
 
@@ -77,13 +77,11 @@ export default function AboutPage() {
               I am based in [location].
             </p>
           </div>
-        </div>
-      </section>
+      </Section>
 
       {/* What I believe — cool-gray surface band for quiet separation */}
-      <section className="bg-surface">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-8">
+      <Section surface>
+          <h2 className="font-display text-fluid-h2 text-ink mb-8">
             What I believe about play and learning
           </h2>
 
@@ -110,16 +108,13 @@ export default function AboutPage() {
               worksheet that replaced them.
             </p>
           </div>
-        </div>
-      </section>
+      </Section>
 
-      <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8 text-center">
+      <Section center>
           <CTAButton to="/contact" size="lg">
             Schedule a Consult
           </CTAButton>
-        </div>
-      </section>
+      </Section>
     </>
   )
 }
