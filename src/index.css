@@ -100,17 +100,18 @@ body {
 }
 
 /*
- * Hero sizing: header (4rem) + hero = exactly one viewport on every screen.
- * svh = small viewport height: the stable height with mobile browser chrome
- * (address bar) VISIBLE, so the hero always fits fully on first load and does
- * not resize/jump as the bar collapses during scroll (which dvh would do).
- * vh is the fallback for browsers without svh support.
+ * Homepage carousel sizing: header bar (5rem) + accent stripes (12px) +
+ * carousel = exactly one viewport on every screen; all other content sits
+ * below the fold. svh = stable small-viewport height on touch devices (mobile
+ * browser chrome visible), so the fold is correct on first load and never
+ * jumps as the address bar collapses (which dvh would do). vh is the fallback
+ * for browsers without svh support.
  */
-.hero-viewport {
-  min-height: calc(100vh - 4rem);
+.carousel-viewport {
+  height: calc(100vh - 5rem - 12px);
 }
 @supports (height: 100svh) {
-  .hero-viewport {
-    min-height: calc(100svh - 4rem);
+  .carousel-viewport {
+    height: calc(100svh - 5rem - 12px);
   }
 }

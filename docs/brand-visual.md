@@ -31,10 +31,25 @@ since that mockup was picked — see below for the current spec.
   structural elements (headers, stat numbers), pink/purple/teal as accents
   only.
 
+## Header — REVISED 2026-07-13 (Debra-approved reference mockup)
+Debra approved a reference mockup that supersedes the navy-band header:
+- **Header bar is white/page-background**, with the full horizontal logo
+  lockup at left, Explode-font nav links in navy, and the teal CTA at right.
+- Below the bar: a **multi-row accent stripe band** (navy/teal/purple/pink,
+  3px each) — evolution of the accent-line motif.
+- **Homepage hero is a full-width photo carousel** with a translucent white
+  title band (company name navy, tagline purple, Explode). Header + stripes +
+  carousel = exactly one viewport; all other content below the fold.
+- The **footer keeps the navy band** — navy remains the structural brand
+  color there and in the mobile menu overlay.
+- Placeholder images ship until Debra provides real photos (imagery rules
+  below still apply to those photos).
+
 ## Color system
 Brand colors (from the logo): navy, hot pink, purple, teal.
-- **Header and footer**: navy band, this is where the brand's color identity
-  lives structurally, not spread across the whole page.
+- **Footer**: navy band (header is white as of the 2026-07-13 revision above);
+  the navy band remains where the brand's color identity lives structurally,
+  not spread across the whole page.
 - **Primary CTA buttons ("Schedule a Consult" etc.)**: **teal**, not pink and
   not navy — confirmed by project owner. Overrides the original mockup's
   navy CTA.
@@ -63,12 +78,11 @@ headings with Inter body. Neither applies now — see "CURRENT" above. Kept
 here only so the reasoning isn't lost if a future round reverts again.)*
 
 ## Logo usage
-- Logo is final and must not be modified, recolored, or redrawn.
-- **Dynamic header behavior**: on page load, show the full horizontal
-  lockup (pinwheel + wordmark) at a large size in the hero — this should be
-  the dominant visual element on load. On scroll, the header logo shrinks
-  down to **just the pinwheel mark** (not the full wordmark) as a persistent
-  compact nav icon.
+- Logo is final and must not be modified, recolored, or redrawn. (Cropping
+  exports to content bounds for layout purposes is fine; redrawing is not.)
+- **Header logo (2026-07-13 revision)**: the full horizontal lockup sits in
+  the white header bar on every page. (The earlier "shrink to pinwheel on
+  scroll" dynamic-header behavior is retired with the navy band.)
 - **Negative space**: don't crowd the hero wordmark with other design
   elements (badges, secondary graphics, competing focal points). Matt and
   Maria agreed the negative space around the wordmark is doing real work —

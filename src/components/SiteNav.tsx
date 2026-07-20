@@ -1,18 +1,22 @@
 /**
- * SiteNav — sticky top nav on navy band, fixed 4rem tall (h-16) so the hero
- * can size itself to exactly 100dvh minus the header (.hero-viewport).
+ * SiteNav — sticky white header (2026-07-13 redesign per Debra, styled after
+ * the approved reference mockup; supersedes the navy-band header — decision
+ * recorded in brand-visual.md).
  *
- * Color audit (both modes):
- *   - bg-band = #16296b (navy) in both light and dark
- *   - text-band-ink = #f5f6fa in both modes — high contrast on navy (~14:1)
- *   - active link: underline + full opacity treatment on band-ink
- *   - CTAButton uses bg-cta (teal) — works on navy background
+ * Structure: white bar (5rem) with the full horizontal logo lockup left,
+ * Explode-font nav links + teal CTA right; a 4-row accent stripe band (12px:
+ * navy/teal/purple/pink) closes the header. Header total = 5rem + 12px; the
+ * homepage carousel sizes itself against exactly that (.carousel-viewport).
  *
- * Pinwheel mark: always visible on every route (2026-07-12 direction — no
- * empty slot, no handoff; the hero pinwheel stays anchored in the hero).
+ * Colors (both modes): bar is bg-bg / text-navy in light; dark mode keeps
+ * bg-bg (near-black navy) with text-ink and a halo on the lockup so its navy
+ * letterforms stay visible. Focus rings use the teal CTA color on both.
  *
- * Touch targets follow Apple HIG: every interactive element in the header is
- * at least 44×44px (min-h-11/min-w-11 = 2.75rem = 44px).
+ * Mobile: hamburger opens the full-screen navy overlay menu (unchanged
+ * motif: Explode links, accent lines, pinwheel watermark, teal CTA). Overlay
+ * top offset = header height (5rem + 12px = 5.75rem).
+ *
+ * Touch targets: every interactive element >= 44px (Apple HIG).
  */
 
 import { useState, useEffect, useCallback } from 'react'
@@ -22,7 +26,7 @@ import CTAButton from './CTAButton'
 import { NAV_LINKS } from '../lib/site'
 
 const focusRing =
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded'
+  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded'
 
 // Accent-line colors for the full-screen menu links, cycling in logo order
 // (pink → purple → teal; brand-visual.md accent-line motif)
@@ -31,6 +35,19 @@ const MENU_ACCENTS = [
   'bg-accent-purple',
   'bg-accent-teal',
 ] as const
+
+// Header stripe band — the multi-row accent motif from the reference mockup.
+// 4 rows x 3px = 12px total; .carousel-viewport depends on that constant.
+function HeaderStripes() {
+  return (
+    <div aria-hidden="true">
+      <div className="h-[3px] w-full bg-navy" />
+      <div className="h-[3px] w-full bg-accent-teal" />
+      <div className="h-[3px] w-full bg-accent-purple" />
+      <div className="h-[3px] w-full bg-accent-pink" />
+    </div>
+  )
+}
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -92,47 +109,34 @@ export default function SiteNav() {
 
   const closeMobile = useCallback(() => setMobileOpen(false), [])
 
-  // Hover underline in CTA teal (decoration-accent-teal = same hex as bg-cta)
+  // Explode nav links, navy on the white bar (ink in dark mode); hover
+  // underline in CTA teal, persistent underline on the active route.
   const desktopLinkClasses = ({ isActive }: { isActive: boolean }) =>
-    `font-body text-sm font-medium transition-opacity inline-flex items-center min-h-11 px-1 underline-offset-4 decoration-accent-teal decoration-2 ${focusRing} ${
-      isActive
-        ? 'text-band-ink opacity-100 underline'
-        : 'text-band-ink opacity-80 hover:opacity-100 hover:underline'
+    `font-display text-sm lg:text-base transition-opacity inline-flex items-center min-h-11 px-1 underline-offset-4 decoration-accent-teal decoration-2 text-navy dark:text-ink ${focusRing} ${
+      isActive ? 'underline' : 'opacity-80 hover:opacity-100 hover:underline'
     }`
 
   return (
-    <header className="sticky top-0 z-50 bg-band text-band-ink">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand mark + company name — every page's top. Name is Explode
-            (renders all-caps) in band-ink: the multicolor wordmark image
-            would lose its navy letterforms on the navy band, so text carries
-            the name here. Hidden on the narrowest screens to leave room for
-            the controls. */}
+    <header className="sticky top-0 z-50 bg-bg text-ink">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Full lockup — content-cropped export; dark mode adds a halo so the
+            navy letterforms stay visible on the near-black background */}
         <Link
           to="/"
-          className={`flex-shrink-0 inline-flex items-center gap-3 min-h-11 min-w-11 ${focusRing}`}
+          className={`flex-shrink-0 inline-flex items-center min-h-11 ${focusRing}`}
           aria-label="Playful Learning Partners, Home"
         >
-          {/* Soft light halo: the mark's navy sail is nearly the band's navy
-              and vanishes without it */}
           <img
-            src="/logo/plp-pinwheel.png"
+            src="/logo/plp-lockup-horizontal.png"
             alt=""
-            width={40}
-            height={40}
-            className="h-10 w-10 object-contain [filter:drop-shadow(0_0_2px_rgba(245,246,250,0.8))_drop-shadow(0_1px_6px_rgba(245,246,250,0.35))]"
+            className="h-12 sm:h-14 w-auto object-contain dark:[filter:drop-shadow(0_0_2px_rgba(232,232,240,0.55))_drop-shadow(0_0_10px_rgba(232,232,240,0.28))]"
+            fetchPriority="high"
           />
-          {/* Width budget: at md (768-1023) name + links + CTA overflow, and
-              below sm (640) name + controls overflow — hidden in those two
-              ranges; hero (homepage) and footer carry the name there. */}
-          <span className="hidden sm:block md:hidden lg:block font-display text-base lg:text-lg text-band-ink leading-none whitespace-nowrap">
-            Playful Learning Partners
-          </span>
         </Link>
 
         {/* Desktop nav links */}
         <nav
-          className="hidden md:flex items-center gap-5"
+          className="hidden md:flex items-center gap-4 lg:gap-6"
           aria-label="Primary navigation"
         >
           {NAV_LINKS.map(({ label, to }) => (
@@ -159,26 +163,26 @@ export default function SiteNav() {
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
-            className={`text-band-ink hover:opacity-80 inline-flex items-center justify-center min-h-11 min-w-11 transition-opacity ${focusRing}`}
+            className={`text-navy dark:text-ink hover:opacity-80 inline-flex items-center justify-center min-h-11 min-w-11 transition-opacity ${focusRing}`}
           >
             <HamburgerIcon open={mobileOpen} />
           </button>
         </div>
       </div>
 
-      {/* Mobile menu — full-screen navy overlay under the header band.
-          Design: navy carries the brand's structural color (brand-visual.md);
-          large display-font links each carry one of Maria's accent-color
-          lines (longer when active); a faded pinwheel watermark echoes the
-          mobile hero. Links stagger in; motion-safe only. */}
+      <HeaderStripes />
+
+      {/* Mobile menu — full-screen navy overlay below the header (5rem bar
+          + 12px stripes = 5.75rem). Navy still carries the brand's structural
+          color here even with the white header bar. */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed inset-x-0 top-16 bottom-0 z-40 bg-band transition-opacity duration-200 ease-in-out ${
+        className={`md:hidden fixed inset-x-0 top-[5.75rem] bottom-0 z-40 bg-band transition-opacity duration-200 ease-in-out ${
           mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         aria-hidden={!mobileOpen}
       >
-        {/* Pinwheel watermark — decorative, echoes the mobile hero treatment */}
+        {/* Pinwheel watermark — decorative, echoes the card/hero treatment */}
         <img
           src="/logo/plp-pinwheel.png"
           alt=""
@@ -196,7 +200,7 @@ export default function SiteNav() {
               to={to}
               onClick={closeMobile}
               className={({ isActive }) =>
-                `group font-display text-3xl py-4 min-h-11 flex flex-col justify-center gap-2 motion-safe:transition-all motion-safe:duration-300 ${focusRing} ${
+                `group font-display text-3xl py-4 min-h-11 flex flex-col justify-center gap-2 motion-safe:transition-all motion-safe:duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded ${
                   isActive
                     ? 'text-band-ink'
                     : 'text-band-ink opacity-85 hover:opacity-100'

@@ -1,8 +1,16 @@
-import Hero from '../components/Hero'
+import HomeCarousel from '../components/HomeCarousel'
 import ServiceList from '../components/ServiceList'
 import CTAButton from '../components/CTAButton'
+import AccentRule from '../components/AccentRule'
 
-// Voice: no em/en dashes, no banned words, no "it's not X, it's Y" (brand-tone.md).
+/*
+ * Homepage (2026-07-13 redesign per Debra, after the approved reference
+ * mockup): header + stripes + full-width image carousel fill exactly one
+ * viewport; everything below is under the fold, led by a three-card row.
+ *
+ * FACTUAL: Debra is NOT a classroom teacher (see brand-voice.md correction).
+ * Copy frames her as a coach working in real classrooms.
+ */
 const WHY_PLP = [
   {
     title: 'Classroom-tested, not conference-assembled',
@@ -10,12 +18,12 @@ const WHY_PLP = [
       'Every strategy and resource has been refined through hands-on coaching in real classrooms, alongside real teachers and students, rather than pulled together for a workshop.',
   },
   {
-    title: 'Built around your curriculum',
+    title: 'Built around your curriculum, not instead of it',
     description:
-      'The work integrates with the frameworks your teachers already use, including CKLA-aligned supplements, so it strengthens the core program instead of competing with it.',
+      "PLP's approach integrates with the frameworks your teachers already use, including CKLA-aligned supplements, so the work compounds rather than competes.",
   },
   {
-    title: 'Custom to your district',
+    title: 'Custom to your district, from the start',
     description:
       "There is no fixed program with a fixed delivery model. Each engagement is scoped to your team's needs, your grade bands, and your timeline.",
   },
@@ -24,16 +32,22 @@ const WHY_PLP = [
 export default function HomePage() {
   return (
     <>
-      <Hero
-        headline="Playful learning pedagogy, built for real classrooms and district goals."
-        subhead="Playful Learning Partners works with district administrators and curriculum directors to bring research-grounded playful learning into daily instruction. Every strategy is classroom-tested, refined through coaching work in real classrooms, not assembled the night before a training."
-        ctaLabel="Schedule a Consult"
-        ctaTo="/contact"
-      />
+      {/* Above the fold: carousel (header + stripes + this = 100svh) */}
+      <HomeCarousel />
 
-      {/* What PLP does — cool-gray surface band for quiet section separation */}
+      {/* Three-card row — reference mockup's below-carousel layout */}
+      <section className="bg-bg">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-16 lg:px-8">
+          <h2 className="sr-only">Why districts work with Playful Learning Partners</h2>
+          <ServiceList items={WHY_PLP} columns={3} />
+        </div>
+      </section>
+
+      <AccentRule />
+
+      {/* What PLP does — cool-gray surface band for section separation */}
       <section className="bg-surface">
-        <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8">
           <h2 className="font-display text-2xl sm:text-3xl text-ink mb-6">
             What Playful Learning Partners does
           </h2>
@@ -41,28 +55,19 @@ export default function HomePage() {
             Playful Learning Partners is a boutique provider of guided playful
             learning pedagogy, working directly with districts to build teacher
             capacity and integrate play-based instructional strategies into
-            existing curriculum frameworks. This is a structured, pedagogy-first
-            approach to instruction that takes your standards seriously, not a
-            recess program or an activity library. Engagements are designed
-            around your district's specific classrooms, grade levels, and goals,
-            rather than a fixed cohort model delivered the same way everywhere.
+            existing curriculum frameworks. This is not a recess program or an
+            activity library. It is a structured, pedagogy-first approach to
+            instruction that takes your curriculum standards seriously.
+            Engagements are designed around your district's specific
+            classrooms, grade levels, and goals, not a fixed cohort model
+            delivered the same way to every district that signs on.
           </p>
-        </div>
-      </section>
-
-      {/* Why PLP — pinwheel-marked cards, three across on desktop */}
-      <section className="bg-bg">
-        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl text-ink mb-10">
-            Why districts work with Playful Learning Partners
-          </h2>
-          <ServiceList items={WHY_PLP} columns={3} />
         </div>
       </section>
 
       {/* Closing CTA */}
       <section className="bg-bg">
-        <div className="mx-auto max-w-3xl px-4 pb-24 pt-4 sm:px-6 lg:px-8 text-center">
+        <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 text-center">
           <p className="font-display text-xl sm:text-2xl text-ink mb-8">
             Ready to talk about what a playful learning engagement could look
             like for your district?

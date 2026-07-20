@@ -78,7 +78,7 @@ export default function ThemeToggle() {
       onClick={() => setIsDark((prev) => !prev)}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       aria-pressed={isDark}
-      className="text-band-ink hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-band-ink rounded inline-flex items-center justify-center min-h-11 min-w-11 transition-opacity"
+      className="text-navy dark:text-ink hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded inline-flex items-center justify-center min-h-11 min-w-11 transition-opacity"
     >
       {isDark ? <SunIcon /> : <MoonIcon />}
     </button>
