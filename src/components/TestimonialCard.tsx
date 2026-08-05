@@ -16,7 +16,7 @@
  */
 
 interface TestimonialCardProps {
-  quote: string
+  quote: string | string[]
   attribution?: string
   role?: string
 }
@@ -27,13 +27,18 @@ export default function TestimonialCard({
   role,
 }: TestimonialCardProps) {
   const byline = [attribution, role].filter(Boolean).join(', ')
+  const paragraphs = Array.isArray(quote) ? quote : [quote]
 
   return (
     <div className="rounded-md bg-surface border-l-4 border-accent-teal p-6">
-      <blockquote>
-        <p className="font-body italic text-ink leading-relaxed">
-          &ldquo;{quote}&rdquo;
-        </p>
+      <blockquote className="space-y-4">
+        {paragraphs.map((para, i) => (
+          <p key={para.slice(0, 40)} className="font-body italic text-ink leading-relaxed">
+            {i === 0 && <>&ldquo;</>}
+            {para}
+            {i === paragraphs.length - 1 && <>&rdquo;</>}
+          </p>
+        ))}
         {byline && (
           <footer className="mt-4">
             <cite className="not-italic font-body text-sm text-ink-muted">

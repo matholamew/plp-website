@@ -10,8 +10,7 @@
  * Structure: one row with pinwheel + nav links + contact + copyright.
  * On small screens: stacks vertically for readability.
  *
- * TODO: confirm real email address — using hello@playfullearningpartners.com
- * as placeholder per build instructions.
+ * Contact email: info@playfullearningpartners.com (docs/site-copy.md).
  */
 
 import { Link } from 'react-router-dom'
@@ -79,10 +78,25 @@ export default function SiteFooter() {
             </a>
           </div>
 
-          {/* Copyright line */}
-          <div className="mt-6 border-t border-white/10 pt-6">
+          {/* Footer identity + fine print — per docs/site-copy.md Global */}
+          <div className="mt-6 border-t border-white/10 pt-6 space-y-2">
+            <p className="font-body text-sm text-band-ink opacity-80">
+              Playful Learning Partners, LLC · Massachusetts ·{' '}
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="underline underline-offset-4 decoration-accent-teal hover:opacity-80"
+              >
+                {CONTACT_EMAIL}
+              </a>
+            </p>
             <p className="font-body text-sm text-band-ink opacity-70">
-              &copy; {currentYear} Playful Learning Partners. All rights reserved.
+              Playful Learning Partners is an independent practice. It is not
+              affiliated with or endorsed by Harvard University or Project
+              Zero.
+            </p>
+            <p className="font-body text-sm text-band-ink opacity-70">
+              &copy; {currentYear} Playful Learning Partners, LLC. All rights
+              reserved.
             </p>
           </div>
         </div>

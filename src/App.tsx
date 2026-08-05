@@ -1,11 +1,12 @@
 import { useEffect } from 'react'
-import { Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import SiteNav from './components/SiteNav'
 import SiteFooter from './components/SiteFooter'
 import HomePage from './pages/HomePage'
-import ForDistrictsPage from './pages/ForDistrictsPage'
+import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
 import TestimonialsPage from './pages/TestimonialsPage'
+import FaqPage from './pages/FaqPage'
 import ContactPage from './pages/ContactPage'
 
 function ScrollToTop() {
@@ -31,9 +32,17 @@ export default function App() {
       <main id="main-content" className="flex-1">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/for-districts" element={<ForDistrictsPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          {/* /for-districts is reserved for a future audience pillar; the old
+              live page moved to /services. Client-side redirect here; the
+              server-side 301 lives in public/_redirects (Workers assets). */}
+          <Route
+            path="/for-districts"
+            element={<Navigate to="/services" replace />}
+          />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/faq" element={<FaqPage />} />
           <Route path="/contact" element={<ContactPage />} />
           {/* Reserved for post-launch pillars — do not build yet:
               /for-teachers, /for-families (see CLAUDE.md) */}

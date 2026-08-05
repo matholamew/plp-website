@@ -7,7 +7,7 @@
   "assets": {
     "directory": "./dist",
     // Multi-route React Router app: serve index.html for unmatched paths
-    // so client-side routing (/for-districts, /about, ...) works on refresh.
+    // so client-side routing (/services, /about, ...) works on refresh.
     "not_found_handling": "single-page-application"
   }
 }

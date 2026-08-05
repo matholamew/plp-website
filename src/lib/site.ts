@@ -1,20 +1,20 @@
 /**
  * Shared site constants — single source of truth (DRY).
  *
- * NAV_LINKS: consumed by SiteNav (desktop + mobile) and SiteFooter. Nomenclature
- * per CLAUDE.md: "For Districts", not "Services", so "For Teachers" /
- * "For Families" can be added later without restructuring.
+ * NAV_LINKS: order and naming per docs/site-copy.md Global section
+ * (About · Services · Testimonials · FAQ · Contact). "Services" supersedes
+ * the former "For Districts" nav item; /for-districts is reserved for a
+ * future audience pillar and currently redirects to /services.
  *
- * CONTACT_EMAIL: placeholder until Debra confirms the real address (used by
- * ContactPage and SiteFooter — update once, both change).
+ * CONTACT_EMAIL: info@ per docs/site-copy.md (Aug 2026 content update).
  */
 
 export const NAV_LINKS = [
-  { label: 'For Districts', to: '/for-districts' },
   { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
   { label: 'Testimonials', to: '/testimonials' },
+  { label: 'FAQ', to: '/faq' },
   { label: 'Contact', to: '/contact' },
 ] as const
 
-// TODO: confirm real address before launch (open item; PDF shows debra@...)
-export const CONTACT_EMAIL = 'hello@playfullearningpartners.com'
+export const CONTACT_EMAIL = 'info@playfullearningpartners.com'
