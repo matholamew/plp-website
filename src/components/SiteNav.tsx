@@ -6,9 +6,13 @@
  * nav links + teal CTA right; below the bar, the brand stripe band — blue,
  * teal, pink, purple rows separated by white gaps, matching the pinwheel.
  *
- * Compaction: past a small scroll threshold the bar height and logo shrink
- * together (h-20 -> h-14, logo h-12/14 -> h-9) and the stripe band shrinks
- * with them but never disappears. Transitions are motion-safe.
+ * Compaction (sized per Debra, Aug 2026): the bar starts at 6rem with a 4rem
+ * lockup, then shrinks on scroll to 4rem with a 2.5rem lockup — roughly the
+ * size the header used to sit at, which is the "shrink to that size" she
+ * asked for. The stripe band shrinks with it and never disappears.
+ * Expanded height is capped at 6rem deliberately: every pixel here pushes the
+ * three homepage cards toward the fold at 1280x800. Transitions are
+ * motion-safe.
  *
  * Mobile: hamburger opens a full-screen navy overlay (Explode links, accent
  * lines, pinwheel watermark, teal CTA). The overlay covers the viewport
@@ -92,22 +96,17 @@ export default function SiteNav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [compact, setCompact] = useState(false)
 
-  // Compact the header once the page has scrolled a little. rAF-throttled.
+  // Compact the header once the page has scrolled a little.
+  // Deliberately NOT rAF-throttled: rAF is suspended in background tabs and
+  // some low-power/embedded contexts, which left the header stuck expanded.
+  // Setting a boolean straight from the scroll handler is cheap because React
+  // bails out when the value is unchanged, so this renders twice in total
+  // (once each way across the threshold), not once per scroll event.
   useEffect(() => {
-    let raf = 0
-    const update = () => {
-      raf = 0
-      setCompact(window.scrollY > 24)
-    }
-    const onScroll = () => {
-      if (!raf) raf = requestAnimationFrame(update)
-    }
-    update()
+    const onScroll = () => setCompact(window.scrollY > 24)
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', onScroll)
-      if (raf) cancelAnimationFrame(raf)
-    }
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   // Close mobile menu on route change
@@ -144,7 +143,7 @@ export default function SiteNav() {
     <header className="sticky top-0 z-50 bg-bg text-ink">
       <div
         className={`mx-auto flex max-w-7xl items-center justify-between px-page motion-safe:transition-all motion-safe:duration-200 ${
-          compact ? 'h-14' : 'h-16'
+          compact ? 'h-16' : 'h-24'
         }`}
       >
         {/* Full lockup — shrinks with the bar; dark mode halo keeps the navy
@@ -158,7 +157,7 @@ export default function SiteNav() {
             src="/logo/plp-lockup-horizontal.png"
             alt=""
             className={`w-auto object-contain halo-dark motion-safe:transition-all motion-safe:duration-200 ${
-              compact ? 'h-9' : 'h-10 sm:h-12'
+              compact ? 'h-10' : 'h-16'
             }`}
             fetchPriority="high"
           />

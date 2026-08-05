@@ -1,9 +1,13 @@
 /**
  * HomeReel — the homepage hero image reel (Aug 2026 content build).
  *
- * Deliberately short: 16:9 (aspect-video) with a viewport-height cap so the
- * hero text plus the three philosophy cards sit above the fold on desktop.
- * The aspect-ratio box reserves space before images load — no layout shift.
+ * 16:9 (aspect-video) with a viewport-height cap. The cap exists only to keep
+ * the three cards above the fold on short viewports; it was raised from 38vh
+ * to 52vh in Aug 2026 so that on ordinary laptop and desktop sizes the reel
+ * renders at its full column width instead of being cropped short (Debra
+ * asked why the picture had been shrunk — the answer was the fold, and
+ * removing the hero eyebrow and card boxes freed up enough room to give it
+ * back). The aspect-ratio box reserves space before load — no layout shift.
  *
  * Slides cross-fade every 7s. Currently the brand-tinted placeholder SVGs
  * (public/images/placeholder-1..4.svg) — swap the SLIDES list when converted
@@ -50,7 +54,7 @@ export default function HomeReel() {
       role="region"
       aria-roledescription="carousel"
       aria-label="Playful learning in classrooms"
-      className="relative w-full aspect-video max-h-[38vh] overflow-hidden rounded-lg bg-surface"
+      className="relative w-full aspect-video max-h-[52vh] overflow-hidden rounded-lg bg-surface"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setFocused(true)}
