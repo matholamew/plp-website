@@ -22,7 +22,11 @@
 
 ## Needs client/business input, not a design decision
 
-3. **Project Zero credential wording still unconfirmed.** The site says the
+3. **Project Zero credential wording still unconfirmed.** (Partially
+   addressed 2026-08-05: the Home page no longer calls Project Zero "the
+   group that developed the field's foundational framework"; it now reads
+   "a foundational framework in the field of playful learning." The
+   underlying question below is still open.) The site says the
    approach "draws on" / "is built on" the Pedagogy of Play research from
    Harvard Graduate School of Education's Project Zero, and the footer
    carries the non-affiliation disclaimer. What is NOT settled is whether any
@@ -49,6 +53,17 @@
 7. **Purchasable materials section deferred until files exist.** No store,
    downloads, or purchasable materials appear on the site. Revisit only when
    real files and a delivery mechanism exist.
+
+## Confirmed facts that constrain copy (2026-08-05)
+
+- **PLP has no completed full-year partnerships yet.** Confirmed by the
+  project owner. No copy may claim accumulated results or patterns: what
+  "most partnerships" do, how the first year "usually" goes, what teachers
+  "frequently tell us", what "many schools" have done. Describe what PLP
+  offers and how it is designed to work, never what it has repeatedly
+  produced. Revisit this line once a full year closes.
+- **Debra is not a classroom teacher** (carried forward from 2026-07-12).
+  She is a playful learning coach/consultant.
 
 ## Resolved by the Aug 2026 content build
 - **Title I / pilot-engagement language — REMOVED.** The "currently piloting

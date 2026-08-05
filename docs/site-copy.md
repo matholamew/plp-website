@@ -1,6 +1,6 @@
 # Playful Learning Partners — Site Copy (Launch)
 
-Status: approved for build. Everything requiring verification has been removed. Scope: Massachusetts. PreK–Grade 5. No pricing, no scope numbers, no named districts, no reference to any specific funded engagement.
+Status: approved for build, **amended 2026-08-05 by a truthfulness pass** (see "Aug 2026 amendments" at the end). Everything requiring verification has been removed. Scope: Massachusetts. PreK–Grade 5. No pricing, no scope numbers, no named districts, no reference to any specific funded engagement.
 
 ## Global
 
@@ -40,7 +40,7 @@ Every school has its own culture, its own constraints, and its own starting poin
 
 ### Grounded in the research
 
-Our work is built on the Pedagogy of Play research from Harvard Graduate School of Education's Project Zero — the group that developed the field's foundational framework for playful learning.
+Our work is built on the Pedagogy of Play research from Harvard Graduate School of Education's Project Zero, a foundational framework in the field of playful learning.
 
 That framework gives us four Playful Learning Indicators — Enjoyment, Curiosity, Empowerment, and Connection — that we use to plan lessons, structure classroom observations, and talk concretely with teachers and administrators about what's changing in a classroom.
 
@@ -52,7 +52,7 @@ Heading: Playful learning shouldn't depend on your funding formula.
 
 There's no eligibility threshold to meet here. No need index to fall under. No federal funding category you have to qualify for before you can bring playful learning to your classrooms.
 
-We work with schools and districts at every level of need — full multi-year partnerships or a single workshop series. If you want this for your students, there's a way in.
+We are set up to work with schools and districts at any level of need, from a single workshop series to a multi-year partnership. If you want this for your students, there's a way in.
 
 CTA: See what we offer → `/services`
 
@@ -102,7 +102,7 @@ No photo at launch.
 
 ## Services — `/services`
 
-Page intro: Services are selected à la carte. Most partnerships combine professional development with in-classroom coaching, but there's no required package — we build around your goals, your staffing, and your funding.
+Page intro: Services are selected à la carte. Professional development and in-classroom coaching are built to work together, but there's no required package — we build around your goals, your staffing, and your funding.
 
 ### Workshops
 
@@ -139,8 +139,6 @@ Each cycle includes:
 ### Administrator Collaboration & Sustainability
 
 Regular working sessions with school and district leaders on what's changing in classrooms, what teachers and students need next, and how to build a model that carries the work forward without us.
-
-This is the piece most professional development skips, and it's the reason implementations fade after year one.
 
 ### Monthly PLC Meetings
 
@@ -182,13 +180,13 @@ Barbara Saraiva — Second Grade Teacher
 Yes — that's the design. We don't ask schools to replace what they're teaching. Playful learning practices are built to sit inside your existing curriculum, using the structures and standards you already work from. Our lessons are developed with the Massachusetts state frameworks in view, and we return to grade-level standards as we build.
 
 **Some of our teachers already feel like they're doing playful learning. What would they get out of this?**
-Often quite a lot, and usually not what they expect. Teachers who already value play tend to be doing it well in moments and inconsistently across the week. The work here is structural — how a community meeting is run so every child talks, how a studio is set up so the materials do some of the teaching, how story acting connects to what you're assessing on Friday. Experienced teachers frequently tell us the framework gave them language for what they were already doing intuitively, and a way to make it repeatable.
+Often quite a lot, and usually not what they expect. Teachers who already value play tend to be doing it well in moments and inconsistently across the week. The work here is structural — how a community meeting is run so every child talks, how a studio is set up so the materials do some of the teaching, how story acting connects to what you're assessing on Friday.
 
 **What is playful learning, and how is it different from just play?**
 Playful learning is guided. There's an instructional purpose behind the setup, the materials, and the teacher's role in it. Children experience choice, wonder, and joy; the teacher is working toward specific understanding. The difference isn't in how it looks to a child — it's in what the adult is doing while it happens.
 
 **How heavy is the lift for teachers?**
-Lighter than most people expect, and front-loaded. The practices are designed to work inside the schedule teachers already have rather than adding to it. The initial adjustment is real — new structures always are — which is why we pair every workshop with in-classroom coaching instead of leaving teachers to figure it out alone.
+Front-loaded. The practices are designed to work inside the schedule teachers already have rather than adding to it. The initial adjustment is real — new structures always are — which is why we recommend pairing workshops with in-classroom coaching instead of leaving teachers to figure it out alone.
 
 **What grade levels do you work with?**
 PreK through Grade 5.
@@ -209,10 +207,7 @@ We use Project Zero's Playful Learning Indicators — Enjoyment, Curiosity, Empo
 Yes. Services are selected à la carte, and the Playful Learning Indicators we emphasize can be weighted toward your school's priorities. A building focused on belonging and behavior will emphasize different indicators than one focused on early literacy engagement.
 
 **We're not sure we can fund this. What are our options?**
-Talk to us anyway. We help schools identify funding sources and support grant applications, and we work with schools and districts at every level of need.
-
-**How does the first year usually go?**
-Most partnerships begin with professional development for the teams doing the work, followed by classroom observation and coaching cycles spaced across the year so teachers have time to implement between them. Alongside that, we meet regularly with administrators on progress and sustainability, and teachers meet monthly to collaborate across grade levels. Many schools close the year with a family engagement night.
+Talk to us anyway. We help schools identify funding sources and support grant applications, and we are willing to work with schools and districts at any level of need.
 
 ## Content that must NOT appear anywhere
 
@@ -226,3 +221,30 @@ Most partnerships begin with professional development for the teams doing the wo
 * Pricing, workshop counts, or session lengths
 * Any claim about Debra's personal training or certification by Project Zero
 * Purchasable materials or a store (deferred until files exist)
+* **Any claim of accumulated track record.** PLP has no completed full-year
+  partnerships yet. Nothing may say what "most partnerships" do, how the first
+  year "usually" goes, what teachers "frequently tell us", or what "many
+  schools" have done.
+* Unsubstantiated claims about what other professional development does or
+  fails to do
+
+## Aug 2026 amendments (truthfulness pass)
+
+Confirmed with the project owner: **PLP has no completed full-year
+partnerships yet.** The following were removed or restated. Do not reintroduce
+them without new facts.
+
+| Location | Was | Now |
+|---|---|---|
+| FAQ | "How does the first year usually go?" (whole Q&A) | Removed. There is no "usually" yet. |
+| FAQ, teachers already doing play | "Experienced teachers frequently tell us the framework gave them language..." | Removed. |
+| FAQ, lift for teachers | "Lighter than most people expect"; "we pair every workshop with in-classroom coaching" | Opener removed; now "we recommend pairing workshops with coaching" (the original also contradicted the à la carte model). |
+| FAQ, funding | "we work with schools and districts at every level of need" | "we are willing to work with schools and districts at any level of need" (willingness, not client range). |
+| Home, research | Project Zero as "the group that developed the field's foundational framework" | "a foundational framework in the field of playful learning". |
+| Home, access | "We work with schools and districts at every level of need — full multi-year partnerships or a single workshop series" | "We are set up to work with... from a single workshop series to a multi-year partnership." |
+| Services, page intro | "Most partnerships combine professional development with in-classroom coaching" | "Professional development and in-classroom coaching are built to work together" (no partnership pattern to cite yet). |
+| Services, administrator collaboration | "This is the piece most professional development skips, and it's the reason implementations fade after year one." | Removed. |
+
+Still outstanding, tracked in `docs/open-items.md`: Project Zero credential
+wording, administrator testimonial, written testimonial permissions, grant
+support scope.

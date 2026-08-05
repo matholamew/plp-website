@@ -2,9 +2,20 @@ import CTAButton from '../components/CTAButton'
 import Section from '../components/Section'
 
 /*
- * FAQ — copy VERBATIM from docs/site-copy.md (approved, final). Real
- * <details>/<summary> disclosure widgets: keyboard-operable and functional
- * with JavaScript disabled. Do not rewrite or add questions.
+ * FAQ — copy from docs/site-copy.md (approved), amended by the Aug 2026
+ * truthfulness pass. PLP has no completed full-year partnerships yet, so
+ * claims that asserted accumulated history were removed:
+ *   - "How does the first year usually go?" deleted outright (it answered
+ *     with "most partnerships" and "many schools"; there is no usual yet).
+ *   - "Experienced teachers frequently tell us..." deleted.
+ *   - "Lighter than most people expect" deleted, and "we pair every workshop
+ *     with coaching" softened to "we recommend pairing" — the original
+ *     contradicted the a-la-carte service model.
+ *   - "we work with schools at every level of need" restated as willingness.
+ * The same edits are recorded in docs/site-copy.md. Do not reintroduce.
+ *
+ * Real <details>/<summary> disclosure: keyboard-operable and functional with
+ * JavaScript disabled. Do not add questions that assert results or history.
  */
 
 const FAQS: { question: string; answer: string[] }[] = [
@@ -18,7 +29,7 @@ const FAQS: { question: string; answer: string[] }[] = [
     question:
       "Some of our teachers already feel like they're doing playful learning. What would they get out of this?",
     answer: [
-      "Often quite a lot, and usually not what they expect. Teachers who already value play tend to be doing it well in moments and inconsistently across the week. The work here is structural — how a community meeting is run so every child talks, how a studio is set up so the materials do some of the teaching, how story acting connects to what you're assessing on Friday. Experienced teachers frequently tell us the framework gave them language for what they were already doing intuitively, and a way to make it repeatable.",
+      "Often quite a lot, and usually not what they expect. Teachers who already value play tend to be doing it well in moments and inconsistently across the week. The work here is structural — how a community meeting is run so every child talks, how a studio is set up so the materials do some of the teaching, how story acting connects to what you're assessing on Friday.",
     ],
   },
   {
@@ -30,7 +41,7 @@ const FAQS: { question: string; answer: string[] }[] = [
   {
     question: 'How heavy is the lift for teachers?',
     answer: [
-      'Lighter than most people expect, and front-loaded. The practices are designed to work inside the schedule teachers already have rather than adding to it. The initial adjustment is real — new structures always are — which is why we pair every workshop with in-classroom coaching instead of leaving teachers to figure it out alone.',
+      'Front-loaded. The practices are designed to work inside the schedule teachers already have rather than adding to it. The initial adjustment is real — new structures always are — which is why we recommend pairing workshops with in-classroom coaching instead of leaving teachers to figure it out alone.',
     ],
   },
   {
@@ -70,13 +81,7 @@ const FAQS: { question: string; answer: string[] }[] = [
   {
     question: "We're not sure we can fund this. What are our options?",
     answer: [
-      'Talk to us anyway. We help schools identify funding sources and support grant applications, and we work with schools and districts at every level of need.',
-    ],
-  },
-  {
-    question: 'How does the first year usually go?',
-    answer: [
-      'Most partnerships begin with professional development for the teams doing the work, followed by classroom observation and coaching cycles spaced across the year so teachers have time to implement between them. Alongside that, we meet regularly with administrators on progress and sustainability, and teachers meet monthly to collaborate across grade levels. Many schools close the year with a family engagement night.',
+      'Talk to us anyway. We help schools identify funding sources and support grant applications, and we are willing to work with schools and districts at any level of need.',
     ],
   },
 ]

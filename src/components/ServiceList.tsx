@@ -1,16 +1,16 @@
 /**
- * ServiceList — responsive card grid of service/feature items.
+ * ServiceList — the homepage's three-column content row.
  *
- * Layout (Mertens-style restraint, per 2026-07-12 redesign):
- *   - 1 column on mobile, 2 columns from md up. Generous gutters, no hard
- *     dividers between cards — separation is whitespace + a hairline border.
- *   - Each card: pinwheel marker (brand-visual.md "pinwheel as bullet"),
- *     title (font-display), description (font-body, ink-muted).
+ * The brief calls for three cards, so the three-column structure stays. The
+ * boxed-card chrome does not: a grid of identical rounded, bordered boxes
+ * with an icon stacked above a heading is the generic AI-page default. Each
+ * column now leads with a full-width brand accent rule (the documented
+ * accent-line motif, cycling pink/purple/teal in logo order) and carries the
+ * pinwheel inline with its heading, which keeps Maria's pinwheel-as-marker
+ * detail without the container.
  *
- * Color audit (both modes):
- *   - Cards sit on bg-bg or bg-surface. Hairline border uses ink-muted at low
- *     opacity, legible-but-quiet in light (#4b4b63/15) and dark (#a8aec4/15).
- *   - text-ink / text-ink-muted contrast verified on both bg values elsewhere.
+ * Color audit (both modes): text-ink / text-ink-muted verified on bg-bg and
+ * bg-surface; the accent rules are decorative only.
  *
  * Props:
  *   - items: { title: string; description: string }[]
@@ -27,31 +27,31 @@ interface ServiceListProps {
   columns?: 2 | 3
 }
 
+const ACCENTS = ['bg-accent-pink', 'bg-accent-purple', 'bg-accent-teal'] as const
+
 export default function ServiceList({ items, columns = 2 }: ServiceListProps) {
-  const gridCols =
-    columns === 3
-      ? 'sm:grid-cols-2 lg:grid-cols-3'
-      : 'sm:grid-cols-2'
+  const gridCols = columns === 3 ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2'
 
   return (
-    <ul className={`grid grid-cols-1 ${gridCols} gap-6 sm:gap-8`} role="list">
+    <ul
+      className={`grid grid-cols-1 ${gridCols} gap-x-8 gap-y-10 lg:gap-x-12`}
+      role="list"
+    >
       {items.map((item, index) => (
-        <li
-          key={index}
-          className="rounded-lg border border-ink-muted/15 bg-bg p-5 sm:p-6"
-        >
-          {/* Pinwheel marker — aria-hidden, purely decorative */}
-          {/* Dark mode: halo keeps the navy sail visible on the dark card bg */}
-          <img
-            src="/logo/plp-pinwheel.png"
-            alt=""
+        <li key={item.title}>
+          <div
             aria-hidden="true"
-            width={28}
-            height={28}
-            className="h-7 w-7 object-contain mb-3 halo-dark"
+            className={`h-[3px] w-full ${ACCENTS[index % ACCENTS.length]}`}
           />
-
-          <h3 className="font-display text-lg text-ink leading-snug mb-1.5">
+          <h3 className="font-display text-lg text-ink leading-snug mt-5 mb-2 flex items-center gap-2.5">
+            <img
+              src="/logo/plp-pinwheel.png"
+              alt=""
+              aria-hidden="true"
+              width={22}
+              height={22}
+              className="h-[22px] w-[22px] flex-shrink-0 object-contain halo-dark"
+            />
             {item.title}
           </h3>
           <p className="font-body text-base text-ink-muted leading-normal">

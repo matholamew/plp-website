@@ -1,18 +1,18 @@
 /**
- * TestimonialCard — restrained pull-quote card with accent-teal left rule.
+ * TestimonialCard — pull-quote block.
  *
- * Color audit (both modes):
- *   - bg-surface: light = #eceef2, dark = #131c31 — card background
- *   - text-ink (italic quote): high contrast on surface in both modes
- *   - text-ink-muted (attribution): passes AA on surface in both modes
- *   - accent-teal left border: purely decorative
+ * The thick colored left border this used to carry is the single most
+ * recognizable tell of an AI-generated interface, so the quote now stands on
+ * typography and space instead: larger quote text, a short brand accent rule
+ * separating quote from attribution, and the attribution set small with
+ * tracking. No decorative quote-mark graphics.
  *
- * Per spec: left rule reads as a conventional pull-quote treatment; no
- * decorative quote-mark graphics. (The old `placeholder` variant was removed
- * when the real, approved testimonials landed — 2026-07-13.)
+ * Color audit (both modes): bg-surface (#eceef2 / #131c31) with text-ink for
+ * the quote and text-ink-muted for the attribution; both verified above
+ * 4.5:1 on that surface in light and dark.
  *
- * Props: quote (verbatim; never paraphrase third-party words), attribution,
- * role.
+ * Props: quote (verbatim third-party words, string or paragraphs),
+ * attribution, role.
  */
 
 interface TestimonialCardProps {
@@ -30,23 +30,30 @@ export default function TestimonialCard({
   const paragraphs = Array.isArray(quote) ? quote : [quote]
 
   return (
-    <div className="rounded-md bg-surface border-l-4 border-accent-teal p-6">
+    <figure className="rounded-lg bg-surface p-6 sm:p-8">
       <blockquote className="space-y-4">
         {paragraphs.map((para, i) => (
-          <p key={para.slice(0, 40)} className="font-body italic text-ink leading-relaxed">
+          <p
+            key={para.slice(0, 40)}
+            className="font-body text-base sm:text-lg text-ink leading-relaxed"
+          >
             {i === 0 && <>&ldquo;</>}
             {para}
             {i === paragraphs.length - 1 && <>&rdquo;</>}
           </p>
         ))}
-        {byline && (
-          <footer className="mt-4">
-            <cite className="not-italic font-body text-sm text-ink-muted">
-              {byline}
-            </cite>
-          </footer>
-        )}
       </blockquote>
-    </div>
+      {byline && (
+        <figcaption className="mt-6">
+          <span
+            aria-hidden="true"
+            className="block h-[3px] w-10 bg-accent-teal mb-3"
+          />
+          <cite className="not-italic font-body text-sm font-semibold tracking-wide text-ink-muted">
+            {byline}
+          </cite>
+        </figcaption>
+      )}
+    </figure>
   )
 }
