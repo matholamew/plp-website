@@ -5,13 +5,15 @@ import CTAButton from '../components/CTAButton'
 import Section from '../components/Section'
 
 /*
- * TODO before launch:
- *   - No backend submission yet. Submit currently opens the visitor's mail
- *     client with a prefilled message (mailto). Replace with a real form
- *     handler (e.g. Cloudflare Worker) when ready.
- *   - CONTACT_EMAIL placeholder lives in src/lib/site.ts — confirm the real
- *     address there (single source, also used by SiteFooter).
- *   - "[X business days]" response-time claim is a placeholder for Debra.
+ * Contact. docs/site-copy.md specifies the contact email but no body copy for
+ * this page, so the intro reuses the approved closing-CTA sentence from the
+ * Home section rather than inventing a new claim. The former
+ * "[X business days]" response-time placeholder was removed (it rendered
+ * literally and promises a turnaround nobody has approved).
+ *
+ * TODO before launch: no backend yet — submit opens the visitor's mail client
+ * with a prefilled message (mailto). Replace with a real handler (e.g. a
+ * Cloudflare Worker) when ready.
  */
 
 // min-h-11 = 44px touch target (Apple HIG)
@@ -58,11 +60,8 @@ export default function ContactPage() {
           Get in touch.
         </h1>
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-10">
-          If you are a district administrator, curriculum director, or
-          instructional coach exploring whether a Playful Learning Partners
-          engagement is a fit for your district, this is the right place to
-          start. Fill out the form below and Debra will follow up within
-          [X business days] to schedule a consult call.
+          Tell us what you're working on — grade levels, goals, what's
+          already in place — and we'll tell you honestly whether we're a fit.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">
@@ -159,7 +158,7 @@ export default function ContactPage() {
         </form>
 
         <p className="font-body text-sm text-ink-muted mt-8">
-          Prefer email? Reach Debra directly at{' '}
+          Prefer email? Reach us directly at{' '}
           <a
             href={`mailto:${CONTACT_EMAIL}`}
             className="text-ink underline underline-offset-4 decoration-accent-teal hover:opacity-80 inline-flex items-center min-h-11 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"

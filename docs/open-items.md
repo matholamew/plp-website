@@ -21,16 +21,42 @@
    original one-pager mockup is wanted instead.
 
 ## Needs client/business input, not a design decision
-3. **Testimonial attribution.** Two written testimonials exist; confirm full
-   name + title + institution for each before publishing, and confirm
-   whether either is traceable to the confidential Title I engagement (if
-   so, it likely can't be used, or needs to be significantly generalized).
-4. **"Currently piloting with a [state] district" language** — confirm with
-   Debra exactly how much can be said publicly about the in-progress
-   engagement without identifying it. Default to the vaguest version
-   ("piloting with a Massachusetts school district") until told otherwise,
-   and get that specific sentence approved before publishing, not just the
-   general practice.
+
+3. **Project Zero credential wording still unconfirmed.** The site says the
+   approach "draws on" / "is built on" the Pedagogy of Play research from
+   Harvard Graduate School of Education's Project Zero, and the footer
+   carries the non-affiliation disclaimer. What is NOT settled is whether any
+   stronger phrasing is defensible. No claim of Debra's personal training or
+   certification by Project Zero may appear anywhere until this is confirmed
+   in writing.
+
+4. **Administrator testimonial still needed.** Both published testimonials
+   are from teachers (Samantha Cameron, Barbara Saraiva). The primary buyer
+   is a district administrator, and there is currently no quote from that
+   audience. Ask Debra to source one.
+
+5. **Written permission for both existing testimonials is outstanding.** The
+   quotes are published with name + role. Get explicit written consent from
+   Samantha Cameron and Barbara Saraiva for public use of their words and
+   attribution, and retain it.
+
+6. **Grant support scope needs tightening.** The Services page says PLP helps
+   "identify funding sources, develop grant applications, and communicate
+   with granting organizations." Confirm what Debra will actually do versus
+   advise on, so the promise is not broader than the service. Also confirm
+   whether any of this is billable or included.
+
+7. **Purchasable materials section deferred until files exist.** No store,
+   downloads, or purchasable materials appear on the site. Revisit only when
+   real files and a delivery mechanism exist.
+
+## Resolved by the Aug 2026 content build
+- **Title I / pilot-engagement language — REMOVED.** The "currently piloting
+  with a Massachusetts school district" strip and the CKLA / Title I / 1:1
+  stat card are gone. `docs/site-copy.md` now lists Title I, named districts,
+  CKLA, and pilot references under content that must never appear.
+- **Testimonial attribution wording — settled** (name + role only, no school
+  or district named). Consent itself is still open; see item 5.
 
 ## Settled, no action needed
 - Orchestrator model: Fable 5, confirmed by project owner (see CLAUDE.md).

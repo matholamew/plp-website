@@ -38,7 +38,7 @@ export default function ServiceList({ items, columns = 2 }: ServiceListProps) {
       {items.map((item, index) => (
         <li
           key={index}
-          className="rounded-lg border border-ink-muted/15 bg-bg p-6 sm:p-7"
+          className="rounded-lg border border-ink-muted/15 bg-bg p-5 sm:p-6"
         >
           {/* Pinwheel marker — aria-hidden, purely decorative */}
           {/* Dark mode: halo keeps the navy sail visible on the dark card bg */}
@@ -48,13 +48,13 @@ export default function ServiceList({ items, columns = 2 }: ServiceListProps) {
             aria-hidden="true"
             width={28}
             height={28}
-            className="h-7 w-7 object-contain mb-4 halo-dark"
+            className="h-7 w-7 object-contain mb-3 halo-dark"
           />
 
-          <h3 className="font-display text-lg text-ink leading-snug mb-2">
+          <h3 className="font-display text-lg text-ink leading-snug mb-1.5">
             {item.title}
           </h3>
-          <p className="font-body text-base text-ink-muted leading-relaxed">
+          <p className="font-body text-base text-ink-muted leading-normal">
             {item.description}
           </p>
         </li>

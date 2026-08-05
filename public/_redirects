@@ -1,0 +1,5 @@
+# Old live route -> new Services page. Single specific 301 only.
+# NEVER add a catch-all /* rule here: under Workers static assets it
+# self-matches and the deploy fails with an infinite-loop error
+# (SPA fallback is handled by wrangler.jsonc not_found_handling).
+/for-districts /services 301

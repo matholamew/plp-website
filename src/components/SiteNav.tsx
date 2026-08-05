@@ -1,39 +1,60 @@
 /**
- * SiteNav — sticky white header (2026-07-13 redesign per Debra, styled after
- * the approved reference mockup; supersedes the navy-band header — decision
- * recorded in brand-visual.md).
+ * SiteNav — sticky white header that compacts on scroll (Aug 2026 content
+ * build, per approved design constraints).
  *
- * Structure: white bar (5rem) with the full horizontal logo lockup left,
- * Explode-font nav links + teal CTA right; a 4-row accent stripe band (12px:
- * navy/teal/purple/pink) closes the header. Header total = 5rem + 12px; the
- * homepage carousel sizes itself against exactly that (.carousel-viewport).
+ * Structure: white bar with the full horizontal logo lockup left, Explode
+ * nav links + teal CTA right; below the bar, the brand stripe band — blue,
+ * teal, pink, purple rows separated by white gaps, matching the pinwheel.
  *
- * Colors (both modes): bar is bg-bg / text-navy in light; dark mode keeps
- * bg-bg (near-black navy) with text-ink and a halo on the lockup so its navy
- * letterforms stay visible. Focus rings use the teal CTA color on both.
+ * Compaction: past a small scroll threshold the bar height and logo shrink
+ * together (h-20 -> h-14, logo h-12/14 -> h-9) and the stripe band shrinks
+ * with them but never disappears. Transitions are motion-safe.
  *
- * Mobile: hamburger opens the full-screen navy overlay menu (unchanged
- * motif: Explode links, accent lines, pinwheel watermark, teal CTA). Overlay
- * top offset = header height (5rem + 12px = 5.75rem).
+ * Mobile: hamburger opens a full-screen navy overlay (Explode links, accent
+ * lines, pinwheel watermark, teal CTA). The overlay covers the viewport
+ * under the sticky header (z-40 < z-50), so it works at any header height.
  *
- * Touch targets: every interactive element >= 44px (Apple HIG).
+ * Touch targets >= 44px; focus rings teal on white, band-ink on navy.
  */
 
 import { useState, useEffect, useCallback } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import ThemeToggle from './ThemeToggle'
 import CTAButton from './CTAButton'
-import AccentRule from './AccentRule'
 import { NAV_LINKS } from '../lib/site'
 import { FOCUS_RING, FOCUS_RING_BAND } from '../lib/ui'
 
 // Accent-line colors for the full-screen menu links, cycling in logo order
-// (pink → purple → teal; brand-visual.md accent-line motif)
 const MENU_ACCENTS = [
   'bg-accent-pink',
   'bg-accent-purple',
   'bg-accent-teal',
 ] as const
+
+// Brand stripe band: blue, teal, pink, purple separated by white gaps
+// (order and gaps per the approved design constraints; colors match the
+// pinwheel). Shrinks with the compact header but does not disappear.
+const STRIPES = [
+  'bg-navy',
+  'bg-accent-teal',
+  'bg-accent-pink',
+  'bg-accent-purple',
+] as const
+
+function BrandStripes({ compact }: { compact: boolean }) {
+  return (
+    <div className="w-full bg-bg" aria-hidden="true">
+      {STRIPES.map((color, i) => (
+        <div
+          key={color}
+          className={`w-full ${color} motion-safe:transition-all motion-safe:duration-200 ${
+            compact ? 'h-[2px]' : 'h-[3px]'
+          } ${i < STRIPES.length - 1 ? (compact ? 'mb-[1px]' : 'mb-[2px]') : ''}`}
+        />
+      ))}
+    </div>
+  )
+}
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -69,6 +90,25 @@ export default function SiteNav() {
   const location = useLocation()
 
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [compact, setCompact] = useState(false)
+
+  // Compact the header once the page has scrolled a little. rAF-throttled.
+  useEffect(() => {
+    let raf = 0
+    const update = () => {
+      raf = 0
+      setCompact(window.scrollY > 24)
+    }
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      if (raf) cancelAnimationFrame(raf)
+    }
+  }, [])
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -95,8 +135,6 @@ export default function SiteNav() {
 
   const closeMobile = useCallback(() => setMobileOpen(false), [])
 
-  // Explode nav links, navy on the white bar (ink in dark mode); hover
-  // underline in CTA teal, persistent underline on the active route.
   const desktopLinkClasses = ({ isActive }: { isActive: boolean }) =>
     `font-display text-sm lg:text-base transition-opacity inline-flex items-center min-h-11 px-1 underline-offset-4 decoration-accent-teal decoration-2 text-navy dark:text-ink ${FOCUS_RING} ${
       isActive ? 'underline' : 'opacity-80 hover:opacity-100 hover:underline'
@@ -104,9 +142,13 @@ export default function SiteNav() {
 
   return (
     <header className="sticky top-0 z-50 bg-bg text-ink">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-page">
-        {/* Full lockup — content-cropped export; dark mode adds a halo so the
-            navy letterforms stay visible on the near-black background */}
+      <div
+        className={`mx-auto flex max-w-7xl items-center justify-between px-page motion-safe:transition-all motion-safe:duration-200 ${
+          compact ? 'h-14' : 'h-16'
+        }`}
+      >
+        {/* Full lockup — shrinks with the bar; dark mode halo keeps the navy
+            letterforms visible on the near-black background */}
         <Link
           to="/"
           className={`flex-shrink-0 inline-flex items-center min-h-11 ${FOCUS_RING}`}
@@ -115,7 +157,9 @@ export default function SiteNav() {
           <img
             src="/logo/plp-lockup-horizontal.png"
             alt=""
-            className="h-12 sm:h-14 w-auto object-contain halo-dark"
+            className={`w-auto object-contain halo-dark motion-safe:transition-all motion-safe:duration-200 ${
+              compact ? 'h-9' : 'h-10 sm:h-12'
+            }`}
             fetchPriority="high"
           />
         </Link>
@@ -156,19 +200,19 @@ export default function SiteNav() {
         </div>
       </div>
 
-      <AccentRule withNavy />
+      <BrandStripes compact={compact} />
 
-      {/* Mobile menu — full-screen navy overlay below the header (5rem bar
-          + 12px stripes = 5.75rem). Navy still carries the brand's structural
-          color here even with the white header bar. */}
+      {/* Mobile menu — full-screen navy overlay. Covers the viewport under
+          the sticky header (z-40 < header z-50); content clears the header
+          with top padding so it works at either header height. */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed inset-x-0 top-[5.75rem] bottom-0 z-40 bg-band transition-opacity duration-200 ease-in-out ${
+        className={`md:hidden fixed inset-0 z-40 bg-band transition-opacity duration-200 ease-in-out ${
           mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
         aria-hidden={!mobileOpen}
       >
-        {/* Pinwheel watermark — decorative, echoes the card/hero treatment */}
+        {/* Pinwheel watermark — decorative */}
         <img
           src="/logo/plp-pinwheel.png"
           alt=""
@@ -177,7 +221,7 @@ export default function SiteNav() {
         />
 
         <nav
-          className="relative flex h-full flex-col justify-center gap-1 px-page pb-safe"
+          className="relative flex h-full flex-col justify-center gap-1 px-page pt-24 pb-safe"
           aria-label="Mobile navigation"
         >
           {NAV_LINKS.map(({ label, to }, i) => (
@@ -186,7 +230,7 @@ export default function SiteNav() {
               to={to}
               onClick={closeMobile}
               className={({ isActive }) =>
-                `group font-display text-3xl py-4 min-h-11 flex flex-col justify-center gap-2 motion-safe:transition-all motion-safe:duration-300 ${FOCUS_RING_BAND} ${
+                `group font-display text-2xl sm:text-3xl py-3 min-h-11 flex flex-col justify-center gap-2 motion-safe:transition-all motion-safe:duration-300 ${FOCUS_RING_BAND} ${
                   isActive
                     ? 'text-band-ink'
                     : 'text-band-ink opacity-85 hover:opacity-100'
@@ -203,7 +247,6 @@ export default function SiteNav() {
               {({ isActive }) => (
                 <>
                   {label}
-                  {/* Accent line — Maria's motif; longer when active */}
                   <span
                     aria-hidden="true"
                     className={`block h-[3px] motion-safe:transition-all motion-safe:duration-300 ${
@@ -216,7 +259,7 @@ export default function SiteNav() {
           ))}
 
           <div
-            className={`pt-8 motion-safe:transition-all motion-safe:duration-300 ${
+            className={`pt-6 motion-safe:transition-all motion-safe:duration-300 ${
               mobileOpen
                 ? 'translate-y-0 opacity-100'
                 : 'motion-safe:translate-y-3 motion-safe:opacity-0'
