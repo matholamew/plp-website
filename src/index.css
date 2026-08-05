@@ -155,23 +155,3 @@ figcaption {
 body {
   @apply bg-bg font-body text-ink antialiased;
 }
-
-/*
- * Decorative pinwheel spin (Services page motif): one revolution when the
- * element scrolls into view (.pinwheel-inview), continuous while hovered
- * (.pinwheel-host:hover). Purely decorative; wrapped in a reduced-motion
- * guard so opted-out users see a static pinwheel.
- */
-@media (prefers-reduced-motion: no-preference) {
-  @keyframes pinwheel-rotate {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  .pinwheel-inview {
-    animation: pinwheel-rotate 1.1s ease-out;
-  }
-  .pinwheel-host:hover .pinwheel-spinner {
-    animation: pinwheel-rotate 0.9s linear infinite;
-  }
-}

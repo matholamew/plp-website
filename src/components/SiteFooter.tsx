@@ -69,13 +69,6 @@ export default function SiteFooter() {
               ))}
             </nav>
 
-            {/* Contact link — CONTACT_EMAIL placeholder, confirm before launch */}
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className={BAND_LINK}
-            >
-              {CONTACT_EMAIL}
-            </a>
           </div>
 
           {/* Footer identity + fine print — per docs/site-copy.md Global */}
@@ -84,7 +77,7 @@ export default function SiteFooter() {
               Playful Learning Partners, LLC · Massachusetts ·{' '}
               <a
                 href={`mailto:${CONTACT_EMAIL}`}
-                className="underline underline-offset-4 decoration-accent-teal hover:opacity-80"
+                className={`inline-block py-1 underline underline-offset-4 decoration-accent-teal hover:opacity-80 ${FOCUS_RING_BAND}`}
               >
                 {CONTACT_EMAIL}
               </a>

@@ -6,6 +6,11 @@ import SpinPinwheel from '../components/SpinPinwheel'
  * Services — copy VERBATIM from docs/site-copy.md (approved, final). Do not
  * rewrite or add sections.
  *
+ * Aug 2026 truthfulness pass: removed "This is the piece most professional
+ * development skips, and it's the reason implementations fade after year
+ * one." It asserted an unsubstantiated claim about the PD field and implied
+ * PLP had observed those year-one fades. Recorded in docs/site-copy.md.
+ *
  * Pinwheel motif (client request): decorative pinwheels spin on hover and on
  * scroll-into-view beside each service heading. They never gate content —
  * every description and list is always fully visible (administrators come
@@ -61,7 +66,6 @@ const SERVICES: ServiceSection[] = [
     title: 'Administrator Collaboration & Sustainability',
     paragraphs: [
       "Regular working sessions with school and district leaders on what's changing in classrooms, what teachers and students need next, and how to build a model that carries the work forward without us.",
-      "This is the piece most professional development skips, and it's the reason implementations fade after year one.",
     ],
   },
   {
@@ -93,8 +97,8 @@ export default function ServicesPage() {
           Services
         </h1>
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
-          Services are selected à la carte. Most partnerships combine
-          professional development with in-classroom coaching, but there's no
+          Services are selected à la carte. Professional development and
+          in-classroom coaching are built to work together, but there's no
           required package — we build around your goals, your staffing, and
           your funding.
         </p>

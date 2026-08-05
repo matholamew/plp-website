@@ -7,9 +7,25 @@ import Section from '../components/Section'
 import { FOCUS_RING } from '../lib/ui'
 
 /*
- * Home — copy VERBATIM from docs/site-copy.md (approved, final). Do not
- * rewrite, "improve," or add sections. The hero reel is deliberately short
- * (16:9, capped height) so the three cards sit above the fold on desktop.
+ * Home — copy from docs/site-copy.md (approved), amended by the Aug 2026
+ * truthfulness + design pass. NOTE the one deliberate copy deletion: the
+ * approved eyebrow "PreK–Grade 5 · Professional Development & Coaching" is
+ * gone. A small-caps label above the h1 is the stock-template kicker
+ * pattern, and every word of it already appears in the subhead below
+ * ("helps PreK–5 teams... Professional development, in-classroom
+ * coaching"), so nothing factual was lost. Restore only as body copy, never
+ * as a kicker.
+ *
+ * Truthfulness amendments:
+ *   - Project Zero is no longer called "the group that developed the field's
+ *     foundational framework" (a superlative nobody had to defend); the
+ *     research is described as "a foundational framework" instead.
+ *   - The access claim now describes what PLP is set up to offer rather than
+ *     asserting existing multi-year partnerships, which do not exist yet.
+ * The same edits are recorded in docs/site-copy.md. Do not reintroduce.
+ *
+ * The hero reel is deliberately short (16:9, capped height) so the three
+ * cards sit above the fold on desktop.
  */
 
 const THREE_CARDS = [
@@ -43,9 +59,6 @@ export default function HomePage() {
       <Section width="7xl" pad="none" className="pt-5 sm:pt-7 pb-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12">
           <div>
-            <p className="font-body text-sm font-semibold tracking-wide uppercase text-accent-purple mb-3">
-              PreK–Grade 5 · Professional Development &amp; Coaching
-            </p>
             <h1 className="font-display text-fluid-hero-h1 text-ink leading-tight mb-3">
               Play isn't a break from learning. It's how the learning holds.
             </h1>
@@ -85,8 +98,8 @@ export default function HomePage() {
         <div className="space-y-5 font-body text-base sm:text-lg text-ink-muted leading-relaxed">
           <p>
             Our work is built on the Pedagogy of Play research from Harvard
-            Graduate School of Education's Project Zero — the group that
-            developed the field's foundational framework for playful learning.
+            Graduate School of Education's Project Zero, a foundational
+            framework in the field of playful learning.
           </p>
           <p>
             That framework gives us four Playful Learning Indicators —
@@ -115,9 +128,9 @@ export default function HomePage() {
             before you can bring playful learning to your classrooms.
           </p>
           <p>
-            We work with schools and districts at every level of need — full
-            multi-year partnerships or a single workshop series. If you want
-            this for your students, there's a way in.
+            We are set up to work with schools and districts at any level of
+            need, from a single workshop series to a multi-year partnership.
+            If you want this for your students, there's a way in.
           </p>
         </div>
         <Link to="/services" className={secondaryLink}>
@@ -127,14 +140,20 @@ export default function HomePage() {
 
       {/* Testimonial pull */}
       <Section surface>
-        <figure className="border-l-4 border-accent-teal pl-5 sm:pl-6">
+        <figure>
           <blockquote>
-            <p className="font-body italic text-ink leading-relaxed">
+            <p className="font-body text-lg sm:text-xl text-ink leading-relaxed">
               &ldquo;{TESTIMONIAL_PULL}&rdquo;
             </p>
           </blockquote>
-          <figcaption className="mt-4 font-body text-sm text-ink-muted">
-            Samantha Cameron, Special Education Teacher
+          <figcaption className="mt-6">
+            <span
+              aria-hidden="true"
+              className="block h-[3px] w-10 bg-accent-teal mb-3"
+            />
+            <cite className="not-italic font-body text-sm font-semibold tracking-wide text-ink-muted">
+              Samantha Cameron, Special Education Teacher
+            </cite>
           </figcaption>
         </figure>
         <p className="mt-6">

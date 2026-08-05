@@ -59,7 +59,8 @@ export default function AboutPage() {
           <p>
             Playful Learning Partners' approach draws on the Pedagogy of Play
             research developed by Harvard Graduate School of Education's
-            Project Zero.
+            Project Zero. Debra's own grounding in this work comes from
+            training with Project Zero on the Pedagogy of Play.
           </p>
           <p>
             Project Zero's Playful Learning Indicators — Enjoyment, Curiosity,
