@@ -22,17 +22,17 @@
 
 ## Needs client/business input, not a design decision
 
-3. **Project Zero credential wording still unconfirmed.** (Partially
-   addressed 2026-08-05: the Home page no longer calls Project Zero "the
-   group that developed the field's foundational framework"; it now reads
-   "a foundational framework in the field of playful learning." The
-   underlying question below is still open.) The site says the
-   approach "draws on" / "is built on" the Pedagogy of Play research from
-   Harvard Graduate School of Education's Project Zero, and the footer
-   carries the non-affiliation disclaimer. What is NOT settled is whether any
-   stronger phrasing is defensible. No claim of Debra's personal training or
-   certification by Project Zero may appear anywhere until this is confirmed
-   in writing.
+3. **Project Zero credential wording — NEEDS WRITTEN CONFIRMATION.** As of
+   2026-08-05 the About page states: "Debra's own grounding in this work comes
+   from training with Project Zero on the Pedagogy of Play." Added at the
+   project owner's explicit direction, on the strength of Debra saying on a
+   call that Project Zero is "who I was sort of trained by and with." That
+   hedge is not written confirmation. **Get Debra to confirm in writing what
+   the training actually was** (program, format, year) and adjust or remove the
+   sentence to match. Certification, accreditation, endorsement, and
+   affiliation stay prohibited regardless. Resolved the same day: Home no
+   longer calls Project Zero the group that developed the field's foundational
+   framework.
 
 4. **Administrator testimonial still needed.** Both published testimonials
    are from teachers (Samantha Cameron, Barbara Saraiva). The primary buyer
@@ -62,8 +62,16 @@
   "frequently tell us", what "many schools" have done. Describe what PLP
   offers and how it is designed to work, never what it has repeatedly
   produced. Revisit this line once a full year closes.
-- **Debra is not a classroom teacher** (carried forward from 2026-07-12).
-  She is a playful learning coach/consultant.
+- **Debra is not a *current* classroom teacher** (carried forward from
+  2026-07-12). She is a playful learning coach/consultant with a prior career
+  in education; "decades in education" is supported by her own materials.
+- **FAQ answers must come from Debra.** On 2026-08-05 all eleven published
+  Q&As were removed: four were blank in her working doc and seven had been
+  invented outright. One client-written answer remains. Never draft an FAQ
+  answer on her behalf.
+- **Prospect districts are confidential.** Walpole, Medfield, Fall River,
+  Framingham, and Dedham came up as prospects in conversation. None is a
+  client, and no district name may appear on the site.
 
 ## Resolved by the Aug 2026 content build
 - **Title I / pilot-engagement language — REMOVED.** The "currently piloting

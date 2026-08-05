@@ -176,38 +176,28 @@ Barbara Saraiva — Second Grade Teacher
 
 ## FAQ — `/faq`
 
-**Will this work with the curriculum we already have?**
-Yes — that's the design. We don't ask schools to replace what they're teaching. Playful learning practices are built to sit inside your existing curriculum, using the structures and standards you already work from. Our lessons are developed with the Massachusetts state frameworks in view, and we return to grade-level standards as we build.
+**Only questions Debra has answered herself may appear here.** On 2026-08-05
+every previously listed Q&A was removed: her working doc left the answer field
+blank on four questions, and the rest had been drafted on her behalf and were
+never hers. Do not draft an answer for her, however obvious it looks.
 
-**Some of our teachers already feel like they're doing playful learning. What would they get out of this?**
-Often quite a lot, and usually not what they expect. Teachers who already value play tend to be doing it well in moments and inconsistently across the week. The work here is structural — how a community meeting is run so every child talks, how a studio is set up so the materials do some of the teaching, how story acting connects to what you're assessing on Friday.
+Intro: Have a question that isn't here? Ask it directly and Debra will answer it.
 
-**What is playful learning, and how is it different from just play?**
-Playful learning is guided. There's an instructional purpose behind the setup, the materials, and the teacher's role in it. Children experience choice, wonder, and joy; the teacher is working toward specific understanding. The difference isn't in how it looks to a child — it's in what the adult is doing while it happens.
+**How does this work if we are already starting to pilot and/or implement a new curriculum?**
+Implementing both programs simultaneously can be an easier lift for school leadership and teaching staff than it would be to incorporate playful learning practices separately. The Department of Education encourages districts to implement a curriculum with integrity, and continue to supplement with materials that support all students' learning. Playful Learning Partners will collaborate with school leadership to review your current pilot initiatives and integrate our practices into the approach so that your staff can deliver the new curriculum with playful learning practices in mind.
 
-**How heavy is the lift for teachers?**
-Front-loaded. The practices are designed to work inside the schedule teachers already have rather than adding to it. The initial adjustment is real — new structures always are — which is why we recommend pairing workshops with in-classroom coaching instead of leaving teachers to figure it out alone.
+*(Reproduced from Debra's doc. One word dropped: "seamlessly" is on the
+brand-tone.md banned-word list and its removal changes no meaning.)*
 
-**What grade levels do you work with?**
-PreK through Grade 5.
+### Questions Debra has NOT answered yet
 
-**Do we need to buy expensive new materials?**
-Most practices require little or nothing new. Centers and studios is the one that asks for more, and even there we start by finding what's already in your building. Reusing and repurposing existing materials is part of how we work, not a compromise.
+These came back blank in her doc. They may only be published once she writes
+an answer:
 
-**How do you align play with academic standards?**
-Massachusetts state frameworks are the reference point. As we build lessons and practices with your teams, we work back to grade-level standards — so what a teacher does during a studio block connects to what they're accountable for.
-
-**Does this work in large classes?**
-Yes. The practices scale with class size; what changes is how you structure grouping and rotation, which is part of what coaching addresses.
-
-**How will we know it's working?**
-We use Project Zero's Playful Learning Indicators — Enjoyment, Curiosity, Empowerment, and Connection — as the shared framework for classroom observation and debrief conversations. That gives teachers and administrators specific, observable things to look for and talk about, rather than a vague sense that the room feels different. Administrator sessions are where we review what's changing and what needs to change next.
-
-**Can we customize which services we receive?**
-Yes. Services are selected à la carte, and the Playful Learning Indicators we emphasize can be weighted toward your school's priorities. A building focused on belonging and behavior will emphasize different indicators than one focused on early literacy engagement.
-
-**We're not sure we can fund this. What are our options?**
-Talk to us anyway. We help schools identify funding sources and support grant applications, and we are willing to work with schools and districts at any level of need.
+- We have never worked with a Playful Learning Coach in the past, will this work with our existing curriculum?
+- We have a group of teachers that think they are already doing playful learning. What do you think they will learn from you?
+- What is playful learning and how is it different from traditional learning?
+- What is the requirement with learning the practices? How heavy is the lift for teachers?
 
 ## Content that must NOT appear anywhere
 
@@ -219,7 +209,10 @@ Talk to us anyway. We help schools identify funding sources and support grant ap
 * Specific implementation timelines in weeks
 * Middle school or high school expansion
 * Pricing, workshop counts, or session lengths
-* Any claim about Debra's personal training or certification by Project Zero
+* Any claim of **certification, accreditation, endorsement, or affiliation** by
+  Project Zero or Harvard. (Training is allowed in one specific form, below.)
+  The footer non-affiliation disclaimer stays on the site.
+* **Any FAQ answer Debra did not write herself.**
 * Purchasable materials or a store (deferred until files exist)
 * **Any claim of accumulated track record.** PLP has no completed full-year
   partnerships yet. Nothing may say what "most partnerships" do, how the first
@@ -245,6 +238,18 @@ them without new facts.
 | Services, page intro | "Most partnerships combine professional development with in-classroom coaching" | "Professional development and in-classroom coaching are built to work together" (no partnership pattern to cite yet). |
 | Services, administrator collaboration | "This is the piece most professional development skips, and it's the reason implementations fade after year one." | Removed. |
 
-Still outstanding, tracked in `docs/open-items.md`: Project Zero credential
-wording, administrator testimonial, written testimonial permissions, grant
-support scope.
+### 2026-08-05 additions
+
+- **FAQ rebuilt.** All unsourced Q&As removed; one client-written answer kept.
+- **Project Zero training is now permitted in this exact form only**, at the
+  project owner's direction, on the About page:
+  > Debra's own grounding in this work comes from training with Project Zero
+  > on the Pedagogy of Play.
+
+  Source is Debra's own words on a call ("that's who I was sort of trained by
+  and with"). That is not written confirmation, and open-items.md keeps the
+  item open. Never escalate it to certification, accreditation, or endorsement.
+
+Still outstanding, tracked in `docs/open-items.md`: written confirmation of the
+Project Zero training wording, administrator testimonial, written testimonial
+permissions, grant support scope.
