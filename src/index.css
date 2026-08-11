@@ -140,6 +140,9 @@ figcaption {
    * just the pinwheel and the title show" treatment.
    *
    * 114px = the expanded header (6rem bar + 18px stripe band).
+   * 2rem  = the hero section's own pt-8, which matches the gap below the
+   *         image so the picture sits evenly between the header stripes and
+   *         the card rules.
    * 5rem  = how much of each card is left showing above the fold.
    * svh (not dvh) keeps the fold stable on touch devices as browser chrome
    * collapses; vh is the fallback.
@@ -149,11 +152,11 @@ figcaption {
   }
   @media (min-width: 1024px) {
     .hero-shell {
-      min-height: calc(100vh - 114px - 5rem);
+      min-height: calc(100vh - 114px - 2rem - 5rem);
     }
     @supports (height: 100svh) {
       .hero-shell {
-        min-height: calc(100svh - 114px - 5rem);
+        min-height: calc(100svh - 114px - 2rem - 5rem);
       }
     }
   }
@@ -167,11 +170,18 @@ figcaption {
   .hero-copy {
     padding-left: max(clamp(1rem, 0.6rem + 2vw, 2rem), env(safe-area-inset-left));
     padding-right: clamp(1rem, 0.6rem + 2vw, 2rem);
+    /* Cap the measure at every width, not just lg+. Without this the hero
+       subhead ran the full viewport between about 850px and 1023px — the
+       large-tablet band below the two-column breakpoint — reaching 107
+       characters per line where comfortable reading tops out around 85. */
+    width: 100%;
+    max-width: 44rem;
+    margin-inline: auto;
   }
   @media (min-width: 1024px) {
     .hero-copy {
       margin-left: auto;
-      width: 100%;
+      margin-right: 0;
       max-width: 40rem;
       padding-right: 3rem;
     }

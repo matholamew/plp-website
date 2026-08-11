@@ -5,6 +5,11 @@
  * where the image runs to the right screen edge and takes its height from
  * .hero-shell; the aspect-ratio box below is the standalone default.
  *
+ * In fill mode below lg the hero stacks, so the reel holds a 3:2 box rather
+ * than a fixed min-height. A fixed height there stretched into a 4:1 letterbox
+ * strip across the 850-1023px band, where the layout is still single-column
+ * but the viewport is already wide.
+ *
  * 16:9 (aspect-video) with a viewport-height cap. The cap exists only to keep
  * the three cards above the fold on short viewports; it was raised from 38vh
  * to 52vh in Aug 2026 so that on ordinary laptop and desktop sizes the reel
@@ -86,7 +91,7 @@ export default function HomeReel({ fill = false }: HomeReelProps) {
       aria-label="Playful learning in classrooms"
       className={`relative w-full overflow-hidden bg-surface ${
         fill
-          ? 'h-full min-h-[16rem] lg:min-h-full'
+          ? 'aspect-[3/2] max-h-[55vh] lg:aspect-auto lg:max-h-none lg:h-full'
           : 'aspect-video max-h-[52vh] rounded-lg'
       }`}
       onMouseEnter={() => setHovered(true)}

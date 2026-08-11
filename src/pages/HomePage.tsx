@@ -81,8 +81,11 @@ const secondaryLink = `font-body font-semibold text-navy dark:text-ink underline
 export default function HomePage() {
   return (
     <>
-      {/* Hero — full bleed: copy left, reel running to the right screen edge */}
-      <section className="bg-bg w-full">
+      {/* Hero — full bleed: copy left, reel running to the right screen edge.
+          pt-8 matches the pt-8 on the cards section below, so the gap above
+          the image equals the gap between the image and the card rules.
+          .hero-shell subtracts the same 2rem so the card peek is unchanged. */}
+      <section className="bg-bg w-full pt-8">
         <div className="hero-shell grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className="hero-copy py-10 lg:py-0 order-2 lg:order-1">
             <h1 className="font-display text-fluid-hero-h1 text-ink leading-tight mb-3">
