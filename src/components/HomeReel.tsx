@@ -13,9 +13,7 @@
  * removing the hero eyebrow and card boxes freed up enough room to give it
  * back). The aspect-ratio box reserves space before load — no layout shift.
  *
- * Slides cross-fade every 7s. Currently the brand-tinted placeholder SVGs
- * (public/images/placeholder-1..4.svg) — swap the SLIDES list when converted
- * photos land in the repo (noted in the PR).
+ * Slides cross-fade every 7s.
  *
  * Accessibility (WCAG 2.2.2, auto-rotation must be stoppable): no autoplay
  * under prefers-reduced-motion; rotation pauses on hover and keyboard focus;
@@ -26,11 +24,30 @@ import { useEffect, useState } from 'react'
 import { usePrefersReducedMotion } from '../hooks/useScrollProgress'
 import { FOCUS_RING } from '../lib/ui'
 
+/*
+ * Debra's own classroom photos (Aug 2026), replacing the placeholders.
+ * Chosen to fit brand-visual.md: hands and manipulatives in use, no
+ * children's faces. Two widths each so the browser can pick — the hero cell
+ * is roughly 720px wide at a 1440px viewport, so 900w covers 1x and 1600w
+ * covers 2x.
+ *
+ * Alt text describes what a sighted visitor gains from the picture. It stays
+ * generic about setting on purpose: no school, district, or child is
+ * identifiable, and it must stay that way (CLAUDE.md confidentiality).
+ */
 const SLIDES = [
-  { src: '/images/placeholder-1.svg', alt: '' },
-  { src: '/images/placeholder-2.svg', alt: '' },
-  { src: '/images/placeholder-3.svg', alt: '' },
-  { src: '/images/placeholder-4.svg', alt: '' },
+  {
+    base: '/images/classroom-3',
+    alt: 'Coloured square tiles arranged on a table to build a maths problem, with the numbers 300 and 150 spelled out in tiles.',
+  },
+  {
+    base: '/images/classroom-1',
+    alt: 'Interlocking cubes grouped into columns of ten beside a hand-lettered card reading 56, showing place value with manipulatives.',
+  },
+  {
+    base: '/images/classroom-2',
+    alt: 'A character modelled in yellow play dough on a classroom table, surrounded by wooden blocks, markers and a child\'s drawing.',
+  },
 ]
 
 const ADVANCE_MS = 7000
@@ -79,8 +96,10 @@ export default function HomeReel({ fill = false }: HomeReelProps) {
     >
       {SLIDES.map((slide, i) => (
         <img
-          key={slide.src}
-          src={slide.src}
+          key={slide.base}
+          src={`${slide.base}-1600.webp`}
+          srcSet={`${slide.base}-900.webp 900w, ${slide.base}-1600.webp 1600w`}
+          sizes="(min-width: 1024px) 50vw, 100vw"
           alt={slide.alt}
           aria-hidden={i !== active}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
