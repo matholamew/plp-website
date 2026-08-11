@@ -5,7 +5,6 @@ import SiteFooter from './components/SiteFooter'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import AboutPage from './pages/AboutPage'
-import TestimonialsPage from './pages/TestimonialsPage'
 import FaqPage from './pages/FaqPage'
 import ContactPage from './pages/ContactPage'
 
@@ -41,7 +40,10 @@ export default function App() {
             element={<Navigate to="/services" replace />}
           />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
+          {/* Testimonials moved onto the Home page (Aug 2026). The old
+              route was live and may be linked, so it redirects rather than
+              404s; the server-side 301 is in public/_redirects. */}
+          <Route path="/testimonials" element={<Navigate to="/" replace />} />
           <Route path="/faq" element={<FaqPage />} />
           <Route path="/contact" element={<ContactPage />} />
           {/* Reserved for post-launch pillars — do not build yet:

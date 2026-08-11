@@ -6,7 +6,8 @@ Status: approved for build, **amended 2026-08-05 by a truthfulness pass** (see "
 
 Tagline: Bringing Play into Practice
 
-Nav: About · Services · Testimonials · FAQ · Contact
+Nav: About · Services · FAQ · Contact  
+*(Testimonials lost its nav item and page in Aug 2026; the quotes live on the Home page and /testimonials 301s to /.)*
 Nav CTA: Schedule a Consult
 Contact email: info@playfullearningpartners.com
 
@@ -56,9 +57,29 @@ We are set up to work with schools and districts at any level of need, from a si
 
 CTA: See what we offer → `/services`
 
-### Testimonial pull
+### Testimonials
 
-Pull the Samantha Cameron quote, trimmed to the first paragraph. Link to `/testimonials`.
+Both testimonials now sit on the Home page in full (Aug 2026) rather than on
+a page of their own. Written permission from both is still outstanding; see
+`docs/open-items.md`.
+
+Section heading: From the teachers we've worked alongside
+
+> Working with Deb as my coach this year was an incredibly positive experience. She consistently encouraged our team to reflect deeply on our practice while honoring the strengths and ideas we already brought to the table. Her thoughtful questions and support helped us think more intentionally about student engagement and meaningful learning experiences.
+>
+> What I appreciated most was her ability to support growth without judgment. She celebrated successes, helped us navigate challenges, and always made space for teacher voice and creativity.
+>
+> I leave this year feeling more confident, reflective, and excited about the work ahead.
+
+Samantha Cameron — Special Education Teacher
+
+> Deb is truly caring, supportive, and passionate about her work. Her enthusiasm for playful learning is contagious, and she consistently inspires teachers to create engaging, joyful learning experiences for students.
+>
+> She takes the time to listen, provide thoughtful guidance, and celebrate successes along the way. Her encouragement and expertise built our confidence in trying new strategies and embracing a more playful approach to learning.
+>
+> She has made a lasting impact on me and my students.
+
+Barbara Saraiva — Second Grade Teacher
 
 ### Closing CTA
 
@@ -153,26 +174,6 @@ An evening where students and teachers show families what playful learning looks
 Budget shouldn't be the reason this doesn't happen.
 
 We help schools and districts identify funding sources, develop grant applications, and communicate with granting organizations to support playful learning work.
-
-## Testimonials — `/testimonials`
-
-Page intro: From the teachers we've worked alongside.
-
-> Working with Deb as my coach this year was an incredibly positive experience. She consistently encouraged our team to reflect deeply on our practice while honoring the strengths and ideas we already brought to the table. Her thoughtful questions and support helped us think more intentionally about student engagement and meaningful learning experiences.
->
-> What I appreciated most was her ability to support growth without judgment. She celebrated successes, helped us navigate challenges, and always made space for teacher voice and creativity.
->
-> I leave this year feeling more confident, reflective, and excited about the work ahead.
-
-Samantha Cameron — Special Education Teacher
-
-> Deb is truly caring, supportive, and passionate about her work. Her enthusiasm for playful learning is contagious, and she consistently inspires teachers to create engaging, joyful learning experiences for students.
->
-> She takes the time to listen, provide thoughtful guidance, and celebrate successes along the way. Her encouragement and expertise built our confidence in trying new strategies and embracing a more playful approach to learning.
->
-> She has made a lasting impact on me and my students.
-
-Barbara Saraiva — Second Grade Teacher
 
 ## FAQ — `/faq`
 
