@@ -23,7 +23,7 @@ Eyebrow: PreK–Grade 5 · Professional Development & Coaching
 
 H1: Play isn't a break from learning. It's how the learning holds.
 
-Subhead: Playful Learning Partners helps PreK–5 teams put guided playful learning to work inside the curriculum they already teach. Professional development, in-classroom coaching, and the structures that make it last after the workshop ends.
+Subhead: Playful Learning Partners helps PreK–5 teams put guided playful learning to work inside the curriculum they already teach. Professional development, classroom coaching, and the structures that make it last after the workshop ends.
 
 Primary CTA: Schedule a Consult → `/contact`
 Secondary CTA: See what we offer → `/services`
@@ -43,7 +43,7 @@ Every school has its own culture, its own constraints, and its own starting poin
 
 Our work is built on the Pedagogy of Play research from Harvard Graduate School of Education's Project Zero, a foundational framework in the field of playful learning.
 
-That framework gives us four Playful Learning Indicators — Enjoyment, Curiosity, Empowerment, and Connection — that we use to plan lessons, structure classroom observations, and talk concretely with teachers and administrators about what's changing in a classroom.
+That framework gives us four Playful Learning Indicators: Enjoyment, Curiosity, Empowerment, and Connection. We use them to plan lessons, to structure classroom observations, and to talk concretely with teachers and administrators about what is changing in a classroom.
 
 The indicators are a shared language, not a rubric to impose. How they show up in a kindergarten studio is not how they show up in a fourth-grade writers theater, and we adjust accordingly.
 
@@ -93,11 +93,11 @@ CTA: Schedule a Consult → `/contact`
 
 Playful Learning Partners is an educational consulting practice built on a single conviction: that play belongs inside rigorous instruction, not alongside it.
 
-We work with PreK–Grade 5 teams — teachers, paraprofessionals, coaches, and school leaders — to design systems that bring guided playful learning to life and keep it alive after the training ends. That work takes the form of professional learning, in-classroom coaching, classroom observation cycles, and consultation with administrators on how to sustain the practice.
+We work with PreK–Grade 5 teams: teachers, paraprofessionals, coaches, and school leaders. Together we design systems that bring guided playful learning to life and keep it alive after the workshop ends. That work takes the form of professional development, classroom coaching, classroom observation cycles, and consultation with administrators on how to sustain the practice.
 
 Our focus is practical implementation. Storytelling and story acting. Community meetings. Centers and studios. Writers theater. Read aloud and text talk. Inclusive classroom structures that honor children's curiosity, creativity, and need to belong. These are the specific, teachable practices that turn a philosophy into something a teacher can do at 9:15 on a Tuesday.
 
-We are especially committed to making playful learning accessible to every child and every educator — not only the schools with the budget for it. Whether we're facilitating a workshop, coaching a teacher in her own classroom, or sitting with a district leadership team, the goal doesn't change: help the adults build spaces where children can explore, connect, and thrive.
+We are especially committed to making playful learning accessible to every child and every educator — not only the schools with the budget for it. Whether we're facilitating a workshop, coaching a teacher in her own classroom, or sitting with a district leadership team, the goal doesn't change. We help the adults build spaces where children can explore, connect, and thrive.
 
 We welcome partnerships with schools, districts, nonprofits, and community organizations willing to reconsider what learning can look like when we trust the power of play.
 
@@ -105,7 +105,7 @@ We welcome partnerships with schools, districts, nonprofits, and community organ
 
 Playful Learning Partners' approach draws on the Pedagogy of Play research developed by Harvard Graduate School of Education's Project Zero.
 
-Project Zero's Playful Learning Indicators — Enjoyment, Curiosity, Empowerment, and Connection — give us a way to describe what playful learning actually looks like when it's working, and to notice when it isn't. We use them to guide implementation and to give teachers and administrators something concrete to point at.
+Project Zero's Playful Learning Indicators are Enjoyment, Curiosity, Empowerment, and Connection. They give us a way to describe what playful learning looks like when it's working, and to notice when it isn't. We use them to guide implementation and to give teachers and administrators something concrete to point at.
 
 We also treat them as flexible. Each school's culture is different, and the indicators bend to fit the building.
 
@@ -123,11 +123,11 @@ No photo at launch.
 
 ## Services — `/services`
 
-Page intro: Services are selected à la carte. Professional development and in-classroom coaching are built to work together, but there's no required package — we build around your goals, your staffing, and your funding.
+Page intro: Services are selected à la carte. Professional development and classroom coaching are built to work together, but there's no required package — we build around your goals, your staffing, and your funding.
 
 ### Workshops
 
-Interactive, hands-on sessions built for the teams who'll be doing the work together. Schools and districts select from our workshop topics based on their goals, staffing, and implementation priorities.
+Interactive, hands-on workshops built for the teams who'll be doing the work together. Schools and districts select from our workshop topics based on their goals, staffing, and implementation priorities.
 
 Every workshop includes:
 
@@ -146,7 +146,7 @@ Workshop topics: Pedagogy of Play · Community Meeting · Storytelling & Story A
 
 Workshops start something. Coaching is what makes it stick.
 
-We recommend ongoing classroom observation and feedback cycles across the school year, intentionally spaced so teams have real time to try a strategy, adjust it, and reflect before the next cycle.
+We recommend ongoing classroom observation and feedback cycles across the school year. They are spaced so teams have real time to try a strategy, adjust it, and reflect before the next cycle.
 
 Each cycle includes:
 
@@ -159,7 +159,7 @@ Each cycle includes:
 
 ### Administrator Collaboration & Sustainability
 
-Regular working sessions with school and district leaders on what's changing in classrooms, what teachers and students need next, and how to build a model that carries the work forward without us.
+Regular working sessions with school and district leaders. We look at what's changing in classrooms, what teachers and students need next, and how to build a model that carries the work forward without us.
 
 ### Monthly PLC Meetings
 
@@ -238,6 +238,28 @@ them without new facts.
 | Home, access | "We work with schools and districts at every level of need — full multi-year partnerships or a single workshop series" | "We are set up to work with... from a single workshop series to a multi-year partnership." |
 | Services, page intro | "Most partnerships combine professional development with in-classroom coaching" | "Professional development and in-classroom coaching are built to work together" (no partnership pattern to cite yet). |
 | Services, administrator collaboration | "This is the piece most professional development skips, and it's the reason implementations fade after year one." | Removed. |
+
+### 2026-08-05 terminology and sentence-length pass
+
+One term per concept, so a reader comparing the site to a proposal is never
+guessing whether two words mean the same line item. **Use these and no
+synonyms:**
+
+| Concept | Use | Do not use |
+|---|---|---|
+| The training service | **workshop** (specific) / **professional development** (the category) | professional learning, training, session |
+| The coaching service | **classroom coaching** | in-classroom coaching |
+| The practice | **playful learning** (**guided playful learning** in positioning) | — |
+| The research | **Pedagogy of Play** / **Playful Learning Indicators** | — |
+
+"School", "district", "building", and "administrator" are deliberately NOT
+collapsed: they mean different things, and Debra wants the site to read for a
+single school as well as a district.
+
+Nine sentences ran past 28 words; six were split. The three left alone are
+Debra's own FAQ answer (client-written, not ours to edit) and two list
+sentences that read cleanly. Mean sentence length is now 16.2 words, median
+16, with 8 of 83 sentences over 25 words.
 
 ### 2026-08-05 additions
 

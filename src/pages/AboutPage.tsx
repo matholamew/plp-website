@@ -20,12 +20,12 @@ export default function AboutPage() {
             instruction, not alongside it.
           </p>
           <p>
-            We work with PreK–Grade 5 teams — teachers, paraprofessionals,
-            coaches, and school leaders — to design systems that bring guided
-            playful learning to life and keep it alive after the training ends.
-            That work takes the form of professional learning, in-classroom
-            coaching, classroom observation cycles, and consultation with
-            administrators on how to sustain the practice.
+            We work with PreK–Grade 5 teams: teachers, paraprofessionals,
+            coaches, and school leaders. Together we design systems that bring
+            guided playful learning to life and keep it alive after the
+            workshop ends. That work takes the form of professional
+            development, classroom coaching, classroom observation cycles, and
+            consultation with administrators on how to sustain the practice.
           </p>
           <p>
             Our focus is practical implementation. Storytelling and story
@@ -40,8 +40,8 @@ export default function AboutPage() {
             to every child and every educator — not only the schools with the
             budget for it. Whether we're facilitating a workshop, coaching a
             teacher in her own classroom, or sitting with a district leadership
-            team, the goal doesn't change: help the adults build spaces where
-            children can explore, connect, and thrive.
+            team, the goal doesn't change. We help the adults build spaces
+            where children can explore, connect, and thrive.
           </p>
           <p>
             We welcome partnerships with schools, districts, nonprofits, and
@@ -63,9 +63,9 @@ export default function AboutPage() {
             training with Project Zero on the Pedagogy of Play.
           </p>
           <p>
-            Project Zero's Playful Learning Indicators — Enjoyment, Curiosity,
-            Empowerment, and Connection — give us a way to describe what
-            playful learning actually looks like when it's working, and to
+            Project Zero's Playful Learning Indicators are Enjoyment,
+            Curiosity, Empowerment, and Connection. They give us a way to
+            describe what playful learning looks like when it's working, and to
             notice when it isn't. We use them to guide implementation and to
             give teachers and administrators something concrete to point at.
           </p>

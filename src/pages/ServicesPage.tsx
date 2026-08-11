@@ -30,7 +30,7 @@ const SERVICES: ServiceSection[] = [
   {
     title: 'Workshops',
     paragraphs: [
-      "Interactive, hands-on sessions built for the teams who'll be doing the work together. Schools and districts select from our workshop topics based on their goals, staffing, and implementation priorities.",
+      "Interactive, hands-on workshops built for the teams who'll be doing the work together. Schools and districts select from our workshop topics based on their goals, staffing, and implementation priorities.",
     ],
     listIntro: 'Every workshop includes:',
     list: [
@@ -50,7 +50,7 @@ const SERVICES: ServiceSection[] = [
     title: 'Classroom Coaching',
     paragraphs: [
       'Workshops start something. Coaching is what makes it stick.',
-      'We recommend ongoing classroom observation and feedback cycles across the school year, intentionally spaced so teams have real time to try a strategy, adjust it, and reflect before the next cycle.',
+      'We recommend ongoing classroom observation and feedback cycles across the school year. They are spaced so teams have real time to try a strategy, adjust it, and reflect before the next cycle.',
     ],
     listIntro: 'Each cycle includes:',
     list: [
@@ -65,7 +65,7 @@ const SERVICES: ServiceSection[] = [
   {
     title: 'Administrator Collaboration & Sustainability',
     paragraphs: [
-      "Regular working sessions with school and district leaders on what's changing in classrooms, what teachers and students need next, and how to build a model that carries the work forward without us.",
+      "Regular working sessions with school and district leaders. We look at what's changing in classrooms, what teachers and students need next, and how to build a model that carries the work forward without us.",
     ],
   },
   {
@@ -98,7 +98,7 @@ export default function ServicesPage() {
         </h1>
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
           Services are selected à la carte. Professional development and
-          in-classroom coaching are built to work together, but there's no
+          classroom coaching are built to work together, but there's no
           required package — we build around your goals, your staffing, and
           your funding.
         </p>

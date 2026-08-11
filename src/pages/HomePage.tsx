@@ -90,7 +90,7 @@ export default function HomePage() {
             <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-5">
               Playful Learning Partners helps PreK–5 teams put guided playful
               learning to work inside the curriculum they already teach.
-              Professional development, in-classroom coaching, and the
+              Professional development, classroom coaching, and the
               structures that make it last after the workshop ends.
             </p>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -130,11 +130,11 @@ export default function HomePage() {
             framework in the field of playful learning.
           </p>
           <p>
-            That framework gives us four Playful Learning Indicators —
-            Enjoyment, Curiosity, Empowerment, and Connection — that we use to
-            plan lessons, structure classroom observations, and talk concretely
-            with teachers and administrators about what's changing in a
-            classroom.
+            That framework gives us four Playful Learning Indicators:
+            Enjoyment, Curiosity, Empowerment, and Connection. We use them to
+            plan lessons, to structure classroom observations, and to talk
+            concretely with teachers and administrators about what is changing
+            in a classroom.
           </p>
           <p>
             The indicators are a shared language, not a rubric to impose. How
