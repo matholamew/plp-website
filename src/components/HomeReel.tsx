@@ -1,6 +1,10 @@
 /**
  * HomeReel — the homepage hero image reel (Aug 2026 content build).
  *
+ * Two modes. `fill` stretches to the parent cell for the full-bleed hero,
+ * where the image runs to the right screen edge and takes its height from
+ * .hero-shell; the aspect-ratio box below is the standalone default.
+ *
  * 16:9 (aspect-video) with a viewport-height cap. The cap exists only to keep
  * the three cards above the fold on short viewports; it was raised from 38vh
  * to 52vh in Aug 2026 so that on ordinary laptop and desktop sizes the reel
@@ -31,7 +35,16 @@ const SLIDES = [
 
 const ADVANCE_MS = 7000
 
-export default function HomeReel() {
+interface HomeReelProps {
+  /**
+   * fill: stretch to the parent cell instead of holding a 16:9 box. Used by
+   * the full-bleed hero, where the image runs to the right screen edge and
+   * takes its height from the hero shell.
+   */
+  fill?: boolean
+}
+
+export default function HomeReel({ fill = false }: HomeReelProps) {
   const reducedMotion = usePrefersReducedMotion()
   const [active, setActive] = useState(0)
   const [hovered, setHovered] = useState(false)
@@ -54,7 +67,11 @@ export default function HomeReel() {
       role="region"
       aria-roledescription="carousel"
       aria-label="Playful learning in classrooms"
-      className="relative w-full aspect-video max-h-[52vh] overflow-hidden rounded-lg bg-surface"
+      className={`relative w-full overflow-hidden bg-surface ${
+        fill
+          ? 'h-full min-h-[16rem] lg:min-h-full'
+          : 'aspect-video max-h-[52vh] rounded-lg'
+      }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onFocus={() => setFocused(true)}

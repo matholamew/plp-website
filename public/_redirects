@@ -3,3 +3,5 @@
 # self-matches and the deploy fails with an infinite-loop error
 # (SPA fallback is handled by wrangler.jsonc not_found_handling).
 /for-districts /services 301
+# Testimonials folded into the Home page (Aug 2026).
+/testimonials / 301

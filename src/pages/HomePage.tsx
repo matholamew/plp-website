@@ -4,28 +4,31 @@ import ServiceList from '../components/ServiceList'
 import CTAButton from '../components/CTAButton'
 import AccentRule from '../components/AccentRule'
 import Section from '../components/Section'
+import TestimonialCard from '../components/TestimonialCard'
 import { FOCUS_RING } from '../lib/ui'
 
 /*
  * Home — copy from docs/site-copy.md (approved), amended by the Aug 2026
- * truthfulness + design pass. NOTE the one deliberate copy deletion: the
- * approved eyebrow "PreK–Grade 5 · Professional Development & Coaching" is
- * gone. A small-caps label above the h1 is the stock-template kicker
- * pattern, and every word of it already appears in the subhead below
- * ("helps PreK–5 teams... Professional development, in-classroom
- * coaching"), so nothing factual was lost. Restore only as body copy, never
- * as a kicker.
+ * truthfulness pass. NOTE the one deliberate copy deletion: the approved
+ * eyebrow "PreK–Grade 5 · Professional Development & Coaching" is gone. A
+ * small-caps label above the h1 is the stock-template kicker pattern, and
+ * every word of it already appears in the subhead below, so nothing factual
+ * was lost. Restore only as body copy, never as a kicker.
  *
  * Truthfulness amendments:
  *   - Project Zero is no longer called "the group that developed the field's
- *     foundational framework" (a superlative nobody had to defend); the
- *     research is described as "a foundational framework" instead.
- *   - The access claim now describes what PLP is set up to offer rather than
+ *     foundational framework"; the research is "a foundational framework".
+ *   - The access claim describes what PLP is set up to offer rather than
  *     asserting existing multi-year partnerships, which do not exist yet.
  * The same edits are recorded in docs/site-copy.md. Do not reintroduce.
  *
- * The hero reel is deliberately short (16:9, capped height) so the three
- * cards sit above the fold on desktop.
+ * Layout (Aug 2026): full-bleed hero, copy left and the image reel running to
+ * the right screen edge, sized by .hero-shell so only the top of each card —
+ * accent rule, pinwheel, title — clears the fold and the body copy sits just
+ * under it.
+ *
+ * Testimonials live here now rather than on their own page; /testimonials
+ * 301s to this page.
  */
 
 const THREE_CARDS = [
@@ -46,19 +49,41 @@ const THREE_CARDS = [
   },
 ]
 
-// Samantha Cameron quote, trimmed to the first paragraph per site-copy.md
-const TESTIMONIAL_PULL =
-  'Working with Deb as my coach this year was an incredibly positive experience. She consistently encouraged our team to reflect deeply on our practice while honoring the strengths and ideas we already brought to the table. Her thoughtful questions and support helped us think more intentionally about student engagement and meaningful learning experiences.'
+/*
+ * Verbatim from docs/site-copy.md. Never paraphrase third-party words.
+ * Attribution is name + role only; no school or district is named. Written
+ * permission from both is still outstanding (docs/open-items.md).
+ */
+const TESTIMONIALS = [
+  {
+    paragraphs: [
+      'Working with Deb as my coach this year was an incredibly positive experience. She consistently encouraged our team to reflect deeply on our practice while honoring the strengths and ideas we already brought to the table. Her thoughtful questions and support helped us think more intentionally about student engagement and meaningful learning experiences.',
+      'What I appreciated most was her ability to support growth without judgment. She celebrated successes, helped us navigate challenges, and always made space for teacher voice and creativity.',
+      'I leave this year feeling more confident, reflective, and excited about the work ahead.',
+    ],
+    attribution: 'Samantha Cameron',
+    role: 'Special Education Teacher',
+  },
+  {
+    paragraphs: [
+      'Deb is truly caring, supportive, and passionate about her work. Her enthusiasm for playful learning is contagious, and she consistently inspires teachers to create engaging, joyful learning experiences for students.',
+      'She takes the time to listen, provide thoughtful guidance, and celebrate successes along the way. Her encouragement and expertise built our confidence in trying new strategies and embracing a more playful approach to learning.',
+      'She has made a lasting impact on me and my students.',
+    ],
+    attribution: 'Barbara Saraiva',
+    role: 'Second Grade Teacher',
+  },
+]
 
 const secondaryLink = `font-body font-semibold text-navy dark:text-ink underline underline-offset-4 decoration-accent-teal decoration-2 hover:opacity-80 inline-flex items-center min-h-11 ${FOCUS_RING}`
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero — text + short 16:9 reel; cards follow above the fold */}
-      <Section width="7xl" pad="none" className="pt-5 sm:pt-7 pb-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12">
-          <div>
+      {/* Hero — full bleed: copy left, reel running to the right screen edge */}
+      <section className="bg-bg w-full">
+        <div className="hero-shell grid grid-cols-1 lg:grid-cols-2 items-center">
+          <div className="hero-copy py-10 lg:py-0 order-2 lg:order-1">
             <h1 className="font-display text-fluid-hero-h1 text-ink leading-tight mb-3">
               Play isn't a break from learning. It's how the learning holds.
             </h1>
@@ -78,12 +103,15 @@ export default function HomePage() {
             </div>
           </div>
 
-          <HomeReel />
+          {/* Runs to the right screen edge — no container, no rounding */}
+          <div className="order-1 lg:order-2 h-full">
+            <HomeReel fill />
+          </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Three cards */}
-      <Section width="7xl" pad="none" className="pb-8 sm:pb-10">
+      {/* Three cards — sized so only their tops clear the fold */}
+      <Section width="7xl" pad="none" className="pt-8 pb-8 sm:pb-10">
         <h2 className="sr-only">Playful Learning Partners at a glance</h2>
         <ServiceList items={THREE_CARDS} columns={3} />
       </Section>
@@ -138,29 +166,23 @@ export default function HomePage() {
         </Link>
       </Section>
 
-      {/* Testimonial pull */}
-      <Section surface>
-        <figure>
-          <blockquote>
-            <p className="font-body text-lg sm:text-xl text-ink leading-relaxed">
-              &ldquo;{TESTIMONIAL_PULL}&rdquo;
-            </p>
-          </blockquote>
-          <figcaption className="mt-6">
-            <span
-              aria-hidden="true"
-              className="block h-[3px] w-10 bg-accent-teal mb-3"
+      {/* Testimonials — moved here from their own page (Aug 2026).
+          Page background, not surface: TestimonialCard is itself bg-surface,
+          so a surface section would make the cards vanish. */}
+      <Section width="5xl">
+        <h2 className="font-display text-fluid-h2 text-ink mb-3">
+          From the teachers we've worked alongside
+        </h2>
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {TESTIMONIALS.map((t) => (
+            <TestimonialCard
+              key={t.attribution}
+              quote={t.paragraphs}
+              attribution={t.attribution}
+              role={t.role}
             />
-            <cite className="not-italic font-body text-sm font-semibold tracking-wide text-ink-muted">
-              Samantha Cameron, Special Education Teacher
-            </cite>
-          </figcaption>
-        </figure>
-        <p className="mt-6">
-          <Link to="/testimonials" className={secondaryLink}>
-            Read more from the teachers we've worked alongside
-          </Link>
-        </p>
+          ))}
+        </div>
       </Section>
 
       {/* Closing CTA */}

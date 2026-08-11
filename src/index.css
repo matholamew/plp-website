@@ -132,6 +132,51 @@ figcaption {
     font-size: clamp(1.4rem, 1.15rem + 1.2vw, 1.875rem);
   }
 
+
+  /*
+   * Homepage hero shell. On lg+ the hero is sized so that the top of the
+   * three cards — the accent rule, pinwheel, and title — clears the fold
+   * while their body copy sits just below it, which is the "pushed down so
+   * just the pinwheel and the title show" treatment.
+   *
+   * 114px = the expanded header (6rem bar + 18px stripe band).
+   * 5rem  = how much of each card is left showing above the fold.
+   * svh (not dvh) keeps the fold stable on touch devices as browser chrome
+   * collapses; vh is the fallback.
+   */
+  .hero-shell {
+    min-height: 0;
+  }
+  @media (min-width: 1024px) {
+    .hero-shell {
+      min-height: calc(100vh - 114px - 5rem);
+    }
+    @supports (height: 100svh) {
+      .hero-shell {
+        min-height: calc(100svh - 114px - 5rem);
+      }
+    }
+  }
+
+  /*
+   * Left half of the full-bleed hero: pads in from the screen edge, and once
+   * the viewport passes the 80rem container width it stops at the same left
+   * edge as every other centered section, so the hero copy stays aligned with
+   * the rest of the page while the image runs to the screen edge.
+   */
+  .hero-copy {
+    padding-left: max(clamp(1rem, 0.6rem + 2vw, 2rem), env(safe-area-inset-left));
+    padding-right: clamp(1rem, 0.6rem + 2vw, 2rem);
+  }
+  @media (min-width: 1024px) {
+    .hero-copy {
+      margin-left: auto;
+      width: 100%;
+      max-width: 40rem;
+      padding-right: 3rem;
+    }
+  }
+
   /* Logo halos — brand marks whose navy elements sink into dark surfaces.
      .halo-band: always on (for the navy footer/nav bands).
      .halo-dark: dark mode only (for marks on the page background). */
