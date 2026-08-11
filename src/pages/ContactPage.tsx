@@ -60,8 +60,8 @@ export default function ContactPage() {
           Get in touch.
         </h1>
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-10">
-          Tell us what you're working on — grade levels, goals, what's
-          already in place — and we'll tell you honestly whether we're a fit.
+          Tell us what you're working on: grade levels, goals, what's
+          already in place. We'll tell you honestly whether we're a fit.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-5">

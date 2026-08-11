@@ -42,7 +42,7 @@ const SERVICES: ServiceSection[] = [
       'Participant resources to support the work between sessions',
     ],
     closing:
-      'All participants leave with planning tools, templates, and materials aligned to the focus areas — designed to support ongoing implementation and collaboration across co-teaching teams and inclusive classrooms.',
+      'All participants leave with planning tools, templates, and materials aligned to the focus areas. Those materials support ongoing implementation and collaboration across co-teaching teams and inclusive classrooms.',
     topics:
       'Workshop topics: Pedagogy of Play · Community Meeting · Storytelling & Story Acting · Writers Workshop · Read Aloud / Text Talk · Centers & Studios · Paraprofessional Professional Development',
   },
@@ -71,13 +71,13 @@ const SERVICES: ServiceSection[] = [
   {
     title: 'Monthly PLC Meetings',
     paragraphs: [
-      "Standing sessions for all teachers involved in the work — what's working, where they want help, and dedicated time to brainstorm and collaborate vertically across grade levels.",
+      "Standing sessions for all teachers involved in the work: what's working, where they want help, and dedicated time to brainstorm and collaborate vertically across grade levels.",
     ],
   },
   {
     title: 'Family Engagement Nights',
     paragraphs: [
-      "An evening where students and teachers show families what playful learning looks like from the inside. PLP helps coordinate the event and prepares teachers and students to engage families in a way that's genuinely playful — not a presentation about play, an experience of it.",
+      'An evening where students and teachers show families what playful learning looks like from the inside. PLP helps coordinate the event and prepares teachers and students to bring families into the play itself.',
     ],
   },
   {
@@ -99,7 +99,7 @@ export default function ServicesPage() {
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed">
           Services are selected à la carte. Professional development and
           classroom coaching are built to work together, but there's no
-          required package — we build around your goals, your staffing, and
+          required package. We build around your goals, your staffing, and
           your funding.
         </p>
       </Section>
