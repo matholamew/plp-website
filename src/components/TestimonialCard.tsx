@@ -31,7 +31,10 @@ export default function TestimonialCard({
 
   return (
     <figure className="rounded-lg bg-surface p-6 sm:p-8">
-      <blockquote className="space-y-4">
+      {/* Measure capped here rather than on the container: below lg the
+          testimonials section is a single column, so a card can span ~1000px
+          and the quote ran to 97 characters per line in the 900-1023px band. */}
+      <blockquote className="space-y-4 max-w-[68ch]">
         {paragraphs.map((para, i) => (
           <p
             key={para.slice(0, 40)}

@@ -170,11 +170,18 @@ figcaption {
   .hero-copy {
     padding-left: max(clamp(1rem, 0.6rem + 2vw, 2rem), env(safe-area-inset-left));
     padding-right: clamp(1rem, 0.6rem + 2vw, 2rem);
+    /* Cap the measure at every width, not just lg+. Without this the hero
+       subhead ran the full viewport between about 850px and 1023px — the
+       large-tablet band below the two-column breakpoint — reaching 107
+       characters per line where comfortable reading tops out around 85. */
+    width: 100%;
+    max-width: 44rem;
+    margin-inline: auto;
   }
   @media (min-width: 1024px) {
     .hero-copy {
       margin-left: auto;
-      width: 100%;
+      margin-right: 0;
       max-width: 40rem;
       padding-right: 3rem;
     }
