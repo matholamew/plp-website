@@ -4,6 +4,7 @@ import ServiceList from '../components/ServiceList'
 import CTAButton from '../components/CTAButton'
 import AccentRule from '../components/AccentRule'
 import Section from '../components/Section'
+import SectionHeading from '../components/SectionHeading'
 import TestimonialCard from '../components/TestimonialCard'
 import { FOCUS_RING } from '../lib/ui'
 
@@ -120,9 +121,9 @@ export default function HomePage() {
 
       {/* Grounded in the research */}
       <Section surface>
-        <h2 className="font-display text-fluid-h2 text-ink mb-6">
+        <SectionHeading>
           Grounded in the research
-        </h2>
+        </SectionHeading>
         <div className="space-y-5 font-body text-base sm:text-lg text-ink-muted leading-relaxed">
           <p>
             Our work is built on the Pedagogy of Play research from Harvard
@@ -146,9 +147,9 @@ export default function HomePage() {
 
       {/* Access */}
       <Section>
-        <h2 className="font-display text-fluid-h2 text-ink mb-6">
+        <SectionHeading>
           Playful learning shouldn't depend on your funding formula.
-        </h2>
+        </SectionHeading>
         <div className="space-y-5 font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-6">
           <p>
             There's no eligibility threshold to meet here. No need index to
@@ -170,9 +171,9 @@ export default function HomePage() {
           Page background, not surface: TestimonialCard is itself bg-surface,
           so a surface section would make the cards vanish. */}
       <Section width="5xl">
-        <h2 className="font-display text-fluid-h2 text-ink mb-3">
+        <SectionHeading className="mb-3">
           From the teachers we've worked alongside
-        </h2>
+        </SectionHeading>
         <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {TESTIMONIALS.map((t) => (
             <TestimonialCard
@@ -187,9 +188,9 @@ export default function HomePage() {
 
       {/* Closing CTA */}
       <Section center>
-        <h2 className="font-display text-fluid-h2 text-ink mb-4">
+        <SectionHeading center className="mb-4">
           Let's talk about your building.
-        </h2>
+        </SectionHeading>
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-8">
           Tell us what you're working on — grade levels, goals, what's already
           in place — and we'll tell you honestly whether we're a fit.
