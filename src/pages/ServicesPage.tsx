@@ -1,6 +1,6 @@
 import CTAButton from '../components/CTAButton'
 import Section from '../components/Section'
-import SpinPinwheel from '../components/SpinPinwheel'
+import SectionHeading from '../components/SectionHeading'
 
 /*
  * Services — copy VERBATIM from docs/site-copy.md (approved, final). Do not
@@ -106,10 +106,7 @@ export default function ServicesPage() {
 
       {SERVICES.map((service, i) => (
         <Section key={service.title} surface={i % 2 === 0}>
-          <h2 className="font-display text-fluid-h2 text-ink mb-6 flex items-center gap-3">
-            <SpinPinwheel size={36} className="flex-shrink-0" />
-            {service.title}
-          </h2>
+          <SectionHeading>{service.title}</SectionHeading>
 
           <div className="space-y-5 font-body text-base sm:text-lg text-ink-muted leading-relaxed">
             {service.paragraphs.map((para) => (

@@ -1,5 +1,6 @@
 import CTAButton from '../components/CTAButton'
 import Section from '../components/Section'
+import SectionHeading from '../components/SectionHeading'
 
 /*
  * About — copy VERBATIM from docs/site-copy.md (approved, final). Do not
@@ -52,9 +53,9 @@ export default function AboutPage() {
       </Section>
 
       <Section surface>
-        <h2 className="font-display text-fluid-h2 text-ink mb-6">
+        <SectionHeading>
           The research behind the work
-        </h2>
+        </SectionHeading>
         <div className="space-y-5 font-body text-base sm:text-lg text-ink-muted leading-relaxed">
           <p>
             Playful Learning Partners' approach draws on the Pedagogy of Play
@@ -77,9 +78,9 @@ export default function AboutPage() {
       </Section>
 
       <Section>
-        <h2 className="font-display text-fluid-h2 text-ink mb-6">
+        <SectionHeading>
           About the Founder
-        </h2>
+        </SectionHeading>
         <p className="font-display text-lg text-ink mb-6">
           Debra Hurwitz, Founder
         </p>

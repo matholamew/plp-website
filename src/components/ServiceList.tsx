@@ -17,6 +17,8 @@
  *   - columns?: 2 | 3 — max columns on large screens (default 2)
  */
 
+import SpinPinwheel from './SpinPinwheel'
+
 interface ServiceItem {
   title: string
   description: string
@@ -44,14 +46,7 @@ export default function ServiceList({ items, columns = 2 }: ServiceListProps) {
             className={`h-[3px] w-full ${ACCENTS[index % ACCENTS.length]}`}
           />
           <h3 className="font-display text-lg text-ink leading-snug mt-5 mb-2 flex items-center gap-2.5">
-            <img
-              src="/logo/plp-pinwheel.png"
-              alt=""
-              aria-hidden="true"
-              width={22}
-              height={22}
-              className="h-[22px] w-[22px] flex-shrink-0 object-contain halo-dark"
-            />
+            <SpinPinwheel size={22} className="flex-shrink-0" />
             {item.title}
           </h3>
           <p className="font-body text-base text-ink-muted leading-normal">

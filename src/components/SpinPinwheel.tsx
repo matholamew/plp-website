@@ -1,34 +1,42 @@
 /**
- * SpinPinwheel — decorative spinning pinwheel for the Services page.
+ * SpinPinwheel — the animated pinwheel that marks section headings.
  *
- * Uses Maria's spinning-pinwheel artwork (Debra, Aug 2026: "use the one that
- * Maria created that is just the pinwheel spinning") rather than CSS-rotating
- * the flat mark. Source is public/logo/pinwheel-spin.gif at 887x1073 and
- * 5.7MB, far too heavy to sit on a page six times, so it is served as
- * pinwheel-spin-sm.webp: 112px wide, every 4th frame, ~205KB, alpha intact.
+ * Uses Maria's artwork rather than CSS-rotating the flat mark. The source is
+ * public/logo/pinwheel-spin.gif at 887x1073 and 5.7MB (300 frames, 30fps),
+ * far too heavy to place on a page a dozen times, so it ships as
+ * pinwheel-spin-sm.webp: 96px wide, every 3rd frame, ~234KB, alpha intact.
+ * 96px covers 3x pixel density for the largest render size on the site.
  * Regenerate that file if Maria supplies new artwork; the source GIF stays in
  * the repo as the master.
  *
- * Behavior keeps the choreography Debra liked: the mark rests as a static
- * image and plays only while hovered, plus once when it first scrolls into
- * view (~1.2s, matching roughly one revolution). Swapping the src rather than
- * looping forever avoids six perpetually moving objects on one page, which is
- * both visual noise and a WCAG 2.2.2 problem (motion over 5s must be
- * pausable).
+ * Note on the motion: the head rotates a full 360 degrees while the stick
+ * stays put at a fixed angle, which is why CSS-rotating the flat mark is not
+ * a substitute — that would swing the stick around too. The blades also
+ * change shape through the turn (the artwork has 3D twist), so the real
+ * frames are doing work a transform cannot fake.
  *
- * Reduced motion: never animates, renders the static mark only.
- * Decorative throughout: aria-hidden, no interactivity, and it never gates
- * any service copy.
+ * One revolution takes 10 seconds. That slowness is what makes several of
+ * these on a page read as ambient rather than busy, and it is also why the
+ * export samples every 3rd frame: at 36 degrees per second, 11fps is smooth
+ * enough at a 22-32px render size, and it costs 234KB instead of 416KB.
+ *
+ * Motion runs constantly (Aug 2026 direction) instead of only on hover and
+ * scroll-into-view. Accessibility trade-off, stated plainly: WCAG 2.2.2 asks
+ * for a pause mechanism for motion that auto-starts and runs past five
+ * seconds. There is no in-page pause control here; the accommodation is
+ * prefers-reduced-motion, which swaps in the static mark and is the standard
+ * accepted route for decorative motion. If a pause control is ever wanted,
+ * add it here once and every instance inherits it.
+ *
+ * Decorative throughout: aria-hidden, no interactivity, never gates content.
  *
  * Props: size (px, default 40), className.
  */
 
-import { useEffect, useRef, useState } from 'react'
 import { usePrefersReducedMotion } from '../hooks/useScrollProgress'
 
 const STATIC_SRC = '/logo/plp-pinwheel.png'
 const SPIN_SRC = '/logo/pinwheel-spin-sm.webp'
-const SCROLL_SPIN_MS = 1200
 
 interface SpinPinwheelProps {
   size?: number
@@ -39,60 +47,19 @@ export default function SpinPinwheel({
   size = 40,
   className = '',
 }: SpinPinwheelProps) {
-  const ref = useRef<HTMLSpanElement>(null)
   const reducedMotion = usePrefersReducedMotion()
-  const [hovered, setHovered] = useState(false)
-  const [scrollSpin, setScrollSpin] = useState(false)
-
-  // Warm the animation so the first spin plays instead of showing a gap
-  useEffect(() => {
-    if (reducedMotion) return
-    const preload = new Image()
-    preload.src = SPIN_SRC
-  }, [reducedMotion])
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el || reducedMotion || !('IntersectionObserver' in window)) return
-
-    let timer: number | undefined
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) continue
-          observer.disconnect()
-          setScrollSpin(true)
-          timer = window.setTimeout(() => setScrollSpin(false), SCROLL_SPIN_MS)
-          break
-        }
-      },
-      { threshold: 0.6 },
-    )
-    observer.observe(el)
-    return () => {
-      observer.disconnect()
-      if (timer) window.clearTimeout(timer)
-    }
-  }, [reducedMotion])
-
-  const spinning = !reducedMotion && (hovered || scrollSpin)
 
   return (
-    <span
-      ref={ref}
+    <img
+      src={reducedMotion ? STATIC_SRC : SPIN_SRC}
+      alt=""
       aria-hidden="true"
-      className={`inline-block ${className}`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <img
-        src={spinning ? SPIN_SRC : STATIC_SRC}
-        alt=""
-        width={size}
-        height={size}
-        style={{ width: size, height: size }}
-        className="object-contain halo-dark"
-      />
-    </span>
+      width={size}
+      height={size}
+      style={{ width: size, height: size }}
+      className={`object-contain halo-dark ${className}`}
+      loading="lazy"
+      decoding="async"
+    />
   )
 }
