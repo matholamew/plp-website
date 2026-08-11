@@ -6,3 +6,13 @@ dist/
 .wrangler/
 .DS_Store
 *.local
+
+# Finder-style duplicates ("SKILL 2.md", "detect 3.mjs") that tooling writes
+# alongside existing files. 166 were committed by accident in Aug 2026, all
+# byte-identical to the file they shadowed.
+#
+# Scoped to .claude/ on purpose. A repo-wide "* [0-9].*" would also silently
+# ignore real content — a classroom photo saved as "reading corner 2.jpg"
+# would never deploy and the reason would be invisible. Duplicates elsewhere
+# get caught in review instead.
+.claude/**/* [0-9].*
