@@ -52,6 +52,36 @@ adding copy, check against this list before finalizing.
   item is the same length and shape. Vary sentence structure; let lists sound
   like a person wrote them, not a template.
 
+## AI-tell checklist (added 2026-08-11)
+Districts read a lot of vendor copy, and copy that smells machine-written costs
+credibility before the first sentence lands. Run this list over any new or
+revised public copy. It extends the hard constraints above, it does not replace
+them.
+
+- **No em-dash or en-dash.** Period, comma, colon, or parentheses instead.
+  Two dash-bracketed asides in one paragraph is the single loudest tell.
+- **No "not X, it's Y."** Also its cousins: "not just", "rather than a…, it's a…",
+  "not a break from learning, it is…". State the positive claim and stop.
+- **No colon in page titles or the `<title>` tag.** Use a pipe or split the line.
+- **Break parallel triads.** Three clauses of identical shape and length reads
+  as generated. Vary the length or cut one.
+- **Cut uplift filler**: thrive, empower, foster, unlock, journey, landscape,
+  dive into, navigate the, it's important to note. (See also the banned-word
+  list above.)
+- **Vary sentence length.** A run of 18-to-24-word sentences is a tell on its own.
+  Put a short one in.
+- **Be specific.** Named practices, grade bands, and real constraints are the
+  cheapest way to sound human. Generic benefit language is the expensive way to
+  sound synthetic.
+- **Don't open a section with a list.** Give it a sentence of context first.
+- **Third-party words are exempt.** Testimonial quotes and Debra's own FAQ
+  answers are reproduced verbatim, dashes and all. Never "fix" them.
+
+Source for the underlying list: seanjkernan.substack.com, "13 signs you used
+ChatGPT to write this". The applicable items are folded in above; the rest
+(typos as proof of humanity, cross-post voice consistency) do not apply to a
+five-page brochure site.
+
 ## Example — same fact, two ways
 - ❌ "Learning should be an adventure! Let's make school fun again!"
 - ✅ "Play is one of the most reliable ways rigor actually sticks."

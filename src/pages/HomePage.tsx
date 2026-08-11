@@ -36,17 +36,17 @@ const THREE_CARDS = [
   {
     title: 'What We Do',
     description:
-      'Playful Learning Partners is a boutique provider of professional development, coaching, and collaboration centered on guided playful learning. We help schools implement it through a flexible, organized approach — storytelling and story acting, community meetings, centers and studios, and inclusive classroom structures that make room for curiosity.',
+      'Playful Learning Partners is a boutique provider of professional development, coaching, and collaboration centered on guided playful learning. We help schools implement it through a flexible, organized approach: storytelling and story acting, community meetings, centers and studios, and inclusive classroom structures that make room for curiosity.',
   },
   {
     title: 'Our Philosophy',
     description:
-      'Play is not a break from learning. It is one of the most powerful ways children build academic understanding, solve problems, gain confidence, and learn to love the work of learning.',
+      'Play is one of the most powerful ways children build academic understanding, solve problems, gain confidence, and learn to love the work of learning.',
   },
   {
     title: 'Built Around You',
     description:
-      'Every school has its own culture, its own constraints, and its own starting point. Services are selected à la carte, funding approaches are flexible, and the framework flexes to fit your building — not the other way around.',
+      'Every school has its own culture and its own constraints, and no two start in the same place. Services are selected à la carte, funding approaches are flexible, and the framework bends to fit your building.',
   },
 ]
 
@@ -89,10 +89,10 @@ export default function HomePage() {
         <div className="hero-shell grid grid-cols-1 lg:grid-cols-2 items-center">
           <div className="hero-copy py-10 lg:py-0 order-2 lg:order-1">
             <h1 className="font-display text-fluid-hero-h1 text-ink leading-tight mb-3">
-              Play isn't a break from learning. It's how the learning holds.
+              Play is how the learning holds.
             </h1>
             <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-5">
-              Playful Learning Partners helps PreK–5 teams put guided playful
+              Playful Learning Partners helps PreK-5 teams put guided playful
               learning to work inside the curriculum they already teach.
               Professional development, classroom coaching, and the
               structures that make it last after the workshop ends.
@@ -195,8 +195,8 @@ export default function HomePage() {
           Let's talk about your building.
         </SectionHeading>
         <p className="font-body text-base sm:text-lg text-ink-muted leading-relaxed mb-8">
-          Tell us what you're working on — grade levels, goals, what's already
-          in place — and we'll tell you honestly whether we're a fit.
+          Tell us what you're working on: grade levels, goals, what's already
+          in place. We'll tell you honestly whether we're a fit.
         </p>
         <CTAButton to="/contact" size="lg">
           Schedule a Consult

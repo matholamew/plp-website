@@ -19,11 +19,11 @@ Footer fine print: Playful Learning Partners is an independent practice. It is n
 
 ### Hero
 
-Eyebrow: PreK–Grade 5 · Professional Development & Coaching
+Eyebrow: PreK-Grade 5 · Professional Development & Coaching
 
-H1: Play isn't a break from learning. It's how the learning holds.
+H1: Play is how the learning holds.
 
-Subhead: Playful Learning Partners helps PreK–5 teams put guided playful learning to work inside the curriculum they already teach. Professional development, classroom coaching, and the structures that make it last after the workshop ends.
+Subhead: Playful Learning Partners helps PreK-5 teams put guided playful learning to work inside the curriculum they already teach. Professional development, classroom coaching, and the structures that make it last after the workshop ends.
 
 Primary CTA: Schedule a Consult → `/contact`
 Secondary CTA: See what we offer → `/services`
@@ -31,13 +31,13 @@ Secondary CTA: See what we offer → `/services`
 ### Three cards
 
 **What We Do**
-Playful Learning Partners is a boutique provider of professional development, coaching, and collaboration centered on guided playful learning. We help schools implement it through a flexible, organized approach — storytelling and story acting, community meetings, centers and studios, and inclusive classroom structures that make room for curiosity.
+Playful Learning Partners is a boutique provider of professional development, coaching, and collaboration centered on guided playful learning. We help schools implement it through a flexible, organized approach: storytelling and story acting, community meetings, centers and studios, and inclusive classroom structures that make room for curiosity.
 
 **Our Philosophy**
-Play is not a break from learning. It is one of the most powerful ways children build academic understanding, solve problems, gain confidence, and learn to love the work of learning.
+Play is one of the most powerful ways children build academic understanding, solve problems, gain confidence, and learn to love the work of learning.
 
 **Built Around You**
-Every school has its own culture, its own constraints, and its own starting point. Services are selected à la carte, funding approaches are flexible, and the framework flexes to fit your building — not the other way around.
+Every school has its own culture and its own constraints, and no two start in the same place. Services are selected à la carte, funding approaches are flexible, and the framework bends to fit your building.
 
 ### Grounded in the research
 
@@ -71,7 +71,7 @@ Section heading: From the teachers we've worked alongside
 >
 > I leave this year feeling more confident, reflective, and excited about the work ahead.
 
-Samantha Cameron — Special Education Teacher
+Samantha Cameron, Special Education Teacher
 
 > Deb is truly caring, supportive, and passionate about her work. Her enthusiasm for playful learning is contagious, and she consistently inspires teachers to create engaging, joyful learning experiences for students.
 >
@@ -79,12 +79,12 @@ Samantha Cameron — Special Education Teacher
 >
 > She has made a lasting impact on me and my students.
 
-Barbara Saraiva — Second Grade Teacher
+Barbara Saraiva, Second Grade Teacher
 
 ### Closing CTA
 
 Heading: Let's talk about your building.
-Body: Tell us what you're working on — grade levels, goals, what's already in place — and we'll tell you honestly whether we're a fit.
+Body: Tell us what you're working on: grade levels, goals, what's already in place. We'll tell you honestly whether we're a fit.
 CTA: Schedule a Consult → `/contact`
 
 ## About — `/about`
@@ -93,11 +93,11 @@ CTA: Schedule a Consult → `/contact`
 
 Playful Learning Partners is an educational consulting practice built on a single conviction: that play belongs inside rigorous instruction, not alongside it.
 
-We work with PreK–Grade 5 teams: teachers, paraprofessionals, coaches, and school leaders. Together we design systems that bring guided playful learning to life and keep it alive after the workshop ends. That work takes the form of professional development, classroom coaching, classroom observation cycles, and consultation with administrators on how to sustain the practice.
+We work with PreK-Grade 5 teams: teachers, paraprofessionals, coaches, and school leaders. Together we design systems that bring guided playful learning to life and keep it alive after the workshop ends. That work takes the form of professional development, classroom coaching, classroom observation cycles, and consultation with administrators on how to sustain the practice.
 
 Our focus is practical implementation. Storytelling and story acting. Community meetings. Centers and studios. Writers theater. Read aloud and text talk. Inclusive classroom structures that honor children's curiosity, creativity, and need to belong. These are the specific, teachable practices that turn a philosophy into something a teacher can do at 9:15 on a Tuesday.
 
-We are especially committed to making playful learning accessible to every child and every educator — not only the schools with the budget for it. Whether we're facilitating a workshop, coaching a teacher in her own classroom, or sitting with a district leadership team, the goal doesn't change. We help the adults build spaces where children can explore, connect, and thrive.
+We are especially committed to making playful learning accessible to every child and every educator, not only the schools with the budget for it. Whether we're facilitating a workshop, coaching a teacher in her own classroom, or sitting with a district leadership team, the goal doesn't change. We help the adults build spaces where children can explore and connect.
 
 We welcome partnerships with schools, districts, nonprofits, and community organizations willing to reconsider what learning can look like when we trust the power of play.
 
@@ -115,7 +115,7 @@ Debra Hurwitz, Founder
 
 Debra founded Playful Learning Partners after decades in education, working alongside teachers, school leaders, and communities to build classrooms where children experience both joy and rigor.
 
-She has spent her career on the harder half of the question. Not does playful learning work — the research settled that. The question she keeps returning to is the one that actually determines whether children benefit: how do we make it happen every day?
+She has spent her career on the harder half of the question. Whether playful learning works is settled; the research did that. The question she keeps returning to is the one that actually determines whether children benefit: how do we make it happen every day?
 
 That question is the reason PLP exists.
 
@@ -123,7 +123,7 @@ No photo at launch.
 
 ## Services — `/services`
 
-Page intro: Services are selected à la carte. Professional development and classroom coaching are built to work together, but there's no required package — we build around your goals, your staffing, and your funding.
+Page intro: Services are selected à la carte. Professional development and classroom coaching are built to work together, but there's no required package. We build around your goals, your staffing, and your funding.
 
 ### Workshops
 
@@ -138,7 +138,7 @@ Every workshop includes:
 * Practical, immediate classroom application
 * Participant resources to support the work between sessions
 
-All participants leave with planning tools, templates, and materials aligned to the focus areas — designed to support ongoing implementation and collaboration across co-teaching teams and inclusive classrooms.
+All participants leave with planning tools, templates, and materials aligned to the focus areas. Those materials support ongoing implementation and collaboration across co-teaching teams and inclusive classrooms.
 
 Workshop topics: Pedagogy of Play · Community Meeting · Storytelling & Story Acting · Writers Workshop · Read Aloud / Text Talk · Centers & Studios · Paraprofessional Professional Development
 
@@ -163,11 +163,11 @@ Regular working sessions with school and district leaders. We look at what's cha
 
 ### Monthly PLC Meetings
 
-Standing sessions for all teachers involved in the work — what's working, where they want help, and dedicated time to brainstorm and collaborate vertically across grade levels.
+Standing sessions for all teachers involved in the work: what's working, where they want help, and dedicated time to brainstorm and collaborate vertically across grade levels.
 
 ### Family Engagement Nights
 
-An evening where students and teachers show families what playful learning looks like from the inside. PLP helps coordinate the event and prepares teachers and students to engage families in a way that's genuinely playful — not a presentation about play, an experience of it.
+An evening where students and teachers show families what playful learning looks like from the inside. PLP helps coordinate the event and prepares teachers and students to bring families into the play itself.
 
 ### Funding & Grant Support
 
@@ -276,3 +276,37 @@ sentences that read cleanly. Mean sentence length is now 16.2 words, median
 Still outstanding, tracked in `docs/open-items.md`: written confirmation of the
 Project Zero training wording, administrator testimonial, written testimonial
 permissions, grant support scope.
+
+## 2026-08-11 AI-tell pass
+
+Enforcement of the hard constraints already written in `docs/brand-tone.md`
+(they had been added after this copy was drafted and were never applied to it),
+plus the overlapping tells in the "13 signs you used ChatGPT to write this"
+checklist. No factual claim changed. Every edit is punctuation, sentence
+structure, or a dropped negation.
+
+| Location | Was | Now |
+|---|---|---|
+| Home, H1 | "Play isn't a break from learning. It's how the learning holds." | "Play is how the learning holds." (the banned not-X-it's-Y form, named explicitly in brand-tone.md) |
+| Home, Our Philosophy | "Play is not a break from learning. It is one of the most powerful ways…" | Opening negation dropped; starts at the positive claim. Also removes the duplicate of the old H1. |
+| Home, Built Around You | anaphoric triad "its own culture, its own constraints, and its own starting point" + "…fit your building — not the other way around" | "its own culture and its own constraints, and no two start in the same place… the framework bends to fit your building." |
+| Home, What We Do | "organized approach — storytelling…" | colon |
+| Home + Contact, closing | "what you're working on — grade levels, goals, what's already in place — and we'll…" | "what you're working on: grade levels, goals, what's already in place. We'll…" |
+| About, access | "every child and every educator — not only the schools…" | comma |
+| About, closing | "explore, connect, and thrive" | "explore and connect" ("thrive" is filler uplift; the triad was the machine-symmetrical kind) |
+| About, founder | "Not does playful learning work — the research settled that." | "Whether playful learning works is settled; the research did that." |
+| Services, intro | "no required package — we build around…" | period |
+| Services, workshops closing | "aligned to the focus areas — designed to support…" | "aligned to the focus areas. Those materials support…" |
+| Services, PLC | "involved in the work — what's working…" | colon |
+| Services, family nights | "genuinely playful — not a presentation about play, an experience of it." | "bring families into the play itself." (banned not-X-but-Y) |
+| Testimonial bylines | "Samantha Cameron — Special Education Teacher" | comma (our formatting, not their words; quote text untouched) |
+| En dashes | "PreK–5", "PreK–Grade 5" | hyphens, per the no-en-dash constraint |
+| `<title>` | "Playful Learning Partners: Bringing Play into Practice" | pipe separator (colon titles are a listed tell) |
+
+Testimonial quote bodies and Debra's FAQ answer are third-party words and were
+not touched, dashes or not.
+
+Deliberately left alone: "play belongs inside rigorous instruction, not
+alongside it" (About opener). It leads with the positive claim and is the
+differentiating line of the page, so it is not the banned construction. Flag it
+to Debra if she wants zero contrastive clauses on the site.

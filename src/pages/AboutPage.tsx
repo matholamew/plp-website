@@ -21,7 +21,7 @@ export default function AboutPage() {
             instruction, not alongside it.
           </p>
           <p>
-            We work with PreK–Grade 5 teams: teachers, paraprofessionals,
+            We work with PreK-Grade 5 teams: teachers, paraprofessionals,
             coaches, and school leaders. Together we design systems that bring
             guided playful learning to life and keep it alive after the
             workshop ends. That work takes the form of professional
@@ -38,11 +38,11 @@ export default function AboutPage() {
           </p>
           <p>
             We are especially committed to making playful learning accessible
-            to every child and every educator — not only the schools with the
+            to every child and every educator, not only the schools with the
             budget for it. Whether we're facilitating a workshop, coaching a
             teacher in her own classroom, or sitting with a district leadership
             team, the goal doesn't change. We help the adults build spaces
-            where children can explore, connect, and thrive.
+            where children can explore and connect.
           </p>
           <p>
             We welcome partnerships with schools, districts, nonprofits, and
@@ -91,10 +91,11 @@ export default function AboutPage() {
             build classrooms where children experience both joy and rigor.
           </p>
           <p>
-            She has spent her career on the harder half of the question. Not
-            does playful learning work — the research settled that. The
-            question she keeps returning to is the one that actually determines
-            whether children benefit: how do we make it happen every day?
+            She has spent her career on the harder half of the question.
+            Whether playful learning works is settled; the research did that.
+            The question she keeps returning to is the one that actually
+            determines whether children benefit: how do we make it happen
+            every day?
           </p>
           <p>That question is the reason PLP exists.</p>
         </div>
